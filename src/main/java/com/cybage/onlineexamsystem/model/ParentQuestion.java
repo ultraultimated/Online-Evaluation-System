@@ -1,4 +1,4 @@
-package com.cybage.onlineexamsystem.modal;
+package com.cybage.onlineexamsystem.model;
 
 import javax.persistence.*;
 import java.util.List;
@@ -13,8 +13,8 @@ public class ParentQuestion {
 	private int id;
 
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "paper_id")
-	private Paper paper;
+	@JoinColumn(name = "test_id")
+	private Test test;
 
 	@Column(name = "parent_question_desc")
 	private String name;

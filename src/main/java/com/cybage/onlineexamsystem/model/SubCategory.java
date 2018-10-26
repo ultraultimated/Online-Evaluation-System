@@ -17,7 +17,7 @@
  * @version v1.0
  */
 
-package com.cybage.onlineexamsystem.modal;
+package com.cybage.onlineexamsystem.model;
 
 import javax.persistence.*;
 import java.util.List;
@@ -39,10 +39,11 @@ public class SubCategory {
     private String name;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "category_id")
+    @JoinColumn(foreignKey = @ForeignKey(name = "category_id"))
+//    @ForeignKey(name = "category_id")
     private Category category;
 
     @OneToMany(fetch = FetchType.LAZY)
     @JoinColumn(name = "subcategory_id")
-    private List<Paper> paperList;
+    private List<Test> testList;
 }

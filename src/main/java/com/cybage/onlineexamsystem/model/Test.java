@@ -1,22 +1,22 @@
-package com.cybage.onlineexamsystem.modal;
+package com.cybage.onlineexamsystem.model;
 
 import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@Table(name = "TBL_PAPER")
-public class Paper {
+@Table(name = "TBL_TEST")
+public class Test {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "paper_id")
+	@Column(name = "test_id")
 	private int id;
 
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "subcategory_id")
 	private SubCategory subCategory;
 
-	@Column(name = "paper_name")
+	@Column(name = "test_name")
 	private String name;
 
 	@Column(name = "total_marks")
@@ -26,7 +26,7 @@ public class Paper {
 	private int cutoff;
 
 	@OneToMany(fetch = FetchType.LAZY)
-	@JoinColumn(name = "paper_id")
-	private List< Paper > paperList;
+	@JoinColumn(name = "test_id")
+	private List< Test > testList;
 
 }

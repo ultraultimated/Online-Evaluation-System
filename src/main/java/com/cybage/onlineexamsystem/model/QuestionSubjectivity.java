@@ -1,4 +1,4 @@
-package com.cybage.onlineexamsystem.modal;
+package com.cybage.onlineexamsystem.model;
 
 public enum QuestionSubjectivity {
     DESCRIPTIVE, OBJECTIVE

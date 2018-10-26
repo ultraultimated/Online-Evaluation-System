@@ -1,4 +1,4 @@
-package com.cybage.onlineexamsystem.modal;
+package com.cybage.onlineexamsystem.model;
 
 import javax.persistence.*;
 
@@ -28,6 +28,7 @@ public class Question {
     private String subtopic;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    private Paper paper;
+//    @JoinColumn(name = "paper_id")
+    private Test test;
 
 }

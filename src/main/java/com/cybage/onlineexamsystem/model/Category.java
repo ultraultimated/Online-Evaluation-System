@@ -17,9 +17,10 @@
  * @version v1.0
  */
 
-package com.cybage.onlineexamsystem.modal;
+package com.cybage.onlineexamsystem.model;
 
 import java.util.List;
+import java.util.Set;
 
 import javax.persistence.*;
 
@@ -35,11 +36,11 @@ public class Category {
     @Column(name = "category_id")
     private int id;
 
-    @Column(name = "category_name")
+    @Column(name = "category_name", nullable = false)
     private String name;
 
-    @OneToMany(fetch = FetchType.LAZY)
-    @JoinColumn(name = "category_id")
-    private List< SubCategory > subCategoryList;
+    @OneToMany(mappedBy = "category")
+//    @JoinColumn(name = "category_id")
+    private Set<SubCategory> subCategoryList;
 
 }
