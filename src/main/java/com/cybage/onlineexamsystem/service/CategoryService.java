@@ -1,4 +1,3 @@
-
 /*
  * CategoryService
  *
@@ -35,6 +34,7 @@ import java.util.List;
  */
 @Service
 public class CategoryService {
+
 	@Autowired
 	private CategoryRepository categoryRepository;
 

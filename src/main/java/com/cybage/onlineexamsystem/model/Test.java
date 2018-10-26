@@ -1,76 +1,32 @@
 package com.cybage.onlineexamsystem.model;
 
-import java.io.Serializable;
 import javax.persistence.*;
+import java.util.List;
 
-
-/**
- * The persistent class for the tbl_test database table.
- * 
- */
 @Entity
-@Table(name="tbl_test")
-@NamedQuery(name="Test.findAll", query="SELECT t FROM Test t")
-public class Test implements Serializable {
-	private static final long serialVersionUID = 1L;
-
-	private int cutoff;
-
-	@Column(name="subcategory_id")
-	private int subcategoryId;
+@Table(name = "TBL_TEST")
+public class Test {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name="test_id")
-	private int testId;
+	@Column(name = "test_id")
+	private int id;
 
-	@Column(name="test_name")
-	private String testName;
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "subcategory_id")
+	private SubCategory subCategory;
 
-	@Column(name="total_marks")
-	private int totalMarks;
+	@Column(name = "test_name")
+	private String name;
 
-	public Test() {
-	}
+	@Column(name = "total_marks")
+	private int marks;
 
-	public int getCutoff() {
-		return this.cutoff;
-	}
+	@Column(name = "cutoff")
+	private int cutoff;
 
-	public void setCutoff(int cutoff) {
-		this.cutoff = cutoff;
-	}
-
-	public int getSubcategoryId() {
-		return this.subcategoryId;
-	}
-
-	public void setSubcategoryId(int subcategoryId) {
-		this.subcategoryId = subcategoryId;
-	}
-
-	public int getTestId() {
-		return this.testId;
-	}
-
-	public void setTestId(int testId) {
-		this.testId = testId;
-	}
-
-	public String getTestName() {
-		return this.testName;
-	}
-
-	public void setTestName(String testName) {
-		this.testName = testName;
-	}
-
-	public int getTotalMarks() {
-		return this.totalMarks;
-	}
-
-	public void setTotalMarks(int totalMarks) {
-		this.totalMarks = totalMarks;
-	}
+	@OneToMany(fetch = FetchType.LAZY)
+	@JoinColumn(name = "test_id")
+	private List< Test > testList;
 
 }

@@ -1,4 +1,3 @@
-
 /*
  * CategoryRepository
  *
@@ -16,6 +15,7 @@
  * Long description
  * @date 10/26/2018
  */
+
 package com.cybage.onlineexamsystem.repository;
 
 import com.cybage.onlineexamsystem.model.Category;
