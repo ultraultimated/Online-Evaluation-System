@@ -11,7 +11,6 @@
 /**
  * @file CategoryRepository
  * Brief description of contents of file.
- * <p>
  * Long description
  * @date 10/26/2018
  */
