@@ -31,7 +31,6 @@ import javax.persistence.*;
  */
 @Entity
 @Table(name="tbl_subcategory")
-@NamedQuery(name="Subcategory.findAll", query="SELECT t FROM Subcategory t")
 public class SubCategory implements Serializable {
 	private static final long serialVersionUID = 1L;
 

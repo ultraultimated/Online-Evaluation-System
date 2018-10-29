@@ -41,20 +41,6 @@ public class CategoryServiceImpl implements CategoryService {
 	private CategoryRepository categoryRepository;
 
 	/**
-	 * @return instance of category repository.
-	 */
-	public CategoryRepository getCategoryRepository() {
-		return categoryRepository;
-	}
-
-	/**
-	 * @param categoryRepository repository object to set
-	 */
-	public void setCategoryRepository(CategoryRepository categoryRepository) {
-		this.categoryRepository = categoryRepository;
-	}
-
-	/**
 	 * @param Category object with values to save in database
 	 */
 	public void insertCategory(Category Category)
@@ -83,9 +69,10 @@ public class CategoryServiceImpl implements CategoryService {
 	 */
 	@Override
 	public String getCategoryById(int id) throws EntityNotFoundException {
-		Optional<Category> category = categoryRepository.findById(id);
-		if( category.isPresent() ) {
-			return category.get().toString();
+		Optional<Category> optional = categoryRepository.findById(id);
+		if( optional.isPresent() ) {
+			Category category = optional.get();
+			return category.getCategoryName();
 		}
 		else {
 			throw new EntityNotFoundException("Category with the specified ID" +
