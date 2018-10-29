@@ -20,12 +20,9 @@
 package com.cybage.onlineexamsystem.controller;
 
 import com.cybage.onlineexamsystem.model.Category;
-import com.cybage.onlineexamsystem.service.CategoryService;
+import com.cybage.onlineexamsystem.service.CategoryServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -39,22 +36,22 @@ import java.util.List;
 public class CategoryController
 {
 	@Autowired
-	private CategoryService categoryService;
+	private CategoryServiceImpl categoryServiceImpl;
 
 	/**
 	 *
 	 * @return  categoryService Object.
 	 */
-	public CategoryService getCategoryService () {
-		return categoryService;
+	public CategoryServiceImpl getCategoryServiceImpl () {
+		return categoryServiceImpl;
 	}
 
 	/**
 	 *
-	 * @param categoryService setting the category service object to do CRUD operations
+	 * @param categoryServiceImpl setting the category service object to do CRUD operations
 	 */
-	public void setCategoryService (CategoryService categoryService) {
-		this.categoryService = categoryService;
+	public void setCategoryServiceImpl (CategoryServiceImpl categoryServiceImpl) {
+		this.categoryServiceImpl = categoryServiceImpl;
 	}
 
 	/**
@@ -65,11 +62,27 @@ public class CategoryController
 	private void insertCategory(@RequestBody Category category)
 	{
 		//THIS IS JUST FOR A TRIAL, IN REAL SCENARIO WE MUST BRING DATA IN JSON FORMAT AND PARSE IT.
-		categoryService.insertCategory (category);
+		categoryServiceImpl.insertCategory (category);
 	}
+
+	/**
+	 *
+	 * @return all categories
+	 */
 	@GetMapping("/all")
 	private List getAllCategories(){
-		List<Category> tblCategories = categoryService.getAllCategories ();
+		List<Category> tblCategories = categoryServiceImpl.getAllCategories ();
 		return tblCategories;
+	}
+
+	/**
+	 *
+	 * @param id Category Id to be found
+	 * @return Category Name relaetd to the id
+	 */
+	@GetMapping("/category/{id}")
+	private String getCategory(@PathVariable int id)
+	{
+		return categoryServiceImpl.getCategoryById(id);
 	}
 }

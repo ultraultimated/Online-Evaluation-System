@@ -3,7 +3,7 @@
  *
  * Version information
  *
- * 10/26/2018
+ * 10/29/2018
  *
  * Copyright (c) 2018 Cybage software Pvt. Ltd. All rights reserved
  */
@@ -13,62 +13,38 @@
  * Brief description of contents of file.
  * <p>
  * Long description
- * @date 10/26/2018
+ * @date 10/29/2018
  */
-
-
 package com.cybage.onlineexamsystem.service;
 
+import com.cybage.onlineexamsystem.exceptions.CategoryNotFoundException;
 import com.cybage.onlineexamsystem.model.Category;
-import com.cybage.onlineexamsystem.repository.CategoryRepository;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
+import javax.persistence.EntityNotFoundException;
 import java.util.List;
 
 /**
- * The Example class provides ...
+ * The CategoryService  interface provides all the methods that are utilized
+ * on category.
  *
  * @author {neelp}
  */
-@Service
-public class CategoryService {
-
-	@Autowired
-	private CategoryRepository categoryRepository;
+public interface CategoryService {
+	/**
+	 * @param Category Category object to insert in the database
+	 */
+	public void insertCategory(Category Category);
 
 	/**
-	 * @return instance of category repository.
+	 * @return List of all categoreis in table category.
 	 */
-	public CategoryRepository getCategoryRepository () {
-		return categoryRepository;
-	}
+	public List<Category> getAllCategories();
 
 	/**
-	 * @param categoryRepository repository object to set
+	 *
+	 * @param id the id to find category Name
+	 * @return category name for a particular ID.
 	 */
-	public void setCategoryRepository (CategoryRepository categoryRepository) {
-		this.categoryRepository = categoryRepository;
-	}
+	public String getCategoryById(int id) throws EntityNotFoundException;
 
-	/**
-	 * @param Category object with values to save in database
-	 */
-	public void insertCategory (Category Category)
-	{
-		categoryRepository.save(Category);
-	}
-
-	public List<Category> getAllCategories ()
-	{
-		Iterable<Category> tblCategories = categoryRepository.findAll ();
-		ArrayList<Category> listCategories = new ArrayList<> ();
-		for ( Category category : tblCategories ) {
-			listCategories.add (category);
-			System.out.println ("category " + category);
-		}
-		System.out.print (listCategories);
-		return listCategories;
-	}
 }
