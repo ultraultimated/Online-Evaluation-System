@@ -20,6 +20,8 @@ package com.cybage.onlineexamsystem.service;
 import com.cybage.onlineexamsystem.model.SubCategory;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 /**
  * The Example interface provides ...
  *
@@ -35,13 +37,20 @@ public interface SubCategoryService {
 	/**
 	 * @return all subcategories
 	 */
-	public SubCategory getAllSubcategories();
+	public List<SubCategory> getAllSubcategories();
 
 	/**
-	 * @param id category id to find subcategories
+	 * @param categoryId category id to find subcategories
 	 * @return Specific subcategories of given category ID
 	 */
-	public SubCategory getSubcategoryByCategoryId(int id);
+	public List<SubCategory> getSubcategoryByCategoryId(int categoryId);
+
+	/**
+	 *
+	 * @param subCategoryId Id to be searched
+	 * @return Subcategory object of goven ID
+	 */
+	public SubCategory getSubCategoryBySubCategoryId(int subCategoryId);
 
 
 }
