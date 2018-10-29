@@ -1,33 +1,85 @@
 package com.cybage.onlineexamsystem.model;
 
+import java.io.Serializable;
 import javax.persistence.*;
-import java.util.List;
 
+
+/**
+ * The persistent class for the tbl_parent_question database table.
+ * 
+ */
 @Entity
-@Table(name = "TBL_PARENT_QUESTION")
-public class ParentQuestion {
+@Table(name="tbl_parent_question")
+@NamedQuery(name="ParentQuestion.findAll", query="SELECT t FROM ParentQuestion t")
+public class ParentQuestion implements Serializable {
+	private static final long serialVersionUID = 1L;
+
+	private String difficulty;
+
+	@Column(name="parent_question_desc")
+	private String parentQuestionDesc;
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "parent_question_id")
-	private int id;
+	@Column(name="parent_question_id")
+	private int parentQuestionId;
 
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "test_id")
-	private Test test;
+	private String subjectivity;
 
-	@Column(name = "parent_question_desc")
-	private String name;
+	@Column(name="test_id")
+	private int testId;
 
-	private QuestionDifficulty difficulty;
+	@Column(name="topic_name")
+	private String topicName;
 
-	private QuestionSubjectivity subjectivity;
+	public ParentQuestion() {
+	}
 
-	@Column(name = "topic_name")
-	private String topic;
+	public String getDifficulty() {
+		return this.difficulty;
+	}
 
-	@OneToMany(fetch = FetchType.LAZY)
-	@JoinColumn(name = "parent_question_id")
-	private List< Question > questionList;
+	public void setDifficulty(String difficulty) {
+		this.difficulty = difficulty;
+	}
+
+	public String getParentQuestionDesc() {
+		return this.parentQuestionDesc;
+	}
+
+	public void setParentQuestionDesc(String parentQuestionDesc) {
+		this.parentQuestionDesc = parentQuestionDesc;
+	}
+
+	public int getParentQuestionId() {
+		return this.parentQuestionId;
+	}
+
+	public void setParentQuestionId(int parentQuestionId) {
+		this.parentQuestionId = parentQuestionId;
+	}
+
+	public String getSubjectivity() {
+		return this.subjectivity;
+	}
+
+	public void setSubjectivity(String subjectivity) {
+		this.subjectivity = subjectivity;
+	}
+
+	public int getTestId() {
+		return this.testId;
+	}
+
+	public void setTestId(int testId) {
+		this.testId = testId;
+	}
+
+	public String getTopicName() {
+		return this.topicName;
+	}
+
+	public void setTopicName(String topicName) {
+		this.topicName = topicName;
+	}
 
 }

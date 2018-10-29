@@ -18,7 +18,6 @@ public class QuestionTest implements Serializable {
 	private int questionId;
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="question_test_id")
 	private int questionTestId;
 

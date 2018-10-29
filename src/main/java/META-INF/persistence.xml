@@ -15,5 +15,6 @@
 		<class>com.cybage.onlineexamsystem.model.Test</class>
 		<class>com.cybage.onlineexamsystem.model.User</class>
 		<class>com.cybage.onlineexamsystem.model.UserTest</class>
+		
 	</persistence-unit>
 </persistence>

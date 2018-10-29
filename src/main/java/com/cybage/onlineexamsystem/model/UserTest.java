@@ -21,7 +21,6 @@ public class UserTest implements Serializable {
 	private int userId;
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="user_test_id")
 	private int userTestId;
 

@@ -18,7 +18,6 @@ public class SubskillAnalysis implements Serializable {
 	private double percentObt;
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="subskill_id")
 	private int subskillId;
 
