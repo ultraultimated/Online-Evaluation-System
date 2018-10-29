@@ -21,6 +21,8 @@ package com.cybage.onlineexamsystem.controller;
 
 import com.cybage.onlineexamsystem.model.Category;
 import com.cybage.onlineexamsystem.service.CategoryServiceImpl;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -39,19 +41,19 @@ public class CategoryController {
 	/**
 	 * @param category
 	 */
-	@PostMapping("/add/category")
+	@PostMapping("/category/add")
 	private void insertCategory(@RequestBody Category category) {
-		//THIS IS JUST FOR A TRIAL, IN REAL SCENARIO WE MUST BRING DATA IN
-		// JSON FORMAT AND PARSE IT.
-		categoryServiceImpl.insertCategory(category);
+		//THIS IS JUST FOR A TRIAL, IN REAL SCENARIO WE MUST BRING DATA IN JSON FORMAT AND PARSE IT.
+		categoryServiceImpl.insertCategory (category);
 	}
 
 	/**
 	 * @return all categories
 	 */
-	@GetMapping("/all")
-	private List getAllCategories() {
-		return categoryServiceImpl.getAllCategories();
+	@GetMapping("/category/all")
+	private List getAllCategories(){
+
+		return categoryServiceImpl.getAllCategories ();
 	}
 
 	/**
@@ -60,6 +62,8 @@ public class CategoryController {
 	 */
 	@GetMapping("/category/{id}")
 	private String getCategory(@PathVariable int id) {
+		Logger logger = LoggerFactory.getLogger(CategoryController.class);
+		logger.info("ID IS "+id);
 		return categoryServiceImpl.getCategoryById(id);
 	}
 

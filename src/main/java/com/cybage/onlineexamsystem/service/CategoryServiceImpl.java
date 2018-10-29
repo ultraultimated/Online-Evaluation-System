@@ -66,12 +66,14 @@ public class CategoryServiceImpl implements CategoryService {
 	 */
 	@Override
 	public String getCategoryById(int id) throws EntityNotFoundException {
-		Optional< Category > category = categoryRepository.findById(id);
-		if ( category.isPresent() ) {
-			return category.get().toString();
-		} else {
-			throw new EntityNotFoundException("Category with the specified " +
-			                                  "ID is not found");
+		Optional<Category> optional = categoryRepository.findById(id);
+		if( optional.isPresent() ) {
+			Category category = optional.get();
+			return category.getCategoryName();
+		}
+		else {
+			throw new EntityNotFoundException("Category with the specified ID" +
+			                                  "is not found");
 		}
 	}
 }
