@@ -21,7 +21,10 @@ public class UserTest implements Serializable {
 	private int userId;
 
 	@Id
+<<<<<<< HEAD
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+=======
+>>>>>>> 3b3ff5da303c75ccab83476e04e4557f355f4788
 	@Column(name="user_test_id")
 	private int userTestId;
 

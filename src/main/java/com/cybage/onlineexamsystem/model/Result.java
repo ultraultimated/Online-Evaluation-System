@@ -22,7 +22,10 @@ public class Result implements Serializable {
 	private String result;
 
 	@Id
+<<<<<<< HEAD
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+=======
+>>>>>>> 3b3ff5da303c75ccab83476e04e4557f355f4788
 	@Column(name="result_id")
 	private int resultId;
 
