@@ -19,7 +19,6 @@
 
 package com.cybage.onlineexamsystem.utility;
 
-import org.slf4j.Logger;
 
 /**
  * The Example class provides ...

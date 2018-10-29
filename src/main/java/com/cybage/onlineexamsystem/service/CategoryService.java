@@ -15,10 +15,7 @@
  * @date 10/29/2018
  */
 package com.cybage.onlineexamsystem.service;
-
-import com.cybage.onlineexamsystem.exceptions.CategoryNotFoundException;
 import com.cybage.onlineexamsystem.model.Category;
-
 import javax.persistence.EntityNotFoundException;
 import java.util.List;
 
@@ -29,13 +26,14 @@ import java.util.List;
  * @author {neelp}
  */
 public interface CategoryService {
+
 	/**
 	 * @param Category Category object to insert in the database
 	 */
 	public void insertCategory(Category Category);
 
 	/**
-	 * @return List of all categoreis in table category.
+	 * @return List of all categories in table category.
 	 */
 	public List<Category> getAllCategories();
 

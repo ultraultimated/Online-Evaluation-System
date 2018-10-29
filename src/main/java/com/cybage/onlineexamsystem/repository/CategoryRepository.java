@@ -30,7 +30,6 @@ import org.springframework.stereotype.Repository;
  * @author Neel Parikh
  */
 @Repository
-public interface CategoryRepository extends CrudRepository<Category,Integer>
-{
+public interface CategoryRepository extends CrudRepository<Category,Integer> {
 
 }

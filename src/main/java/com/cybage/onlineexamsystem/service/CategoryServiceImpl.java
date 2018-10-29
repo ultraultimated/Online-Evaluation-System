@@ -40,35 +40,19 @@ public class CategoryServiceImpl implements CategoryService {
 	private CategoryRepository categoryRepository;
 
 	/**
-	 * @return instance of category repository.
-	 */
-	public CategoryRepository getCategoryRepository() {
-		return categoryRepository;
-	}
-
-	/**
-	 * @param categoryRepository repository object to set
-	 */
-	public void setCategoryRepository(CategoryRepository categoryRepository) {
-		this.categoryRepository = categoryRepository;
-	}
-
-	/**
 	 * @param Category object with values to save in database
 	 */
-	public void insertCategory(Category Category)
-	{
+	public void insertCategory(Category Category) {
 		categoryRepository.save(Category);
 	}
 
 	/**
 	 * @return List of all categories in category table
 	 */
-	public List<Category> getAllCategories()
-	{
-		Iterable<Category> tblCategories = categoryRepository.findAll();
-		ArrayList<Category> listCategories = new ArrayList<>();
-		for( Category category : tblCategories ) {
+	public List< Category > getAllCategories() {
+		Iterable< Category > tblCategories = categoryRepository.findAll();
+		ArrayList< Category > listCategories = new ArrayList<>();
+		for ( Category category : tblCategories ) {
 			listCategories.add(category);
 			System.out.println("category " + category);
 		}
@@ -82,13 +66,12 @@ public class CategoryServiceImpl implements CategoryService {
 	 */
 	@Override
 	public String getCategoryById(int id) throws EntityNotFoundException {
-		Optional<Category> category = categoryRepository.findById(id);
-		if( category.isPresent() ) {
+		Optional< Category > category = categoryRepository.findById(id);
+		if ( category.isPresent() ) {
 			return category.get().toString();
-		}
-		else {
-			throw new EntityNotFoundException("Category with the specified ID" +
-			                                  "is not found");
+		} else {
+			throw new EntityNotFoundException("Category with the specified " +
+			                                  "ID is not found");
 		}
 	}
 }
