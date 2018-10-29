@@ -22,27 +22,22 @@ import org.springframework.stereotype.Service;
 
 /**
  * The Example interface provides ...
-
- @author {neelp}
- @version
+ *
+ * @author {neelp}
  */
 @Service
-public interface SubCategoryService
-{
+public interface SubCategoryService {
 	/**
-	 *
 	 * @param subCategory object to be added
 	 */
 	public void insertSubCategory(SubCategory subCategory);
 
 	/**
-	 *
 	 * @return all subcategories
 	 */
 	public SubCategory getAllSubcategories();
 
 	/**
-	 *
 	 * @param id category id to find subcategories
 	 * @return Specific subcategories of given category ID
 	 */
