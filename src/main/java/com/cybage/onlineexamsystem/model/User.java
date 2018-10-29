@@ -31,10 +31,7 @@ public class User implements Serializable {
 	private String password;
 
 	@Id
-<<<<<<< HEAD
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-=======
->>>>>>> 3b3ff5da303c75ccab83476e04e4557f355f4788
 	@Column(name="user_id")
 	private int userId;
 

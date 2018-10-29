@@ -27,10 +27,7 @@ public class Option implements Serializable {
 	private String optionD;
 
 	@Id
-<<<<<<< HEAD
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-=======
->>>>>>> 3b3ff5da303c75ccab83476e04e4557f355f4788
 	@Column(name="option_id")
 	private int optionId;
 
