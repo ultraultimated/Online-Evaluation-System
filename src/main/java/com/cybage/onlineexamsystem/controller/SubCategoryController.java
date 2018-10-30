@@ -39,7 +39,7 @@ public class SubCategoryController
 	@PostMapping("/subcategory/all")
 	private void insertSubCategory(@RequestBody SubCategory subCategory)
 	{
-		
+
 	}
 
 }
