@@ -32,42 +32,33 @@ import java.util.Optional;
 
 /**
  * The SubcategoryService class provides CRUD operations for Subcategory table
-
- @author {neelp}
- @version
+ *
+ * @author {neelp}
  */
 @Service
-public class SubCategoryServiceImpl implements SubCategoryService
-{
+public class SubCategoryServiceImpl implements SubCategoryService {
 	@Autowired
 	private SubCategoryRepository subCategoryRepository;
 
 	/**
-	 *
 	 * @param subCategory object to be added
 	 */
 	@Override
-	public void insertSubCategory(SubCategory subCategory)
-	{
+	public void insertSubCategory(SubCategory subCategory) {
 		subCategoryRepository.save(subCategory);
 	}
 
 	/**
-	 *
 	 * @return list of all subcategories
 	 */
 	@Override
 	public List<SubCategory> getAllSubcategories() {
 		Iterable<SubCategory> subCategories = subCategoryRepository.findAll();
-		if( Iterables.size(subCategories) == 0)
-		{
+		if (Iterables.size(subCategories) == 0) {
 			throw new EntityNotFoundException("No Subcategories exist");
-		}
-		else
-		{
+		} else {
 			ArrayList<SubCategory> listSubCategories = new ArrayList<>();
-			for(SubCategory subCategory: subCategories)
-			{
+			for (SubCategory subCategory : subCategories) {
 				listSubCategories.add(subCategory);
 			}
 			return listSubCategories;
@@ -75,22 +66,21 @@ public class SubCategoryServiceImpl implements SubCategoryService
 	}
 
 	/**
-	 *
 	 * @param id category id to find subcategories
 	 * @return SubCategories of given ID
 	 */
 	@Override
-	public List<SubCategory> getSubcategoryByCategoryId(int id)
-	{
-		Iterable<SubCategory> subCategories = subCategoryRepository.findAllByCategoryId(id);
-		if( Iterables.size(subCategories) == 0)
-		{
-			throw new EntityNotFoundException("SubCategrories with given ID does not exist");
-		}else {
+	public List<SubCategory> getSubcategoryByCategoryId(int id) {
+		Iterable<SubCategory> subCategories = subCategoryRepository
+				.findAllByCategoryId(id);
+		if (Iterables.size(subCategories) == 0) {
+			throw new EntityNotFoundException("SubCategrories with given ID " +
+			                                  "does not exist");
+		} else {
 
 
 			ArrayList<SubCategory> listSubCategories = new ArrayList<>();
-			for( SubCategory subCategory : subCategories ) {
+			for (SubCategory subCategory : subCategories) {
 				listSubCategories.add(subCategory);
 			}
 
@@ -99,19 +89,19 @@ public class SubCategoryServiceImpl implements SubCategoryService
 	}
 
 	/**
-	 *
 	 * @param subCategoryId Id to be searched
 	 * @return Subcategory Object of ID found
 	 */
 	@Override
 	public SubCategory getSubCategoryBySubCategoryId(int subCategoryId) {
-		Optional<SubCategory> optional = subCategoryRepository.findById(subCategoryId);
-		if( optional.isPresent()) {
+		Optional<SubCategory> optional = subCategoryRepository.findById
+				(subCategoryId);
+		if (optional.isPresent()) {
 			return optional.get();
-		}
-		else
-		{
-			throw new EntityNotFoundException("Subcategory with specified ID does not exist");
+		} else {
+			throw new EntityNotFoundException("Subcategory with specified ID" +
+			                                  " " +
+			                                  "does not exist");
 		}
 	}
 

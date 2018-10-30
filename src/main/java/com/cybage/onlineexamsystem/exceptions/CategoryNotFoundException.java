@@ -25,18 +25,18 @@ package com.cybage.onlineexamsystem.exceptions;
  * @author {neelp}
  */
 public class CategoryNotFoundException extends Exception {
+
 	/**
-	 *
 	 * @param message Exception message to be thrown.
 	 */
 	private String message;
+
 	public CategoryNotFoundException(String message) {
 		super(message);
 		this.message = message;
 	}
 
 	/**
-	 *
 	 * @return the error message to the service.
 	 */
 	@Override

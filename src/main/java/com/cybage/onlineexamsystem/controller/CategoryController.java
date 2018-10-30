@@ -43,17 +43,17 @@ public class CategoryController {
 	 */
 	@PostMapping("/category/add")
 	private void insertCategory(@RequestBody Category category) {
-		//THIS IS JUST FOR A TRIAL, IN REAL SCENARIO WE MUST BRING DATA IN JSON FORMAT AND PARSE IT.
-		categoryServiceImpl.insertCategory (category);
+		//THIS IS JUST FOR A TRIAL, IN REAL SCENARIO WE MUST BRING DATA IN
+		// JSON FORMAT AND PARSE IT.
+		categoryServiceImpl.insertCategory(category);
 	}
 
 	/**
 	 * @return all categories
 	 */
 	@GetMapping("/category/all")
-	private List getAllCategories(){
-
-		return categoryServiceImpl.getAllCategories ();
+	private List getAllCategories() {
+		return categoryServiceImpl.getAllCategories();
 	}
 
 	/**
@@ -63,7 +63,7 @@ public class CategoryController {
 	@GetMapping("/category/{id}")
 	private String getCategory(@PathVariable int id) {
 		Logger logger = LoggerFactory.getLogger(CategoryController.class);
-		logger.info("ID IS "+id);
+		logger.info("ID IS " + id);
 		return categoryServiceImpl.getCategoryById(id);
 	}
 

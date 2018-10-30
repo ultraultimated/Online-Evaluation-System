@@ -43,8 +43,7 @@ public class SubCategoryController {
 	 * @param subCategory Subcategory object to be inserted in database.
 	 */
 	@PostMapping("/subcategory/insert")
-	private void insertSubCategory(@RequestBody SubCategory subCategory)
-	{
+	private void insertSubCategory(@RequestBody SubCategory subCategory) {
 
 		subCategoryService.insertSubCategory(subCategory);
 	}
@@ -54,26 +53,24 @@ public class SubCategoryController {
 	 * @return list of all subcategories of given category ID.
 	 */
 	@GetMapping("/subcategory/category/{categoryId}")
-	private List getSubcategoryByCategoryId(@PathVariable int categoryId)
-	{
+	private List getSubcategoryByCategoryId(@PathVariable int categoryId) {
 
 		return subCategoryService.getSubcategoryByCategoryId(categoryId);
 	}
 
 	@GetMapping("/subcategory/{subCategoryId}")
 	private SubCategory getSubCategeryBySubCategoryId(
-			@PathVariable int subCategoryId)
-	{
+			@PathVariable int subCategoryId) {
+
 		return subCategoryService.getSubCategoryBySubCategoryId(subCategoryId);
 	}
 
 	/**
-	 *
 	 * @return List of all subcatgories present
 	 */
 	@GetMapping("/subcategory/all")
-	private List getAllSubCategories()
-	{
+	private List getAllSubCategories() {
+
 		return subCategoryService.getAllSubcategories();
 	}
 
