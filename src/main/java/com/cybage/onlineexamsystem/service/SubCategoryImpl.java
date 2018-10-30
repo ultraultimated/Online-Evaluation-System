@@ -25,18 +25,16 @@ import org.springframework.stereotype.Service;
 
 /**
  * The Example class provides ...
-
- @author {neelp}
- @version
+ *
+ * @author {neelp}
  */
 @Service
-public class SubCategoryImpl implements SubCategoryService
-{
+public class SubCategoryImpl implements SubCategoryService {
 	@Autowired
 	private SubCategoryRepository subCategoryRepository;
+
 	@Override
-	public void insertSubCategory(SubCategory subCategory)
-	{
+	public void insertSubCategory(SubCategory subCategory) {
 
 	}
 

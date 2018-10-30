@@ -27,19 +27,18 @@ import org.springframework.web.bind.annotation.RestController;
 
 /**
  * The Example class provides ...
-
- @author {neelp}
- @version
+ *
+ * @author {neelp}
  */
 @RestController
-public class SubCategoryController
-{
+public class SubCategoryController {
+
 	@Autowired
 	private SubCategoryService subCategoryService;
+
 	@PostMapping("/subcategory/all")
-	private void insertSubCategory(@RequestBody SubCategory subCategory)
-	{
-		
+	private void insertSubCategory(@RequestBody SubCategory subCategory) {
+
 	}
 
 }

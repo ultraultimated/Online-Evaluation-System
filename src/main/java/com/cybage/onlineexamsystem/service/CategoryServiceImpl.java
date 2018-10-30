@@ -49,10 +49,10 @@ public class CategoryServiceImpl implements CategoryService {
 	/**
 	 * @return List of all categories in category table
 	 */
-	public List< Category > getAllCategories() {
-		Iterable< Category > tblCategories = categoryRepository.findAll();
-		ArrayList< Category > listCategories = new ArrayList<>();
-		for ( Category category : tblCategories ) {
+	public List<Category> getAllCategories() {
+		Iterable<Category> tblCategories = categoryRepository.findAll();
+		ArrayList<Category> listCategories = new ArrayList<>();
+		for( Category category : tblCategories ) {
 			listCategories.add(category);
 			System.out.println("category " + category);
 		}
@@ -70,9 +70,9 @@ public class CategoryServiceImpl implements CategoryService {
 		if( optional.isPresent() ) {
 			Category category = optional.get();
 			return category.getCategoryName();
-		}
-		else {
-			throw new EntityNotFoundException("Category with the specified ID" +
+		} else {
+			throw new EntityNotFoundException("Category with the specified " +
+			                                  "ID" +
 			                                  "is not found");
 		}
 	}

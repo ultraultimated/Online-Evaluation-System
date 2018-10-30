@@ -22,12 +22,10 @@ import org.springframework.stereotype.Repository;
 
 /**
  * The Example class provides ...
-
- @author {neelp}
- @version
+ *
+ * @author {neelp}
  */
 @Repository
-public class SubCategoryRepository
-{
+public class SubCategoryRepository {
 
 }
