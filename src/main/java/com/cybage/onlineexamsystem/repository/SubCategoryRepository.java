@@ -18,6 +18,8 @@
 
 package com.cybage.onlineexamsystem.repository;
 
+import com.cybage.onlineexamsystem.model.SubCategory;
+import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 /**
@@ -27,7 +29,7 @@ import org.springframework.stereotype.Repository;
  @version
  */
 @Repository
-public class SubCategoryRepository
+public interface SubCategoryRepository extends CrudRepository<SubCategory,Integer>
 {
-
+	 Iterable<SubCategory> findAllByCategoryId(int categoryId);
 }

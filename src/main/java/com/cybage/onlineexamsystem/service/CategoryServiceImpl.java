@@ -56,9 +56,7 @@ public class CategoryServiceImpl implements CategoryService {
 		ArrayList<Category> listCategories = new ArrayList<>();
 		for( Category category : tblCategories ) {
 			listCategories.add(category);
-			System.out.println("category " + category);
 		}
-		System.out.print(listCategories);
 		return listCategories;
 	}
 
