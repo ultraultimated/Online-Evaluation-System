@@ -92,6 +92,7 @@ public class SubCategoryServiceImpl implements SubCategoryService {
 	 * @param subCategoryId Id to be searched
 	 * @return Subcategory Object of ID found
 	 */
+
 	@Override
 	public SubCategory getSubCategoryBySubCategoryId(int subCategoryId) {
 		Optional<SubCategory> optional = subCategoryRepository.findById
