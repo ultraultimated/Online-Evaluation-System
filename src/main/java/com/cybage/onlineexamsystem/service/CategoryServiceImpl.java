@@ -43,16 +43,14 @@ public class CategoryServiceImpl implements CategoryService {
 	/**
 	 * @param Category object with values to save in database
 	 */
-	public void insertCategory(Category Category)
-	{
+	public void insertCategory(Category Category) {
 		categoryRepository.save(Category);
 	}
 
 	/**
 	 * @return List of all categories in category table
 	 */
-	public List<Category> getAllCategories()
-	{
+	public List<Category> getAllCategories() {
 		return categoryRepository.findAll();
 	}
 
@@ -64,11 +62,10 @@ public class CategoryServiceImpl implements CategoryService {
 	public String getCategoryById(int id) throws CategoryNotFoundException {
 
 		Optional<Category> optional = categoryRepository.findById(id);
-		if( optional.isPresent() ) {
+		if (optional.isPresent()) {
 			Category category = optional.get();
 			return category.getCategoryName();
-		}
-		else {
+		} else {
 			throw new CategoryNotFoundException();
 		}
 	}

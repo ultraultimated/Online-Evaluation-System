@@ -53,4 +53,14 @@ public class GlobalExceptionHandler {
 		return errorResponse;
 	}
 
+	@ExceptionHandler(ParentQuestionNotFoundException.class)
+	@ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
+	public ErrorResponse handleParentQuestionException()
+	{
+		errorResponse.setErrorCode("ParentQuestion with given category Id is not found");
+		errorResponse.setErrorCode("500");
+		errorResponse.setHttpStatus(HttpStatus.INTERNAL_SERVER_ERROR);
+		return errorResponse;
+	}
+
 }

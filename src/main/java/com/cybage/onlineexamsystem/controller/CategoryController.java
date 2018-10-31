@@ -31,45 +31,40 @@ import java.util.List;
 
 /**
  * The Example class provides ...
-
- @author {neelp}
- @version
+ *
+ * @author {neelp}
  */
 @RestController
-public class CategoryController
-{
+public class CategoryController {
 	@Autowired
 	private CategoryServiceImpl categoryServiceImpl;
 
 	/**
-	 *
 	 * @param category
 	 */
 	@PostMapping("/category/add")
-	private void insertCategory(@RequestBody Category category)
-	{
-		//THIS IS JUST FOR A TRIAL, IN REAL SCENARIO WE MUST BRING DATA IN JSON FORMAT AND PARSE IT.
-		categoryServiceImpl.insertCategory (category);
+	private void insertCategory(@RequestBody Category category) {
+		//THIS IS JUST FOR A TRIAL, IN REAL SCENARIO WE MUST BRING DATA IN
+		// JSON FORMAT AND PARSE IT.
+		categoryServiceImpl.insertCategory(category);
 	}
 
 	/**
-	 *
 	 * @return all categories
 	 */
 	@GetMapping("/category/all")
-	private List getAllCategories(){
+	private List getAllCategories() {
 
-		return categoryServiceImpl.getAllCategories ();
+		return categoryServiceImpl.getAllCategories();
 	}
 
 	/**
-	 *
 	 * @param id Category Id to be found
-	 * @return Category Name relaetd to the id
+	 * @return Category Name related to the id
 	 */
 	@GetMapping("/category/{id}")
-	private String getCategory(@PathVariable int id) throws CategoryNotFoundException
-	{
+	private String getCategory(
+			@PathVariable int id) throws CategoryNotFoundException {
 		return categoryServiceImpl.getCategoryById(id);
 	}
 

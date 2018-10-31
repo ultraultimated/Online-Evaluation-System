@@ -12,25 +12,23 @@
  * @file CategoryRepository
  * Brief description of contents of file.
  * Long description
- * @date 10/26/2018
+ * @date 10/31/2018
  */
 
 package com.cybage.onlineexamsystem.repository;
 
-import com.cybage.onlineexamsystem.model.Category;
+import com.cybage.onlineexamsystem.model.ParentQuestion;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 /**
  * The Category interface Repository provides access to database by using
  * spring-data-JPA
- * This interface implements CRUDrepository to provide basic functionality of
+ * This interface implements JpaRepository to provide basic functionality of
  * creating, retrieving, updating and deleting.
  *
- * @author Neel Parikh
+ * @author Poojan Patel
  */
 @Repository
-public interface CategoryRepository extends JpaRepository<Category,Integer>
-{
-
+public interface ParentQuestionRepository extends JpaRepository<ParentQuestion, Integer> {
 }
