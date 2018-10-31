@@ -30,8 +30,8 @@ public class CategoryNotFoundException extends Exception {
 	 * @param message Exception message to be thrown.
 	 */
 	private String message;
-	public CategoryNotFoundException(String message) {
-		super(message);
+	public CategoryNotFoundException() {
+
 		this.message = message;
 	}
 

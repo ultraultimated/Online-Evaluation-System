@@ -17,6 +17,7 @@
  */
 package com.cybage.onlineexamsystem.service;
 
+import com.cybage.onlineexamsystem.exceptions.SubCategoryNotFoundException;
 import com.cybage.onlineexamsystem.model.SubCategory;
 import org.springframework.stereotype.Service;
 
@@ -43,14 +44,14 @@ public interface SubCategoryService {
 	 * @param categoryId category id to find subcategories
 	 * @return Specific subcategories of given category ID
 	 */
-	public List<SubCategory> getSubcategoryByCategoryId(int categoryId);
+	public List<SubCategory> getSubcategoryByCategoryId(int categoryId) throws SubCategoryNotFoundException;
 
 	/**
 	 *
 	 * @param subCategoryId Id to be searched
 	 * @return Subcategory object of goven ID
 	 */
-	public SubCategory getSubCategoryBySubCategoryId(int subCategoryId);
+	public SubCategory getSubCategoryBySubCategoryId(int subCategoryId) throws SubCategoryNotFoundException;
 
 
 }

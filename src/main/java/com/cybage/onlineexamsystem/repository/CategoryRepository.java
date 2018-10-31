@@ -18,6 +18,7 @@
 package com.cybage.onlineexamsystem.repository;
 
 import com.cybage.onlineexamsystem.model.Category;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
@@ -30,7 +31,7 @@ import org.springframework.stereotype.Repository;
  * @author Neel Parikh
  */
 @Repository
-public interface CategoryRepository extends CrudRepository<Category,Integer>
+public interface CategoryRepository extends JpaRepository<Category,Integer>
 {
 
 }

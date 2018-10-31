@@ -19,6 +19,7 @@
 
 package com.cybage.onlineexamsystem.controller;
 
+import com.cybage.onlineexamsystem.exceptions.CategoryNotFoundException;
 import com.cybage.onlineexamsystem.model.Category;
 import com.cybage.onlineexamsystem.service.CategoryServiceImpl;
 import org.slf4j.Logger;
@@ -67,10 +68,8 @@ public class CategoryController
 	 * @return Category Name relaetd to the id
 	 */
 	@GetMapping("/category/{id}")
-	private String getCategory(@PathVariable int id)
+	private String getCategory(@PathVariable int id) throws CategoryNotFoundException
 	{
-		Logger logger = LoggerFactory.getLogger(CategoryController.class);
-		logger.info("ID IS "+id);
 		return categoryServiceImpl.getCategoryById(id);
 	}
 
