@@ -65,7 +65,7 @@ public class UserController {
      * @param id User Id to be found
      * @return User relaetd to the id
      */
-    @GetMapping("/user/{id}")
+    @GetMapping("/user/id/{id}")
     private User getUserById(@PathVariable int id) throws UserNotFoundException
     {
         return userService.getUserById(id);
@@ -76,7 +76,7 @@ public class UserController {
      * @param username to be found
      * @return User relaetd to the username
      */
-    @GetMapping("/user/{username}")
+    @GetMapping("/user/name/{username}")
     private User getUserByUsername(@PathVariable String username) throws UserNotFoundException
     {
         return userService.getUserByUsername(username);
