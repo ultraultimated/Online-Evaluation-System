@@ -19,8 +19,10 @@
 package com.cybage.onlineexamsystem.repository;
 
 import com.cybage.onlineexamsystem.model.SubCategory;
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
+
+import java.util.List;
 
 /**
  * The Example class provides ...
@@ -28,7 +30,7 @@ import org.springframework.stereotype.Repository;
  * @author {neelp}
  */
 @Repository
-public interface SubCategoryRepository extends CrudRepository<SubCategory,Integer>
-{
-	 Iterable<SubCategory> findAllByCategoryId(int categoryId);
+public interface SubCategoryRepository extends JpaRepository<SubCategory,
+		Integer> {
+	List<SubCategory> findAllByCategoryId(int categoryId);
 }

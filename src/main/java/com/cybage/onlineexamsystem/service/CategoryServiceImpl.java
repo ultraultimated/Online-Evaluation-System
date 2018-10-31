@@ -18,6 +18,7 @@
 
 package com.cybage.onlineexamsystem.service;
 
+import com.cybage.onlineexamsystem.exceptions.CategoryNotFoundException;
 import com.cybage.onlineexamsystem.model.Category;
 import com.cybage.onlineexamsystem.repository.CategoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,20 +43,17 @@ public class CategoryServiceImpl implements CategoryService {
 	/**
 	 * @param Category object with values to save in database
 	 */
-	public void insertCategory(Category Category) {
+	public void insertCategory(Category Category)
+	{
 		categoryRepository.save(Category);
 	}
 
 	/**
 	 * @return List of all categories in category table
 	 */
-	public List<Category> getAllCategories() {
-		Iterable<Category> tblCategories = categoryRepository.findAll();
-		ArrayList<Category> listCategories = new ArrayList<>();
-		for( Category category : tblCategories ) {
-			listCategories.add(category);
-		}
-		return listCategories;
+	public List<Category> getAllCategories()
+	{
+		return categoryRepository.findAll();
 	}
 
 	/**
@@ -63,15 +61,15 @@ public class CategoryServiceImpl implements CategoryService {
 	 * @return name of category by its ID
 	 */
 	@Override
-	public String getCategoryById(int id) throws EntityNotFoundException {
+	public String getCategoryById(int id) throws CategoryNotFoundException {
+
 		Optional<Category> optional = categoryRepository.findById(id);
 		if( optional.isPresent() ) {
 			Category category = optional.get();
 			return category.getCategoryName();
-		} else {
-			throw new EntityNotFoundException("Category with the specified " +
-			                                  "ID" +
-			                                  "is not found");
+		}
+		else {
+			throw new CategoryNotFoundException();
 		}
 	}
 }

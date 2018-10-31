@@ -19,6 +19,7 @@
 
 package com.cybage.onlineexamsystem.controller;
 
+import com.cybage.onlineexamsystem.exceptions.CategoryNotFoundException;
 import com.cybage.onlineexamsystem.model.Category;
 import com.cybage.onlineexamsystem.service.CategoryServiceImpl;
 import org.slf4j.Logger;
@@ -30,40 +31,45 @@ import java.util.List;
 
 /**
  * The Example class provides ...
- *
- * @author {neelp}
+
+ @author {neelp}
+ @version
  */
 @RestController
-public class CategoryController {
+public class CategoryController
+{
 	@Autowired
 	private CategoryServiceImpl categoryServiceImpl;
 
 	/**
+	 *
 	 * @param category
 	 */
 	@PostMapping("/category/add")
-	private void insertCategory(@RequestBody Category category) {
-		//THIS IS JUST FOR A TRIAL, IN REAL SCENARIO WE MUST BRING DATA IN
-		// JSON FORMAT AND PARSE IT.
-		categoryServiceImpl.insertCategory(category);
+	private void insertCategory(@RequestBody Category category)
+	{
+		//THIS IS JUST FOR A TRIAL, IN REAL SCENARIO WE MUST BRING DATA IN JSON FORMAT AND PARSE IT.
+		categoryServiceImpl.insertCategory (category);
 	}
 
 	/**
+	 *
 	 * @return all categories
 	 */
 	@GetMapping("/category/all")
-	private List getAllCategories() {
-		return categoryServiceImpl.getAllCategories();
+	private List getAllCategories(){
+
+		return categoryServiceImpl.getAllCategories ();
 	}
 
 	/**
+	 *
 	 * @param id Category Id to be found
-	 * @return Category Name related to the id
+	 * @return Category Name relaetd to the id
 	 */
 	@GetMapping("/category/{id}")
-	private String getCategory(@PathVariable int id) {
-		Logger logger = LoggerFactory.getLogger(CategoryController.class);
-		logger.info("ID IS " + id);
+	private String getCategory(@PathVariable int id) throws CategoryNotFoundException
+	{
 		return categoryServiceImpl.getCategoryById(id);
 	}
 

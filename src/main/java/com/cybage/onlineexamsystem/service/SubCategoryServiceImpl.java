@@ -18,15 +18,12 @@
 
 package com.cybage.onlineexamsystem.service;
 
-import com.cybage.onlineexamsystem.model.Option;
+import com.cybage.onlineexamsystem.exceptions.SubCategoryNotFoundException;
 import com.cybage.onlineexamsystem.model.SubCategory;
 import com.cybage.onlineexamsystem.repository.SubCategoryRepository;
-import com.google.common.collect.Iterables;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.persistence.EntityNotFoundException;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -44,7 +41,8 @@ public class SubCategoryServiceImpl implements SubCategoryService {
 	 * @param subCategory object to be added
 	 */
 	@Override
-	public void insertSubCategory(SubCategory subCategory) {
+	public void insertSubCategory(SubCategory subCategory)
+	{
 		subCategoryRepository.save(subCategory);
 	}
 
@@ -53,38 +51,21 @@ public class SubCategoryServiceImpl implements SubCategoryService {
 	 */
 	@Override
 	public List<SubCategory> getAllSubcategories() {
-		Iterable<SubCategory> subCategories = subCategoryRepository.findAll();
-		if (Iterables.size(subCategories) == 0) {
-			throw new EntityNotFoundException("No Subcategories exist");
-		} else {
-			ArrayList<SubCategory> listSubCategories = new ArrayList<>();
-			for (SubCategory subCategory : subCategories) {
-				listSubCategories.add(subCategory);
-			}
-			return listSubCategories;
-		}
+
+		return subCategoryRepository.findAll();
 	}
 
 	/**
-	 * @param id category id to find subcategories
+	 * @param categoryId category id to find subcategories
 	 * @return SubCategories of given ID
 	 */
 	@Override
-	public List<SubCategory> getSubcategoryByCategoryId(int id) {
-		Iterable<SubCategory> subCategories = subCategoryRepository
-				.findAllByCategoryId(id);
-		if (Iterables.size(subCategories) == 0) {
-			throw new EntityNotFoundException("SubCategrories with given ID " +
-			                                  "does not exist");
+	public List<SubCategory> getSubcategoryByCategoryId(int categoryId) throws SubCategoryNotFoundException
+	{
+		if( (subCategoryRepository.findAllByCategoryId(categoryId)).size() == 0 ) {
+			return subCategoryRepository.findAllByCategoryId(categoryId);
 		} else {
-
-
-			ArrayList<SubCategory> listSubCategories = new ArrayList<>();
-			for (SubCategory subCategory : subCategories) {
-				listSubCategories.add(subCategory);
-			}
-
-			return listSubCategories;
+			throw new SubCategoryNotFoundException();
 		}
 	}
 
@@ -94,15 +75,13 @@ public class SubCategoryServiceImpl implements SubCategoryService {
 	 */
 
 	@Override
-	public SubCategory getSubCategoryBySubCategoryId(int subCategoryId) {
-		Optional<SubCategory> optional = subCategoryRepository.findById
-				(subCategoryId);
-		if (optional.isPresent()) {
+	public SubCategory getSubCategoryBySubCategoryId(int subCategoryId) throws SubCategoryNotFoundException {
+		Optional<SubCategory> optional =
+				subCategoryRepository.findById(subCategoryId);
+		if( optional.isPresent() ) {
 			return optional.get();
 		} else {
-			throw new EntityNotFoundException("Subcategory with specified ID" +
-			                                  " " +
-			                                  "does not exist");
+			throw new SubCategoryNotFoundException();
 		}
 	}
 

@@ -41,7 +41,7 @@ public interface CategoryService {
 	 * @param id the id to find category Name
 	 * @return category name for a particular ID.
 	 */
-	public String getCategoryById(int id) throws EntityNotFoundException;
+	public String getCategoryById(int id) throws CategoryNotFoundException;
 
 }
 
