@@ -20,9 +20,7 @@
 package com.cybage.onlineexamsystem.model;
 
 import javax.persistence.*;
-import java.util.List;
 import java.io.Serializable;
-import javax.persistence.*;
 
 
 /**
@@ -31,6 +29,7 @@ import javax.persistence.*;
  */
 @Entity
 @Table(name="tbl_subcategory")
+@NamedQuery(name="Subcategory.findAll", query="SELECT t FROM SubCategory t")
 public class SubCategory implements Serializable {
 	private static final long serialVersionUID = 1L;
 

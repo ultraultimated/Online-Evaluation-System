@@ -2,9 +2,7 @@ package com.cybage.onlineexamsystem.model;
 
 
 import javax.persistence.*;
-
 import java.io.Serializable;
-import javax.persistence.*;
 
 
 /**
