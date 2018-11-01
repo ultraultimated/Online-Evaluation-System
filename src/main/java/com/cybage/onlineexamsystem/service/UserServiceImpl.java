@@ -47,29 +47,44 @@ public class UserServiceImpl implements UserService {
         userRepository.save(user);
     }
 
+    /**
+     *
+     * @return List of all users.
+     */
     @Override
     public List<User> getAllUsers() {
         return userRepository.findAll();
     }
 
+    /**
+     *
+     * @param id to find User
+     * @return Object of User
+     * @throws UserNotFoundException if user id does not exist
+     */
     @Override
     public User getUserById(int id) throws UserNotFoundException {
         Optional<User> optional = userRepository.findById(id);
         if( optional.isPresent() ) {
-            User user = optional.get();
-            return user;
+
+            return optional.get();
         }
         else {
             throw new UserNotFoundException();
         }
     }
 
+    /**
+     *
+     * @param username to find User
+     * @return user object
+     * @throws UserNotFoundException if user id does not exist
+     */
     @Override
     public User getUserByUsername(String username) throws UserNotFoundException {
         Optional<User> optional = userRepository.findByUsername(username);
         if( optional.isPresent() ) {
-            User user = optional.get();
-            return user;
+            return optional.get();
         }
         else {
             throw new UserNotFoundException();

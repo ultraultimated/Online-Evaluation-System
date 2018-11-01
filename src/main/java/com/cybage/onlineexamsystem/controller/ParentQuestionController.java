@@ -32,6 +32,7 @@ import java.util.List;
  */
 
 @RestController
+@RequestMapping("parentquestion")
 public class ParentQuestionController {
 
 	@Autowired
@@ -40,7 +41,7 @@ public class ParentQuestionController {
 	/**
 	 * @param parentQuestion
 	 */
-	@PostMapping("parentquestion/insert")
+	@PostMapping("/insert")
 	private void insertParentQuestion(
 			@RequestBody ParentQuestion parentQuestion) {
 		parentQuestionServiceImpl.insertParentQuestion(parentQuestion);
@@ -49,7 +50,7 @@ public class ParentQuestionController {
 	/**
 	 * @return all ParentQuestion
 	 */
-	@GetMapping("parentquestion/all")
+	@GetMapping("/all")
 	private List getAllParentQuestion() {
 		return parentQuestionServiceImpl.getAllParentQuestion();
 	}
@@ -59,7 +60,7 @@ public class ParentQuestionController {
 	 * @return ParentQuestionDescription related to the id
 	 * @throws ParentQuestionNotFoundException
 	 */
-	@GetMapping("parentquestion/{id}")
+	@GetMapping("/{id}")
 	private String getParentQuestionById(
 			@PathVariable int id) throws ParentQuestionNotFoundException {
 		return parentQuestionServiceImpl.getParentQuestionById(id);

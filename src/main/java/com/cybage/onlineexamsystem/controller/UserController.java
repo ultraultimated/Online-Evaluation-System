@@ -35,6 +35,7 @@ import java.util.List;
  */
 
 @RestController
+@RequestMapping("/user")
 public class UserController {
 
     @Autowired
@@ -44,7 +45,7 @@ public class UserController {
      *
      * @param user
      */
-    @PostMapping("/user/add")
+    @PostMapping("/add")
     private void insertuser(@RequestBody User user)
     {
         userService.addUser(user);
@@ -54,7 +55,7 @@ public class UserController {
      *
      * @return all users
      */
-    @GetMapping("/user/all")
+    @GetMapping("/all")
     private List getAllUsers(){
 
         return userService.getAllUsers();
@@ -65,7 +66,7 @@ public class UserController {
      * @param id User Id to be found
      * @return User relaetd to the id
      */
-    @GetMapping("/user/id/{id}")
+    @GetMapping("/{id}")
     private User getUserById(@PathVariable int id) throws UserNotFoundException
     {
         return userService.getUserById(id);
@@ -76,7 +77,7 @@ public class UserController {
      * @param username to be found
      * @return User relaetd to the username
      */
-    @GetMapping("/user/name/{username}")
+    @GetMapping("/{username}/get")
     private User getUserByUsername(@PathVariable String username) throws UserNotFoundException
     {
         return userService.getUserByUsername(username);

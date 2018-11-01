@@ -35,6 +35,7 @@ import java.util.List;
  * @author {neelp}
  */
 @RestController
+@RequestMapping("/subcategory")
 public class SubCategoryController {
 
 	@Autowired
@@ -43,7 +44,7 @@ public class SubCategoryController {
 	/**
 	 * @param subCategory Subcategory object to be inserted in database.
 	 */
-	@PostMapping("/subcategory/insert")
+	@PostMapping("/insert")
 	private void insertSubCategory(@RequestBody SubCategory subCategory)
 	{
 		subCategoryService.insertSubCategory(subCategory);
@@ -53,14 +54,14 @@ public class SubCategoryController {
 	 * @param categoryId categoryId to be found in database
 	 * @return list of all subcategories of given category ID.
 	 */
-	@GetMapping("/subcategory/category/{categoryId}")
+	@GetMapping("/category/{categoryId}")
 	private List getSubcategoryByCategoryId(@PathVariable int categoryId) throws SubCategoryNotFoundException
 	{
 
 		return subCategoryService.getSubcategoryByCategoryId(categoryId);
 	}
 
-	@GetMapping("/subcategory/{subCategoryId}")
+	@GetMapping("/{subCategoryId}")
 	private SubCategory getSubCategeryBySubCategoryId(
 			@PathVariable int subCategoryId) throws SubCategoryNotFoundException
 	{
@@ -71,7 +72,7 @@ public class SubCategoryController {
 	 *
 	 * @return List of all subcatgories present
 	 */
-	@GetMapping("/subcategory/all")
+	@GetMapping("/all")
 	private List getAllSubCategories()
 	{
 		return subCategoryService.getAllSubcategories();

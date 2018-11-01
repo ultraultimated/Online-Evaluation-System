@@ -35,6 +35,7 @@ import java.util.List;
  * @author {neelp}
  */
 @RestController
+@RequestMapping("/category")
 public class CategoryController {
 	@Autowired
 	private CategoryServiceImpl categoryServiceImpl;
@@ -42,7 +43,7 @@ public class CategoryController {
 	/**
 	 * @param category
 	 */
-	@PostMapping("/category/add")
+	@PostMapping("/insert")
 	private void insertCategory(@RequestBody Category category) {
 		//THIS IS JUST FOR A TRIAL, IN REAL SCENARIO WE MUST BRING DATA IN
 		// JSON FORMAT AND PARSE IT.
@@ -52,7 +53,7 @@ public class CategoryController {
 	/**
 	 * @return all categories
 	 */
-	@GetMapping("/category/all")
+	@GetMapping("/all")
 	private List getAllCategories() {
 
 		return categoryServiceImpl.getAllCategories();
@@ -62,7 +63,7 @@ public class CategoryController {
 	 * @param id Category Id to be found
 	 * @return Category Name related to the id
 	 */
-	@GetMapping("/category/{id}")
+	@GetMapping("/{id}")
 	private String getCategory(
 			@PathVariable int id) throws CategoryNotFoundException {
 		return categoryServiceImpl.getCategoryById(id);
