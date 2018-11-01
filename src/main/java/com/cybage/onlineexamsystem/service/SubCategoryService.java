@@ -44,14 +44,15 @@ public interface SubCategoryService {
 	 * @param categoryId category id to find subcategories
 	 * @return Specific subcategories of given category ID
 	 */
-	public List<SubCategory> getSubcategoryByCategoryId(int categoryId) throws SubCategoryNotFoundException;
+	public List<SubCategory> getSubcategoryByCategoryId(int categoryId) throws
+			SubCategoryNotFoundException;
 
 	/**
-	 *
 	 * @param subCategoryId Id to be searched
 	 * @return Subcategory object of goven ID
 	 */
-	public SubCategory getSubCategoryBySubCategoryId(int subCategoryId) throws SubCategoryNotFoundException;
+	public SubCategory getSubCategoryById(int subCategoryId) throws
+			SubCategoryNotFoundException;
 
 
 }

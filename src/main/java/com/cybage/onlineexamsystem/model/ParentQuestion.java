@@ -6,29 +6,29 @@ import java.io.Serializable;
 
 /**
  * The persistent class for the tbl_parent_question database table.
- * 
  */
 @Entity
-@Table(name="tbl_parent_question")
-@NamedQuery(name="ParentQuestion.findAll", query="SELECT t FROM ParentQuestion t")
+@Table(name = "tbl_parent_question")
+@NamedQuery(name = "ParentQuestion.findAll", query = "SELECT t FROM " +
+                                                     "ParentQuestion t")
 public class ParentQuestion implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	private String difficulty;
 
-	@Column(name="parent_question_desc")
+	@Column(name = "parent_question_desc")
 	private String parentQuestionDesc;
 
 	@Id
-	@Column(name="parent_question_id")
+	@Column(name = "parent_question_id")
 	private int parentQuestionId;
 
 	private String subjectivity;
 
-	@Column(name="test_id")
+	@Column(name = "test_id")
 	private int testId;
 
-	@Column(name="topic_name")
+	@Column(name = "topic_name")
 	private String topicName;
 
 	public ParentQuestion() {

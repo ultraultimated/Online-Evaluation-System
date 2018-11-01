@@ -6,27 +6,26 @@ import java.io.Serializable;
 
 /**
  * The persistent class for the tbl_test database table.
- * 
  */
 @Entity
-@Table(name="tbl_test")
-@NamedQuery(name="Test.findAll", query="SELECT t FROM Test t")
+@Table(name = "tbl_test")
+@NamedQuery(name = "Test.findAll", query = "SELECT t FROM Test t")
 public class Test implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	private int cutoff;
 
-	@Column(name="subcategory_id")
+	@Column(name = "subcategory_id")
 	private int subcategoryId;
 
 	@Id
-	@Column(name="test_id")
+	@Column(name = "test_id")
 	private int testId;
 
-	@Column(name="test_name")
+	@Column(name = "test_name")
 	private String testName;
 
-	@Column(name="total_marks")
+	@Column(name = "total_marks")
 	private int totalMarks;
 
 	public Test() {

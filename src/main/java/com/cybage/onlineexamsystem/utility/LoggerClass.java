@@ -25,20 +25,16 @@ import org.springframework.stereotype.Component;
 
 /**
  * The Example class provides ...
-
- @author {neelp}
- @version
+ *
+ * @author {neelp}
  */
 @Component
-public class LoggerClass
-{
+public class LoggerClass {
 	/**
-	 *
 	 * @param className The class Name to get logger of that class
 	 * @return instance of Logger
 	 */
-	public Logger getLogger(Class className)
-	{
+	public Logger getLogger(Class className) {
 		Logger logger = LoggerFactory.getLogger(className);
 		return logger;
 	}

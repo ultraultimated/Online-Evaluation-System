@@ -32,7 +32,7 @@ import java.util.List;
  */
 
 @RestController
-@RequestMapping("parentquestion")
+@RequestMapping("/parentquestion")
 public class ParentQuestionController {
 
 	@Autowired
@@ -60,7 +60,7 @@ public class ParentQuestionController {
 	 * @return ParentQuestionDescription related to the id
 	 * @throws ParentQuestionNotFoundException
 	 */
-	@GetMapping("/{id}")
+	@GetMapping("/id/{id}")
 	private String getParentQuestionById(
 			@PathVariable int id) throws ParentQuestionNotFoundException {
 		return parentQuestionServiceImpl.getParentQuestionById(id);

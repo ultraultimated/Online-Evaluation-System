@@ -15,9 +15,10 @@
  * @date 10/29/2018
  */
 package com.cybage.onlineexamsystem.service;
+
 import com.cybage.onlineexamsystem.exceptions.CategoryNotFoundException;
 import com.cybage.onlineexamsystem.model.Category;
-import javax.persistence.EntityNotFoundException;
+
 import java.util.List;
 
 /**

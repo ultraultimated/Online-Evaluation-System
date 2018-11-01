@@ -60,9 +60,11 @@ public class ParentQuestionServiceImpl implements ParentQuestionService {
 	 * @throws ParentQuestionNotFoundException
 	 */
 	@Override
-	public String getParentQuestionById(int id) throws ParentQuestionNotFoundException {
+	public String getParentQuestionById(int id) throws
+			ParentQuestionNotFoundException {
 
-		Optional<ParentQuestion> optional = parentQuestionRepository.findById(id);
+		Optional<ParentQuestion> optional = parentQuestionRepository.findById
+				(id);
 		if (optional.isPresent()) {
 			ParentQuestion parentQuestion = optional.get();
 			return parentQuestion.getParentQuestionDesc();

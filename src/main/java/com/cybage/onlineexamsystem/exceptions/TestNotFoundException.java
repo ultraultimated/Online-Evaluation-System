@@ -20,12 +20,10 @@ package com.cybage.onlineexamsystem.exceptions;
 
 /**
  * The Example class provides ...
-
- @author {neelp}
- @version
+ *
+ * @author {neelp}
  */
-public class TestNotFoundException extends Exception
-{
+public class TestNotFoundException extends Exception {
 	public TestNotFoundException() {
 	}
 }

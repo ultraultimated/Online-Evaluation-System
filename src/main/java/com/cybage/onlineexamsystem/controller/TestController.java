@@ -11,51 +11,46 @@ import java.util.List;
 @RestController
 @RequestMapping("/test")
 public class TestController {
-    @Autowired
-    private TestService testService;
+	@Autowired
+	private TestService testService;
 
-    /**
-     *
-     * @param subCategoryId to find all papers
-     * @return list of papers that contain the subcategroy
-     * @throws TestNotFoundException if no test exist
-     */
-    @GetMapping("/subcategory/{subCategoryId}")
-    private List<Test> getAllTestBySubcategroyId(
-            @PathVariable int subCategoryId) throws TestNotFoundException
-    {
-        return testService.getTestBySubCategory(subCategoryId);
-    }
+	/**
+	 * @param subCategoryId to find all papers
+	 * @return list of papers that contain the subcategroy
+	 * @throws TestNotFoundException if no test exist
+	 */
+	@GetMapping("/subcategory/{subCategoryId}")
+	private List<Test> getAllTestBySubcategroyId(
+			@PathVariable int subCategoryId) throws TestNotFoundException {
+		return testService.getTestBySubCategory(subCategoryId);
+	}
 
-    /**
-     *
-     * @return all tests
-     * @throws TestNotFoundException if no test exist
-     */
-    @GetMapping("/all")
-    private List<Test> getAllTest() throws TestNotFoundException{
-        return testService.getAllTests();
-    }
+	/**
+	 * @return all tests
+	 * @throws TestNotFoundException if no test exist
+	 */
+	@GetMapping("/all")
+	private List<Test> getAllTest() throws TestNotFoundException {
+		return testService.getAllTests();
+	}
 
-    /**
-     *
-     * @param testId of the test
-     * @return test object of that test Id
-     * @throws TestNotFoundException if the test is not found of given ID
-     */
-    @GetMapping("/{testId}")
-    private Test getTestByTestId(@PathVariable int testId) throws TestNotFoundException {
-        return testService.getTestByTestId(testId);
-    }
+	/**
+	 * @param testId of the test
+	 * @return test object of that test Id
+	 * @throws TestNotFoundException if the test is not found of given ID
+	 */
+	@GetMapping("/{testId}")
+	private Test getTestByTestId(
+			@PathVariable int testId) throws TestNotFoundException {
+		return testService.getTestByTestId(testId);
+	}
 
-    /**
-     *
-     * @param test to be inserted into database
-     */
-    @PostMapping("/insert")
-    private void insertTest(@RequestBody Test test)
-    {
-        testService.insertTest(test);
-    }
+	/**
+	 * @param test to be inserted into database
+	 */
+	@PostMapping("/insert")
+	private void insertTest(@RequestBody Test test) {
+		testService.insertTest(test);
+	}
 
 }

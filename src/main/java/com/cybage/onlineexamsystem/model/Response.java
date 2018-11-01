@@ -1,21 +1,20 @@
 package com.cybage.onlineexamsystem.model;
 
-import java.io.Serializable;
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Date;
 
 
 /**
  * The persistent class for the tbl_response database table.
- * 
  */
 @Entity
-@Table(name="tbl_response")
-@NamedQuery(name="Response.findAll", query="SELECT t FROM Response t")
+@Table(name = "tbl_response")
+@NamedQuery(name = "Response.findAll", query = "SELECT t FROM Response t")
 public class Response implements Serializable {
 	private static final long serialVersionUID = 1L;
 
-	@Column(name="question_id")
+	@Column(name = "question_id")
 	private int questionId;
 
 	private String response;
@@ -23,13 +22,13 @@ public class Response implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 
-	@Column(name="response_id")
+	@Column(name = "response_id")
 	private int responseId;
 
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date timestamp;
 
-	@Column(name="user_id")
+	@Column(name = "user_id")
 	private int userId;
 
 	public Response() {

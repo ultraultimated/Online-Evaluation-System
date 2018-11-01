@@ -25,22 +25,21 @@ import java.io.Serializable;
 
 /**
  * The persistent class for the tbl_subcategory database table.
- * 
  */
 @Entity
-@Table(name="tbl_subcategory")
-@NamedQuery(name="Subcategory.findAll", query="SELECT t FROM SubCategory t")
+@Table(name = "tbl_subcategory")
+@NamedQuery(name = "Subcategory.findAll", query = "SELECT t FROM SubCategory t")
 public class SubCategory implements Serializable {
 	private static final long serialVersionUID = 1L;
 
-	@Column(name="category_id")
+	@Column(name = "category_id")
 	private int categoryId;
 
 	@Id
-	@Column(name="subcategory_id")
+	@Column(name = "subcategory_id")
 	private int subcategoryId;
 
-	@Column(name="subcategory_name")
+	@Column(name = "subcategory_name")
 	private String subcategoryName;
 
 	public SubCategory() {

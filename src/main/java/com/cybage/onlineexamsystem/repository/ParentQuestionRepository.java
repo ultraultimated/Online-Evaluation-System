@@ -30,5 +30,6 @@ import org.springframework.stereotype.Repository;
  * @author Poojan Patel
  */
 @Repository
-public interface ParentQuestionRepository extends JpaRepository<ParentQuestion, Integer> {
+public interface ParentQuestionRepository extends
+		JpaRepository<ParentQuestion, Integer> {
 }
