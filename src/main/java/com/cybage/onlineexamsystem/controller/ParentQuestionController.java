@@ -56,13 +56,28 @@ public class ParentQuestionController {
 	}
 
 	/**
-	 * @param id ParentQuestion Id to be found
+	 * @param testId to be found
+	 * @return list of ParentQuestion of given testId
+	 * @throws ParentQuestionNotFoundException
+	 */
+	@GetMapping("/test/id/{testId}")
+	private List getParentQuestionByTestId(
+			@PathVariable int testId) throws ParentQuestionNotFoundException {
+		return parentQuestionServiceImpl.getParentQuestionByTestId(testId);
+	}
+
+	/**
+	 * @param parentQuestionId ParentQuestion Id to be found
 	 * @return ParentQuestionDescription related to the id
 	 * @throws ParentQuestionNotFoundException
 	 */
-	@GetMapping("/id/{id}")
-	private String getParentQuestionById(
-			@PathVariable int id) throws ParentQuestionNotFoundException {
-		return parentQuestionServiceImpl.getParentQuestionById(id);
+	@GetMapping("/id/{parentQuestionId}")
+	private ParentQuestion getParentQuestionById(
+			@PathVariable
+					int parentQuestionId) throws
+			ParentQuestionNotFoundException {
+		return parentQuestionServiceImpl.getParentQuestionById
+				(parentQuestionId);
 	}
+
 }

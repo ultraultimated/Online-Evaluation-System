@@ -53,16 +53,15 @@ public class CategoryServiceImpl implements CategoryService {
 	}
 
 	/**
-	 * @param id the id to find category Name
+	 * @param categoryId the categoryId to find category Name
 	 * @return name of category by its ID
 	 */
 	@Override
-	public String getCategoryById(int id) throws CategoryNotFoundException {
+	public Category getCategoryById(int categoryId) throws CategoryNotFoundException {
 
-		Optional<Category> optional = categoryRepository.findById(id);
+		Optional<Category> optional = categoryRepository.findById(categoryId);
 		if (optional.isPresent()) {
-			Category category = optional.get();
-			return category.getCategoryName();
+			return optional.get();
 		} else {
 			throw new CategoryNotFoundException();
 		}

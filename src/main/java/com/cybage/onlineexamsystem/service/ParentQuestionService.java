@@ -42,10 +42,18 @@ public interface ParentQuestionService {
 	public List<ParentQuestion> getAllParentQuestion();
 
 	/**
+	 * @param testId to find Parentquestions
+	 * @return list of ParentQuestion of given testId
+	 * @throws ParentQuestionNotFoundException
+	 */
+	public List<ParentQuestion> getParentQuestionByTestId(int testId)
+			throws ParentQuestionNotFoundException;
+
+	/**
 	 * @param id the id to find ParentQuestionDescription Name
 	 * @return ParentQuestionDescription name for a particular Id.
 	 * @throws ParentQuestionNotFoundException
 	 */
-	public String getParentQuestionById(int id) throws
+	public ParentQuestion getParentQuestionById(int id) throws
 			ParentQuestionNotFoundException;
 }

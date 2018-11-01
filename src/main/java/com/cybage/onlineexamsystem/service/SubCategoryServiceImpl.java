@@ -61,7 +61,7 @@ public class SubCategoryServiceImpl implements SubCategoryService {
 	@Override
 	public List<SubCategory> getSubcategoryByCategoryId(int categoryId) throws
 			SubCategoryNotFoundException {
-		if ((subCategoryRepository.findAllByCategoryId(categoryId)).size() ==
+		if ((subCategoryRepository.findAllByCategoryId(categoryId)).size() !=
 		    0) {
 			return subCategoryRepository.findAllByCategoryId(categoryId);
 		} else {
@@ -73,7 +73,6 @@ public class SubCategoryServiceImpl implements SubCategoryService {
 	 * @param subCategoryId Id to be searched
 	 * @return Subcategory Object of ID found
 	 */
-
 	@Override
 	public SubCategory getSubCategoryById(int subCategoryId) throws
 			SubCategoryNotFoundException {
