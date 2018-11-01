@@ -29,56 +29,50 @@ import java.util.List;
 
 /**
  * The Example class provides ...
-
- @author {rahulpandy}
- @version
+ *
+ * @author {rahulpandy}
  */
 
 @RestController
+@RequestMapping("/user")
 public class UserController {
 
-    @Autowired
-    private UserServiceImpl userService;
+	@Autowired
+	private UserServiceImpl userService;
 
-    /**
-     *
-     * @param user
-     */
-    @PostMapping("/user/add")
-    private void insertuser(@RequestBody User user)
-    {
-        userService.addUser(user);
-    }
+	/**
+	 * @param user
+	 */
+	@PostMapping("/insert")
+	private void insertuser(@RequestBody User user) {
+		userService.addUser(user);
+	}
 
-    /**
-     *
-     * @return all users
-     */
-    @GetMapping("/user/all")
-    private List getAllUsers(){
+	/**
+	 * @return all users
+	 */
+	@GetMapping("/all")
+	private List getAllUsers() {
+		return userService.getAllUsers();
+	}
 
-        return userService.getAllUsers();
-    }
+	/**
+	 * @param id User Id to be found
+	 * @return User relaetd to the id
+	 */
+	@GetMapping("/id/{id}")
+	private User getUserById(
+			@PathVariable int id) throws UserNotFoundException {
+		return userService.getUserById(id);
+	}
 
-    /**
-     *
-     * @param id User Id to be found
-     * @return User relaetd to the id
-     */
-    @GetMapping("/user/id/{id}")
-    private User getUserById(@PathVariable int id) throws UserNotFoundException
-    {
-        return userService.getUserById(id);
-    }
-
-    /**
-     *
-     * @param username to be found
-     * @return User relaetd to the username
-     */
-    @GetMapping("/user/name/{username}")
-    private User getUserByUsername(@PathVariable String username) throws UserNotFoundException
-    {
-        return userService.getUserByUsername(username);
-    }
+	/**
+	 * @param username to be found
+	 * @return User relaetd to the username
+	 */
+	@GetMapping("/name/{username}")
+	private User getUserByUsername(
+			@PathVariable String username) throws UserNotFoundException {
+		return userService.getUserByUsername(username);
+	}
 }
