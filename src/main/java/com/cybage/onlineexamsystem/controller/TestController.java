@@ -19,7 +19,7 @@ public class TestController {
 	 * @return list of papers that contain the subcategroy
 	 * @throws TestNotFoundException if no test exist
 	 */
-	@GetMapping("/subcategory/{subCategoryId}")
+	@GetMapping("/subcategory/id/{subCategoryId}")
 	private List<Test> getAllTestBySubcategroyId(
 			@PathVariable int subCategoryId) throws TestNotFoundException {
 		return testService.getTestBySubCategory(subCategoryId);
@@ -39,7 +39,7 @@ public class TestController {
 	 * @return test object of that test Id
 	 * @throws TestNotFoundException if the test is not found of given ID
 	 */
-	@GetMapping("/{testId}")
+	@GetMapping("/id/{testId}")
 	private Test getTestByTestId(
 			@PathVariable int testId) throws TestNotFoundException {
 		return testService.getTestByTestId(testId);

@@ -62,7 +62,7 @@ public class CategoryController {
 	 * @return Category Name related to the id
 	 */
 	@GetMapping("/id/{id}")
-	private String getCategory(
+	private Category getCategory(
 			@PathVariable int id) throws CategoryNotFoundException {
 		return categoryServiceImpl.getCategoryById(id);
 	}

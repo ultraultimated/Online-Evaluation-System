@@ -21,6 +21,8 @@ import com.cybage.onlineexamsystem.model.ParentQuestion;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 /**
  * The Category interface Repository provides access to database by using
  * spring-data-JPA
@@ -32,4 +34,5 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface ParentQuestionRepository extends
 		JpaRepository<ParentQuestion, Integer> {
+	List<ParentQuestion> findAllByTestId(int testId);
 }

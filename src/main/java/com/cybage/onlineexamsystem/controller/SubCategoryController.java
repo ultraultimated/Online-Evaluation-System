@@ -15,12 +15,11 @@
  * @date 10/29/2018
  */
 
-
 package com.cybage.onlineexamsystem.controller;
 
 import com.cybage.onlineexamsystem.exceptions.SubCategoryNotFoundException;
 import com.cybage.onlineexamsystem.model.SubCategory;
-import com.cybage.onlineexamsystem.service.SubCategoryService;
+import com.cybage.onlineexamsystem.service.SubCategoryServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -31,19 +30,20 @@ import java.util.List;
  *
  * @author {neelp}
  */
+
 @RestController
 @RequestMapping("/subcategory")
 public class SubCategoryController {
 
 	@Autowired
-	private SubCategoryService subCategoryService;
+	private SubCategoryServiceImpl subCategoryServiceImpl;
 
 	/**
 	 * @param subCategory Subcategory object to be inserted in database.
 	 */
 	@PostMapping("/insert")
 	private void insertSubCategory(@RequestBody SubCategory subCategory) {
-		subCategoryService.insertSubCategory(subCategory);
+		subCategoryServiceImpl.insertSubCategory(subCategory);
 	}
 
 	/**
@@ -54,14 +54,19 @@ public class SubCategoryController {
 	private List getSubcategoryByCategoryId(
 			@PathVariable int categoryId) throws SubCategoryNotFoundException {
 
-		return subCategoryService.getSubcategoryByCategoryId(categoryId);
+		return subCategoryServiceImpl.getSubcategoryByCategoryId(categoryId);
 	}
 
+	/**
+	 * @param subCategoryId to be found
+	 * @return SubCategoryName related to the id
+	 * @throws SubCategoryNotFoundException
+	 */
 	@GetMapping("/id/{subCategoryId}")
 	private SubCategory getSubCategeryById(
 			@PathVariable
 					int subCategoryId) throws SubCategoryNotFoundException {
-		return subCategoryService.getSubCategoryById(subCategoryId);
+		return subCategoryServiceImpl.getSubCategoryById(subCategoryId);
 	}
 
 	/**
@@ -69,8 +74,7 @@ public class SubCategoryController {
 	 */
 	@GetMapping("/all")
 	private List getAllSubCategories() {
-		return subCategoryService.getAllSubcategories();
+		return subCategoryServiceImpl.getAllSubcategories();
 	}
-
 
 }

@@ -55,19 +55,32 @@ public class ParentQuestionServiceImpl implements ParentQuestionService {
 	}
 
 	/**
-	 * @param id the id to find ParentQuestionDescription Name
+	 * @param testId to find Parentquestions
+	 * @return list of ParentQuestion of given testId
+	 * @throws ParentQuestionNotFoundException
+	 */
+	public List<ParentQuestion> getParentQuestionByTestId(int testId)
+			throws ParentQuestionNotFoundException {
+		if (parentQuestionRepository.findAllByTestId(testId).size() != 0) {
+			return parentQuestionRepository.findAllByTestId(testId);
+		} else {
+			throw  new ParentQuestionNotFoundException();
+		}
+	}
+
+	/**
+	 * @param parentQuestionId the id to find ParentQuestionDescription Name
 	 * @return ParentQuestionDescription name for a particular Id.
 	 * @throws ParentQuestionNotFoundException
 	 */
 	@Override
-	public String getParentQuestionById(int id) throws
+	public ParentQuestion getParentQuestionById(int parentQuestionId) throws
 			ParentQuestionNotFoundException {
 
 		Optional<ParentQuestion> optional = parentQuestionRepository.findById
-				(id);
+				(parentQuestionId);
 		if (optional.isPresent()) {
-			ParentQuestion parentQuestion = optional.get();
-			return parentQuestion.getParentQuestionDesc();
+			return optional.get();
 		} else {
 			throw new ParentQuestionNotFoundException();
 		}

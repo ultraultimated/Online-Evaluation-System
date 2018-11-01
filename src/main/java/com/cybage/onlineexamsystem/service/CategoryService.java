@@ -43,7 +43,7 @@ public interface CategoryService {
 	 * @param id the id to find category Name
 	 * @return category name for a particular ID.
 	 */
-	public String getCategoryById(int id) throws CategoryNotFoundException;
+	public Category getCategoryById(int id) throws CategoryNotFoundException;
 
 }
 
