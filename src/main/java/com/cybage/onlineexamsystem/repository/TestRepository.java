@@ -24,11 +24,10 @@ import java.util.List;
 
 /**
  * The Example interface provides ...
-
- @author {neelp}
- @version
+ *
+ * @author {neelp}
  */
-public interface TestRepository extends JpaRepository<Test, Integer>
-{
-	public List<Test> findAllBySubcategoryId(int subCategroyId) throws TestNotFoundException;
+public interface TestRepository extends JpaRepository<Test, Integer> {
+	public List<Test> findAllBySubcategoryId(int subCategroyId) throws
+			TestNotFoundException;
 }

@@ -1,32 +1,31 @@
 package com.cybage.onlineexamsystem.model;
 
-import java.io.Serializable;
 import javax.persistence.*;
+import java.io.Serializable;
 
 
 /**
  * The persistent class for the tbl_result database table.
- * 
  */
 @Entity
-@Table(name="tbl_result")
-@NamedQuery(name="Result.findAll", query="SELECT t FROM Result t")
+@Table(name = "tbl_result")
+@NamedQuery(name = "Result.findAll", query = "SELECT t FROM Result t")
 public class Result implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	private int marks;
 
-	@Column(name="question_id")
+	@Column(name = "question_id")
 	private int questionId;
 
 	private String result;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name="result_id")
+	@Column(name = "result_id")
 	private int resultId;
 
-	@Column(name="user_id")
+	@Column(name = "user_id")
 	private int userId;
 
 	public Result() {

@@ -23,13 +23,11 @@ import org.springframework.stereotype.Component;
 
 /**
  * The Example class provides ...
-
- @author {neelp}
- @version
+ *
+ * @author {neelp}
  */
 @Component
-public class ErrorResponse
-{
+public class ErrorResponse {
 	private String errorMessage;
 	private String errorCode;
 	private HttpStatus httpStatus;

@@ -1,34 +1,34 @@
 package com.cybage.onlineexamsystem.model;
 
-import java.io.Serializable;
 import javax.persistence.*;
+import java.io.Serializable;
 
 
 /**
  * The persistent class for the tbl_competency_analysis database table.
- * 
  */
 @Entity
-@Table(name="tbl_competency_analysis")
-@NamedQuery(name="CompetencyAnalysis.findAll", query="SELECT t FROM CompetencyAnalysis t")
+@Table(name = "tbl_competency_analysis")
+@NamedQuery(name = "CompetencyAnalysis.findAll", query = "SELECT t FROM " +
+                                                         "CompetencyAnalysis t")
 public class CompetencyAnalysis implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name="competency_id")
+	@Column(name = "competency_id")
 	private int competencyId;
 
-	@Column(name="percent_obt")
+	@Column(name = "percent_obt")
 	private double percentObt;
 
-	@Column(name="test_id")
+	@Column(name = "test_id")
 	private int testId;
 
-	@Column(name="topic_name")
+	@Column(name = "topic_name")
 	private String topicName;
 
-	@Column(name="user_id")
+	@Column(name = "user_id")
 	private int userId;
 
 	public CompetencyAnalysis() {

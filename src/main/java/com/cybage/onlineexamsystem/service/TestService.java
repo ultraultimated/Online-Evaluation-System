@@ -23,27 +23,23 @@ import java.util.List;
 
 /**
  * The Example interface provides ...
-
- @author {neelp}
- @version
+ *
+ * @author {neelp}
  */
-public interface TestService
-{
+public interface TestService {
 	/**
-	 *
 	 * @return List of all tests
 	 */
 	public List<Test> getAllTests() throws TestNotFoundException;
 
 	/**
-	 *
 	 * @param subCategoryId Id to find all tests
 	 * @return List of tests with given subcategory ID
 	 */
-	public List<Test> getTestBySubCategory(int subCategoryId) throws TestNotFoundException;
+	public List<Test> getTestBySubCategory(int subCategoryId) throws
+			TestNotFoundException;
 
 	/**
-	 *
 	 * @param testId testID to find test
 	 * @return Test Object
 	 */

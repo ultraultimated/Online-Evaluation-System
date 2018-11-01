@@ -1,35 +1,34 @@
 package com.cybage.onlineexamsystem.model;
 
-import java.io.Serializable;
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Date;
 
 
 /**
  * The persistent class for the tbl_log database table.
- * 
  */
 @Entity
-@Table(name="tbl_log")
-@NamedQuery(name="Log.findAll", query="SELECT t FROM Log t")
+@Table(name = "tbl_log")
+@NamedQuery(name = "Log.findAll", query = "SELECT t FROM Log t")
 public class Log implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name="log_id")
+	@Column(name = "log_id")
 	private int logId;
 
-	@Column(name="percent_obt")
+	@Column(name = "percent_obt")
 	private double percentObt;
 
-	@Column(name="test_id")
+	@Column(name = "test_id")
 	private int testId;
 
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date timestamp;
 
-	@Column(name="user_id")
+	@Column(name = "user_id")
 	private int userId;
 
 	public Log() {

@@ -36,43 +36,42 @@ import java.util.Optional;
 @Service
 public class UserServiceImpl implements UserService {
 
-    @Autowired
-    private UserRepository userRepository;
+	@Autowired
+	private UserRepository userRepository;
 
-    @Override
-    /**
-     * @param user object with values to save in database
-     */
-    public void addUser(User user) {
-        userRepository.save(user);
-    }
+	@Override
+	/**
+	 * @param user object with values to save in database
+	 */
+	public void addUser(User user) {
+		userRepository.save(user);
+	}
 
-    @Override
-    public List<User> getAllUsers() {
-        return userRepository.findAll();
-    }
+	@Override
+	public List<User> getAllUsers() {
+		return userRepository.findAll();
+	}
 
-    @Override
-    public User getUserById(int id) throws UserNotFoundException {
-        Optional<User> optional = userRepository.findById(id);
-        if( optional.isPresent() ) {
-            User user = optional.get();
-            return user;
-        }
-        else {
-            throw new UserNotFoundException();
-        }
-    }
+	@Override
+	public User getUserById(int id) throws UserNotFoundException {
+		Optional<User> optional = userRepository.findById(id);
+		if (optional.isPresent()) {
+			User user = optional.get();
+			return user;
+		} else {
+			throw new UserNotFoundException();
+		}
+	}
 
-    @Override
-    public User getUserByUsername(String username) throws UserNotFoundException {
-        Optional<User> optional = userRepository.findByUsername(username);
-        if( optional.isPresent() ) {
-            User user = optional.get();
-            return user;
-        }
-        else {
-            throw new UserNotFoundException();
-        }
-    }
+	@Override
+	public User getUserByUsername(String username) throws
+			UserNotFoundException {
+		Optional<User> optional = userRepository.findByUsername(username);
+		if (optional.isPresent()) {
+			User user = optional.get();
+			return user;
+		} else {
+			throw new UserNotFoundException();
+		}
+	}
 }

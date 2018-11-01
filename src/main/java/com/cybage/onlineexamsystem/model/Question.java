@@ -7,11 +7,10 @@ import java.io.Serializable;
 
 /**
  * The persistent class for the tbl_question database table.
- * 
  */
 @Entity
-@Table(name="tbl_question")
-@NamedQuery(name="Question.findAll", query="SELECT t FROM Question t")
+@Table(name = "tbl_question")
+@NamedQuery(name = "Question.findAll", query = "SELECT t FROM Question t")
 public class Question implements Serializable {
 	private static final long serialVersionUID = 1L;
 
@@ -19,20 +18,20 @@ public class Question implements Serializable {
 
 	private int marks;
 
-	@Column(name="parent_question_id")
+	@Column(name = "parent_question_id")
 	private int parentQuestionId;
 
 	@Id
-	@Column(name="question_id")
+	@Column(name = "question_id")
 	private int questionId;
 
-	@Column(name="question_name")
+	@Column(name = "question_name")
 	private String questionName;
 
-	@Column(name="question_type")
+	@Column(name = "question_type")
 	private String questionType;
 
-	@Column(name="subtopic_name")
+	@Column(name = "subtopic_name")
 	private String subtopicName;
 
 	public Question() {

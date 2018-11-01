@@ -36,7 +36,8 @@ public class GlobalExceptionHandler {
 
 	@ExceptionHandler(CategoryNotFoundException.class)
 	@ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
-	public ErrorResponse handleCategoryNotFoundException(CategoryNotFoundException exception) {
+	public ErrorResponse handleCategoryNotFoundException
+			(CategoryNotFoundException exception) {
 		errorResponse.setErrorMessage("Category with given ID does not exist");
 		errorResponse.setErrorCode("500");
 		errorResponse.setHttpStatus(HttpStatus.INTERNAL_SERVER_ERROR);
@@ -45,9 +46,9 @@ public class GlobalExceptionHandler {
 
 	@ExceptionHandler(SubCategoryNotFoundException.class)
 	@ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
-	public ErrorResponse handleSubCategoryException()
-	{
-		errorResponse.setErrorCode("Subcategory with given category Id is not found");
+	public ErrorResponse handleSubCategoryException() {
+		errorResponse.setErrorCode("Subcategory with given category Id is not " +
+		                           "found");
 		errorResponse.setErrorCode("500");
 		errorResponse.setHttpStatus(HttpStatus.INTERNAL_SERVER_ERROR);
 		return errorResponse;
@@ -55,9 +56,9 @@ public class GlobalExceptionHandler {
 
 	@ExceptionHandler(ParentQuestionNotFoundException.class)
 	@ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
-	public ErrorResponse handleParentQuestionException()
-	{
-		errorResponse.setErrorCode("ParentQuestion with given category Id is not found");
+	public ErrorResponse handleParentQuestionException() {
+		errorResponse.setErrorCode("ParentQuestion with given category Id is " +
+		                           "not found");
 		errorResponse.setErrorCode("500");
 		errorResponse.setHttpStatus(HttpStatus.INTERNAL_SERVER_ERROR);
 		return errorResponse;

@@ -20,9 +20,8 @@ package com.cybage.onlineexamsystem.exceptions;
 
 /**
  * The Example class provides ...
-
- @author {neelp}
- @version
+ *
+ * @author {neelp}
  */
 public class SubCategoryNotFoundException extends Exception {
 

@@ -29,73 +29,61 @@ import java.util.Optional;
 
 /**
  * The Example class provides ...
-
- @author {neelp}
- @version
+ *
+ * @author {neelp}
  */
 @Service
-public class TestServiceImpl implements TestService
-{
+public class TestServiceImpl implements TestService {
 	@Autowired
 	private TestRepository testRepository;
+
 	/**
-	 *
 	 * @return List of all tests
 	 */
 	@Override
-	public List<Test> getAllTests() throws TestNotFoundException{
+	public List<Test> getAllTests() throws TestNotFoundException {
 
-		if((testRepository.findAll()).size() != 0) {
+		if ((testRepository.findAll()).size() != 0) {
 			return testRepository.findAll();
-		}
-		else
-		{
+		} else {
 			throw new TestNotFoundException();
 		}
 	}
 
 	/**
-	 *
 	 * @param subCategoryId Id to find all tests
 	 * @return List of all tests matching a category
 	 */
 	@Override
-	public List<Test> getTestBySubCategory(int subCategoryId) throws TestNotFoundException {
-		if( (testRepository.findAllBySubcategoryId(subCategoryId)).size() != 0)
-		{
+	public List<Test> getTestBySubCategory(int subCategoryId) throws
+			TestNotFoundException {
+		if ((testRepository.findAllBySubcategoryId(subCategoryId)).size() !=
+		    0) {
 			return testRepository.findAllBySubcategoryId(subCategoryId);
-		}
-		else
-		{
+		} else {
 			throw new TestNotFoundException();
 		}
 	}
 
 	/**
-	 *
 	 * @param testId testID to find test
 	 * @return test object containing all values
 	 */
 	@Override
-	public Test getTestByTestId(int testId) throws TestNotFoundException{
+	public Test getTestByTestId(int testId) throws TestNotFoundException {
 		Optional<Test> optional = testRepository.findById(testId);
-		if( optional.isPresent())
-		{
+		if (optional.isPresent()) {
 			return optional.get();
-		}
-		else
-		{
+		} else {
 			throw new TestNotFoundException();
 		}
 	}
 
 	/**
-	 *
 	 * @param test object to be inserted into database
 	 */
 	@Override
-	public void insertTest(Test test)
-	{
+	public void insertTest(Test test) {
 		testRepository.save(test);
 	}
 

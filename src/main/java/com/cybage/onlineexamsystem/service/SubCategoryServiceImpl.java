@@ -41,8 +41,7 @@ public class SubCategoryServiceImpl implements SubCategoryService {
 	 * @param subCategory object to be added
 	 */
 	@Override
-	public void insertSubCategory(SubCategory subCategory)
-	{
+	public void insertSubCategory(SubCategory subCategory) {
 		subCategoryRepository.save(subCategory);
 	}
 
@@ -60,9 +59,10 @@ public class SubCategoryServiceImpl implements SubCategoryService {
 	 * @return SubCategories of given ID
 	 */
 	@Override
-	public List<SubCategory> getSubcategoryByCategoryId(int categoryId) throws SubCategoryNotFoundException
-	{
-		if( (subCategoryRepository.findAllByCategoryId(categoryId)).size() == 0 ) {
+	public List<SubCategory> getSubcategoryByCategoryId(int categoryId) throws
+			SubCategoryNotFoundException {
+		if ((subCategoryRepository.findAllByCategoryId(categoryId)).size() ==
+		    0) {
 			return subCategoryRepository.findAllByCategoryId(categoryId);
 		} else {
 			throw new SubCategoryNotFoundException();
@@ -75,10 +75,11 @@ public class SubCategoryServiceImpl implements SubCategoryService {
 	 */
 
 	@Override
-	public SubCategory getSubCategoryBySubCategoryId(int subCategoryId) throws SubCategoryNotFoundException {
+	public SubCategory getSubCategoryById(int subCategoryId) throws
+			SubCategoryNotFoundException {
 		Optional<SubCategory> optional =
 				subCategoryRepository.findById(subCategoryId);
-		if( optional.isPresent() ) {
+		if (optional.isPresent()) {
 			return optional.get();
 		} else {
 			throw new SubCategoryNotFoundException();
