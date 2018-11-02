@@ -40,7 +40,7 @@ public class UserLogController {
 	 * @param userId of the user
 	 * @return list of all tests
 	 */
-	@GetMapping("/test/user/{userId}")
+	@GetMapping("/test/user/id/{userId}")
 	private List<Log> getAllTestByUserId(@PathVariable int userId)
 	{
 		return userLogService.getAllTestsByUserId(userId);
