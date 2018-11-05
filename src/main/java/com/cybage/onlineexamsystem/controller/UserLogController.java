@@ -41,14 +41,12 @@ public class UserLogController {
 	 * @return list of all tests
 	 */
 	@GetMapping("/test/user/id/{userId}")
-	private List<Log> getAllTestByUserId(@PathVariable int userId)
-	{
+	private List<Log> getAllTestByUserId(@PathVariable int userId) {
 		return userLogService.getAllTestsByUserId(userId);
 	}
 
 	@PostMapping("/insert")
-	private void insertLog(@RequestBody Log log)
-	{
+	private void insertLog(@RequestBody Log log) {
 		userLogService.insertLog(log);
 	}
 }

@@ -73,5 +73,15 @@ public class GlobalExceptionHandler {
 		return errorResponse;
 	}
 
+	@ExceptionHandler(SheetCountException.class)
+	@ResponseStatus(HttpStatus.NOT_ACCEPTABLE)
+	public ErrorResponse sheetCountException()
+	{
+		errorResponse.setErrorMessage("sheet count must be 6");
+		errorResponse.setErrorCode("100");
+		errorResponse.setHttpStatus(HttpStatus.NOT_ACCEPTABLE);
+		return errorResponse;
+	}
+
 
 }
