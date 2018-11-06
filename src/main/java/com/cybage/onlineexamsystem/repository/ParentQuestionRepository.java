@@ -18,6 +18,7 @@
 package com.cybage.onlineexamsystem.repository;
 
 import com.cybage.onlineexamsystem.model.ParentQuestion;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

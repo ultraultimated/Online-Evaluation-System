@@ -22,6 +22,7 @@ public class Question implements Serializable {
 	private int parentQuestionId;
 
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "question_id")
 	private int questionId;
 

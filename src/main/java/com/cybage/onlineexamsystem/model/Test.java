@@ -19,6 +19,7 @@ public class Test implements Serializable {
 	private int subcategoryId;
 
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "test_id")
 	private int testId;
 

@@ -10,7 +10,7 @@ import java.io.Serializable;
 @Entity
 @Table(name = "tbl_user_test")
 @NamedQuery(name = "UserTest.findAll", query = "SELECT t FROM UserTest t")
-public class UserTest implements Serializable {
+public class  UserTest implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Column(name = "test_id")

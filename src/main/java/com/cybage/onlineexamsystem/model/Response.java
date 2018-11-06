@@ -21,7 +21,6 @@ public class Response implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-
 	@Column(name = "response_id")
 	private int responseId;
 

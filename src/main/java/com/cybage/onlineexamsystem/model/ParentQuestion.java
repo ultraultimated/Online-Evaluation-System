@@ -20,6 +20,7 @@ public class ParentQuestion implements Serializable {
 	private String parentQuestionDesc;
 
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "parent_question_id")
 	private int parentQuestionId;
 

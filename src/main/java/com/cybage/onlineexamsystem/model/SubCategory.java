@@ -36,6 +36,7 @@ public class SubCategory implements Serializable {
 	private int categoryId;
 
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "subcategory_id")
 	private int subcategoryId;
 
