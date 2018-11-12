@@ -76,14 +76,13 @@ public class UploadExcelImpl implements UploadExcel {
 			}
 
 
-			for (int i=1; i< sheet.getLastRowNum(); i++) {
+			for (int i = 1; i < sheet.getLastRowNum(); i++) {
 				Row row = sheet.getRow(i);
 				if (checkNull(row)) {
 					ParentQuestion parentQuestion = new ParentQuestion();
 
 					parentQuestion.setParentQuestionDesc(row.getCell(1)
-							                                     .toString
-									                                     ());
+							                                     .toString());
 					parentQuestion.setDifficulty(row.getCell(2).toString());
 					parentQuestion.setSubjectivity(row.getCell(3).toString());
 					parentQuestion.setTopicName(row.getCell(4).toString());

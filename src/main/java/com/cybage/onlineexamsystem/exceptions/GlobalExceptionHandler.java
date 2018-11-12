@@ -63,6 +63,26 @@ public class GlobalExceptionHandler {
 		return errorResponse;
 	}
 
+	@ExceptionHandler(QuestionNotFoundException.class)
+	@ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
+	public ErrorResponse handleQuestionException()
+	{
+		errorResponse.setErrorMessage("Question with given ParentQuestion Id is not found");
+		errorResponse.setErrorCode("500");
+		errorResponse.setHttpStatus(HttpStatus.INTERNAL_SERVER_ERROR);
+		return errorResponse;
+	}
+
+	@ExceptionHandler(OptionNotFoundException.class)
+	@ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
+	public ErrorResponse handleOptionException()
+	{
+		errorResponse.setErrorMessage("Option with given Question Id is not found");
+		errorResponse.setErrorCode("500");
+		errorResponse.setHttpStatus(HttpStatus.INTERNAL_SERVER_ERROR);
+		return errorResponse;
+	}
+
 	@ExceptionHandler(UserNotFoundException.class)
 	@ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
 	public ErrorResponse handleUserNotFoundException()

@@ -41,5 +41,6 @@ public interface UploadExcel {
 	public void readFile(String filePath) throws IOException, InvalidFormatException, SheetCountException;
 
 	public boolean checkSheetCount(int sheetCount) throws SheetCountException;
+
 	public boolean checkNull(Row row);
 }

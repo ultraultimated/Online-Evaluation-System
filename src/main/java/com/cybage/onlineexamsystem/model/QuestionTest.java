@@ -17,6 +17,9 @@ public class QuestionTest implements Serializable {
 	@Column(name = "question_id")
 	private int questionId;
 
+	@Column(name = "parent_question_id")
+	private int parentQuestionId;
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "question_test_id")
@@ -34,6 +37,14 @@ public class QuestionTest implements Serializable {
 
 	public void setQuestionId(int questionId) {
 		this.questionId = questionId;
+	}
+
+	public int getParentQuestionId() {
+		return parentQuestionId;
+	}
+
+	public void setParentQuestionId(int parentQuestionId) {
+		this.parentQuestionId = parentQuestionId;
 	}
 
 	public int getQuestionTestId() {

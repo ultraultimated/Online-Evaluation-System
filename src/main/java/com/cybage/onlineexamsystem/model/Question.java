@@ -26,8 +26,8 @@ public class Question implements Serializable {
 	@Column(name = "question_id")
 	private int questionId;
 
-	@Column(name = "question_name")
-	private String questionName;
+	@Column(name = "question_desc")
+	private String questionDesc;
 
 	@Column(name = "question_type")
 	private String questionType;
@@ -70,12 +70,12 @@ public class Question implements Serializable {
 		this.questionId = questionId;
 	}
 
-	public String getQuestionName() {
-		return this.questionName;
+	public String getQuestionDesc() {
+		return this.questionDesc;
 	}
 
-	public void setQuestionName(String questionName) {
-		this.questionName = questionName;
+	public void setQuestionDesc(String questionDesc) {
+		this.questionDesc = questionDesc;
 	}
 
 	public String getQuestionType() {
