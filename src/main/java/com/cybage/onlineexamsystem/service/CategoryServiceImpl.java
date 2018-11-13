@@ -20,12 +20,13 @@ package com.cybage.onlineexamsystem.service;
 
 import com.cybage.onlineexamsystem.exceptions.CategoryNotFoundException;
 import com.cybage.onlineexamsystem.model.Category;
+import com.cybage.onlineexamsystem.model.SubCategory;
+import com.cybage.onlineexamsystem.model.Test;
 import com.cybage.onlineexamsystem.repository.CategoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 /**
  * The Example class provides ...
@@ -49,6 +50,9 @@ public class CategoryServiceImpl implements CategoryService {
 	 * @return List of all categories in category table
 	 */
 	public List<Category> getAllCategories() {
+
+		//subCategory.setCategory(category);
+		//test.setSubCategory(subCategory);
 		return categoryRepository.findAll();
 	}
 
@@ -57,13 +61,17 @@ public class CategoryServiceImpl implements CategoryService {
 	 * @return name of category by its ID
 	 */
 	@Override
-	public Category getCategoryById(int categoryId) throws CategoryNotFoundException {
+	public Category getCategoryById(int categoryId) throws
+			CategoryNotFoundException {
 
-		Optional<Category> optional = categoryRepository.findById(categoryId);
-		if (optional.isPresent()) {
-			return optional.get();
-		} else {
-			throw new CategoryNotFoundException();
-		}
+//		Optional<Category> optional = categoryRepository.findById(categoryId);
+//		if (optional.isPresent()) {
+//			return optional.get();
+//		} else {
+//			throw new CategoryNotFoundException();
+//		}
+
+		return categoryRepository.findById(categoryId).orElseThrow
+				(CategoryNotFoundException::new);
 	}
 }

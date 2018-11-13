@@ -17,6 +17,7 @@
 
 package com.cybage.onlineexamsystem.controller;
 
+import com.cybage.onlineexamsystem.exceptions.CategoryNotFoundException;
 import com.cybage.onlineexamsystem.exceptions.SubCategoryNotFoundException;
 import com.cybage.onlineexamsystem.model.SubCategory;
 import com.cybage.onlineexamsystem.service.SubCategoryServiceImpl;
@@ -52,7 +53,7 @@ public class SubCategoryController {
 	 */
 	@GetMapping("/category/id/{categoryId}")
 	private List getSubcategoryByCategoryId(
-			@PathVariable int categoryId) throws SubCategoryNotFoundException {
+			@PathVariable int categoryId) throws CategoryNotFoundException {
 
 		return subCategoryServiceImpl.getSubcategoryByCategoryId(categoryId);
 	}

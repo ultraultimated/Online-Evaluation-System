@@ -1,5 +1,7 @@
 package com.cybage.onlineexamsystem.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.io.Serializable;
 
@@ -15,9 +17,6 @@ public class Test implements Serializable {
 
 	private int cutoff;
 
-	@Column(name = "subcategory_id")
-	private int subcategoryId;
-
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "test_id")
@@ -29,6 +28,11 @@ public class Test implements Serializable {
 	@Column(name = "total_marks")
 	private int totalMarks;
 
+	@ManyToOne
+	@JoinColumn(name = "subcategory_id")
+	@JsonIgnore
+	private SubCategory subCategory;
+
 	public Test() {
 	}
 
@@ -38,14 +42,6 @@ public class Test implements Serializable {
 
 	public void setCutoff(int cutoff) {
 		this.cutoff = cutoff;
-	}
-
-	public int getSubcategoryId() {
-		return this.subcategoryId;
-	}
-
-	public void setSubcategoryId(int subcategoryId) {
-		this.subcategoryId = subcategoryId;
 	}
 
 	public int getTestId() {
@@ -72,4 +68,11 @@ public class Test implements Serializable {
 		this.totalMarks = totalMarks;
 	}
 
+	public SubCategory getSubCategory() {
+		return subCategory;
+	}
+
+	public void setSubCategory(SubCategory subCategory) {
+		this.subCategory = subCategory;
+	}
 }

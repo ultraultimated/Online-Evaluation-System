@@ -19,8 +19,12 @@
 
 package com.cybage.onlineexamsystem.model;
 
+import org.springframework.stereotype.Component;
+
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 
 /**
@@ -39,6 +43,9 @@ public class Category implements Serializable {
 
 	@Column(name = "category_name")
 	private String categoryName;
+
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "category")
+	private List<SubCategory> subCategoryList;
 
 	public Category() {
 	}
@@ -59,4 +66,11 @@ public class Category implements Serializable {
 		this.categoryName = categoryName;
 	}
 
+	public List<SubCategory> getSubCategoryList() {
+		return subCategoryList;
+	}
+
+	public void setSubCategoryList(List<SubCategory> subCategoryList) {
+		this.subCategoryList = subCategoryList;
+	}
 }

@@ -18,8 +18,11 @@
 
 package com.cybage.onlineexamsystem.service;
 
+import com.cybage.onlineexamsystem.exceptions.SubCategoryNotFoundException;
 import com.cybage.onlineexamsystem.exceptions.TestNotFoundException;
+import com.cybage.onlineexamsystem.model.SubCategory;
 import com.cybage.onlineexamsystem.model.Test;
+import com.cybage.onlineexamsystem.repository.SubCategoryRepository;
 import com.cybage.onlineexamsystem.repository.TestRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -36,6 +39,9 @@ import java.util.Optional;
 public class TestServiceImpl implements TestService {
 	@Autowired
 	private TestRepository testRepository;
+
+	@Autowired
+	private SubCategoryRepository subCategoryRepository;
 
 	/**
 	 * @return List of all tests
@@ -55,14 +61,15 @@ public class TestServiceImpl implements TestService {
 	 * @return List of all tests matching a category
 	 */
 	@Override
-	public List<Test> getTestBySubCategory(int subCategoryId) throws
-			TestNotFoundException {
-		if ((testRepository.findAllBySubcategoryId(subCategoryId)).size() !=
-		    0) {
-			return testRepository.findAllBySubcategoryId(subCategoryId);
-		} else {
-			throw new TestNotFoundException();
-		}
+	public List<Test> getTestBySubCategoryId(int subCategoryId) throws SubCategoryNotFoundException {
+//		if ((testRepository.findAllBySubcategoryId(subCategoryId)).size() !=
+//		    0) {
+//			return testRepository.findAllBySubcategoryId(subCategoryId);
+//		} else {
+//			throw new TestNotFoundException();
+//		}
+		return subCategoryRepository.findById(subCategoryId).orElseThrow(SubCategoryNotFoundException::new).getTestList();
+
 	}
 
 	/**

@@ -19,8 +19,12 @@
 
 package com.cybage.onlineexamsystem.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.springframework.stereotype.Component;
+
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 
 
 /**
@@ -32,9 +36,6 @@ import java.io.Serializable;
 public class SubCategory implements Serializable {
 	private static final long serialVersionUID = 1L;
 
-	@Column(name = "category_id")
-	private int categoryId;
-
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "subcategory_id")
@@ -43,15 +44,15 @@ public class SubCategory implements Serializable {
 	@Column(name = "subcategory_name")
 	private String subcategoryName;
 
+	@ManyToOne
+	@JoinColumn(name = "categoryId", nullable = false)
+	@JsonIgnore
+	private Category category;
+
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "subCategory")
+	private List<Test> testList;
+
 	public SubCategory() {
-	}
-
-	public int getCategoryId() {
-		return this.categoryId;
-	}
-
-	public void setCategoryId(int categoryId) {
-		this.categoryId = categoryId;
 	}
 
 	public int getSubcategoryId() {
@@ -70,4 +71,19 @@ public class SubCategory implements Serializable {
 		this.subcategoryName = subcategoryName;
 	}
 
+	public Category getCategory() {
+		return category;
+	}
+
+	public void setCategory(Category category) {
+		this.category = category;
+	}
+
+	public List<Test> getTestList() {
+		return testList;
+	}
+
+	public void setTestList(List<Test> testList) {
+		this.testList = testList;
+	}
 }

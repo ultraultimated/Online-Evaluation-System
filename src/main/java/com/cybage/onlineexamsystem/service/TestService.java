@@ -16,6 +16,7 @@
  */
 package com.cybage.onlineexamsystem.service;
 
+import com.cybage.onlineexamsystem.exceptions.SubCategoryNotFoundException;
 import com.cybage.onlineexamsystem.exceptions.TestNotFoundException;
 import com.cybage.onlineexamsystem.model.Test;
 
@@ -36,8 +37,7 @@ public interface TestService {
 	 * @param subCategoryId Id to find all tests
 	 * @return List of tests with given subcategory ID
 	 */
-	public List<Test> getTestBySubCategory(int subCategoryId) throws
-			TestNotFoundException;
+	public List<Test> getTestBySubCategoryId(int subCategoryId) throws SubCategoryNotFoundException;
 
 	/**
 	 * @param testId testID to find test

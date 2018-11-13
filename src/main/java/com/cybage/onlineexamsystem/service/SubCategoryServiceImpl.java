@@ -18,8 +18,10 @@
 
 package com.cybage.onlineexamsystem.service;
 
+import com.cybage.onlineexamsystem.exceptions.CategoryNotFoundException;
 import com.cybage.onlineexamsystem.exceptions.SubCategoryNotFoundException;
 import com.cybage.onlineexamsystem.model.SubCategory;
+import com.cybage.onlineexamsystem.repository.CategoryRepository;
 import com.cybage.onlineexamsystem.repository.SubCategoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -36,6 +38,9 @@ import java.util.Optional;
 public class SubCategoryServiceImpl implements SubCategoryService {
 	@Autowired
 	private SubCategoryRepository subCategoryRepository;
+
+	@Autowired
+	private CategoryRepository categoryRepository;
 
 	/**
 	 * @param subCategory object to be added
@@ -60,13 +65,14 @@ public class SubCategoryServiceImpl implements SubCategoryService {
 	 */
 	@Override
 	public List<SubCategory> getSubcategoryByCategoryId(int categoryId) throws
-			SubCategoryNotFoundException {
-		if ((subCategoryRepository.findAllByCategoryId(categoryId)).size() !=
-		    0) {
-			return subCategoryRepository.findAllByCategoryId(categoryId);
-		} else {
-			throw new SubCategoryNotFoundException();
-		}
+			CategoryNotFoundException {
+//		if ((subCategoryRepository.findAllByCategoryId(categoryId)).size() !=
+//		    0) {
+//			return subCategoryRepository.findAllByCategoryId(categoryId);
+//		} else {
+//			throw new SubCategoryNotFoundException();
+//		}
+		return categoryRepository.findById(categoryId).orElseThrow(CategoryNotFoundException::new).getSubCategoryList();
 	}
 
 	/**
