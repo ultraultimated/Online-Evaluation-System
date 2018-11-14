@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 
 
 /**
@@ -32,6 +33,9 @@ public class Test implements Serializable {
 	@JoinColumn(name = "subcategory_id")
 	@JsonIgnore
 	private SubCategory subCategory;
+
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "test")
+	private List<ParentQuestion> parentQuestionList;
 
 	public Test() {
 	}
@@ -74,5 +78,14 @@ public class Test implements Serializable {
 
 	public void setSubCategory(SubCategory subCategory) {
 		this.subCategory = subCategory;
+	}
+
+	public List<ParentQuestion> getParentQuestionList() {
+		return parentQuestionList;
+	}
+
+	public void setParentQuestionList(List<ParentQuestion>
+			                                  parentQuestionList) {
+		this.parentQuestionList = parentQuestionList;
 	}
 }

@@ -18,6 +18,7 @@
 package com.cybage.onlineexamsystem.controller;
 
 import com.cybage.onlineexamsystem.exceptions.ParentQuestionNotFoundException;
+import com.cybage.onlineexamsystem.exceptions.TestNotFoundException;
 import com.cybage.onlineexamsystem.model.ParentQuestion;
 import com.cybage.onlineexamsystem.service.ParentQuestionServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -62,7 +63,7 @@ public class ParentQuestionController {
 	 */
 	@GetMapping("/test/id/{testId}")
 	private List getParentQuestionByTestId(
-			@PathVariable int testId) throws ParentQuestionNotFoundException {
+			@PathVariable int testId) throws TestNotFoundException {
 		return parentQuestionServiceImpl.getParentQuestionByTestId(testId);
 	}
 

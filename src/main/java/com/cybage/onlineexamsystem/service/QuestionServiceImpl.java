@@ -17,9 +17,12 @@
 
 package com.cybage.onlineexamsystem.service;
 
+import com.cybage.onlineexamsystem.exceptions.ParentQuestionNotFoundException;
 import com.cybage.onlineexamsystem.exceptions.QuestionNotFoundException;
 import com.cybage.onlineexamsystem.model.Question;
+import com.cybage.onlineexamsystem.repository.ParentQuestionRepository;
 import com.cybage.onlineexamsystem.repository.QuestionRepository;
+import org.eclipse.persistence.tools.PackageRenamer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -38,6 +41,9 @@ public class QuestionServiceImpl implements QuestionService {
 	@Autowired
 	private QuestionRepository questionRepository;
 
+	@Autowired
+	private ParentQuestionRepository parentQuestionRepository;
+
 	@Override
 	public void insertQuestion(Question question) {
 		questionRepository.save(question);
@@ -50,25 +56,13 @@ public class QuestionServiceImpl implements QuestionService {
 
 	@Override
 	public List<Question> getQuestionByParentQuestionId(int parentQuestionId)
-			throws QuestionNotFoundException {
-		if (questionRepository.findAllByParentQuestionId(parentQuestionId)
-				    .size() != 0) {
-			return questionRepository.findAllByParentQuestionId
-					(parentQuestionId);
-		} else {
-			throw new QuestionNotFoundException();
-		}
+			throws ParentQuestionNotFoundException {
+		return parentQuestionRepository.findById(parentQuestionId).orElseThrow(ParentQuestionNotFoundException::new).getQuestionList();
 	}
 
 	@Override
 	public Question getQuestionById(int questionId) throws
 			QuestionNotFoundException {
-		Optional<Question> optional = questionRepository.findById
-				(questionId);
-		if (optional.isPresent()) {
-			return optional.get();
-		} else {
-			throw new QuestionNotFoundException();
-		}
+		return questionRepository.findById(questionId).orElseThrow(QuestionNotFoundException::new);
 	}
 }

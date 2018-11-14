@@ -45,7 +45,7 @@ public class SubCategory implements Serializable {
 	private String subcategoryName;
 
 	@ManyToOne
-	@JoinColumn(name = "categoryId", nullable = false)
+	@JoinColumn(name = "category_id")
 	@JsonIgnore
 	private Category category;
 
@@ -86,4 +86,6 @@ public class SubCategory implements Serializable {
 	public void setTestList(List<Test> testList) {
 		this.testList = testList;
 	}
+
+
 }

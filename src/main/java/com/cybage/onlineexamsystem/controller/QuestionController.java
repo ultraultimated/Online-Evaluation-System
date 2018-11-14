@@ -17,6 +17,7 @@
 
 package com.cybage.onlineexamsystem.controller;
 
+import com.cybage.onlineexamsystem.exceptions.ParentQuestionNotFoundException;
 import com.cybage.onlineexamsystem.exceptions.QuestionNotFoundException;
 import com.cybage.onlineexamsystem.model.Question;
 import com.cybage.onlineexamsystem.service.QuestionServiceImpl;
@@ -49,7 +50,7 @@ public class QuestionController {
 	}
 
 	@GetMapping("/parentQuestion/id/{parentQuestionId}")
-	private List getQuestionByParentQuestionId(@PathVariable int parentQuestionId) throws QuestionNotFoundException {
+	private List getQuestionByParentQuestionId(@PathVariable int parentQuestionId) throws ParentQuestionNotFoundException {
 		return questionServiceImpl.getQuestionByParentQuestionId(parentQuestionId);
 	}
 

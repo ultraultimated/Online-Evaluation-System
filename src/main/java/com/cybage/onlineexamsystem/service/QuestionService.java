@@ -17,6 +17,7 @@
 
 package com.cybage.onlineexamsystem.service;
 
+import com.cybage.onlineexamsystem.exceptions.ParentQuestionNotFoundException;
 import com.cybage.onlineexamsystem.exceptions.QuestionNotFoundException;
 import com.cybage.onlineexamsystem.model.Question;
 
@@ -36,7 +37,7 @@ public interface QuestionService {
 	public List<Question> getAllQuestion();
 
 	public List<Question> getQuestionByParentQuestionId(int parentQuestionId)
-			throws QuestionNotFoundException;
+			throws ParentQuestionNotFoundException;
 
 	public Question getQuestionById(int questionId) throws
 			QuestionNotFoundException;

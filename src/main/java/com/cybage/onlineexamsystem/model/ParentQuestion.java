@@ -1,7 +1,10 @@
 package com.cybage.onlineexamsystem.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 
 
 /**
@@ -26,11 +29,16 @@ public class ParentQuestion implements Serializable {
 
 	private String subjectivity;
 
-	@Column(name = "test_id")
-	private int testId;
-
 	@Column(name = "topic_name")
 	private String topicName;
+
+	@ManyToOne
+	@JoinColumn(name = "test_id")
+	@JsonIgnore
+	private Test test;
+
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "parentQuestion")
+	private List<Question> questionList;
 
 	public ParentQuestion() {
 	}
@@ -67,14 +75,6 @@ public class ParentQuestion implements Serializable {
 		this.subjectivity = subjectivity;
 	}
 
-	public int getTestId() {
-		return this.testId;
-	}
-
-	public void setTestId(int testId) {
-		this.testId = testId;
-	}
-
 	public String getTopicName() {
 		return this.topicName;
 	}
@@ -83,4 +83,19 @@ public class ParentQuestion implements Serializable {
 		this.topicName = topicName;
 	}
 
+	public Test getTest() {
+		return test;
+	}
+
+	public void setTest(Test test) {
+		this.test = test;
+	}
+
+	public List<Question> getQuestionList() {
+		return questionList;
+	}
+
+	public void setQuestionList(List<Question> questionList) {
+		this.questionList = questionList;
+	}
 }

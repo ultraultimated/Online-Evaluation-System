@@ -18,6 +18,7 @@
 package com.cybage.onlineexamsystem.service;
 
 import com.cybage.onlineexamsystem.exceptions.ParentQuestionNotFoundException;
+import com.cybage.onlineexamsystem.exceptions.TestNotFoundException;
 import com.cybage.onlineexamsystem.model.ParentQuestion;
 
 import java.util.List;
@@ -47,7 +48,7 @@ public interface ParentQuestionService {
 	 * @throws ParentQuestionNotFoundException
 	 */
 	public List<ParentQuestion> getParentQuestionByTestId(int testId)
-			throws ParentQuestionNotFoundException;
+			throws TestNotFoundException;
 
 	/**
 	 * @param id the id to find ParentQuestionDescription Name

@@ -35,5 +35,4 @@ import java.util.List;
 @Repository
 public interface ParentQuestionRepository extends
 		JpaRepository<ParentQuestion, Integer> {
-	List<ParentQuestion> findAllByTestId(int testId);
 }

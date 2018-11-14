@@ -1,6 +1,8 @@
 package com.cybage.onlineexamsystem.model;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.io.Serializable;
 
@@ -18,9 +20,6 @@ public class Question implements Serializable {
 
 	private int marks;
 
-	@Column(name = "parent_question_id")
-	private int parentQuestionId;
-
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "question_id")
@@ -34,6 +33,11 @@ public class Question implements Serializable {
 
 	@Column(name = "subtopic_name")
 	private String subtopicName;
+
+	@ManyToOne
+	@JoinColumn(name = "parent_question_id")
+	@JsonIgnore
+	private ParentQuestion parentQuestion;
 
 	public Question() {
 	}
@@ -52,14 +56,6 @@ public class Question implements Serializable {
 
 	public void setMarks(int marks) {
 		this.marks = marks;
-	}
-
-	public int getParentQuestionId() {
-		return this.parentQuestionId;
-	}
-
-	public void setParentQuestionId(int parentQuestionId) {
-		this.parentQuestionId = parentQuestionId;
 	}
 
 	public int getQuestionId() {
@@ -92,6 +88,14 @@ public class Question implements Serializable {
 
 	public void setSubtopicName(String subtopicName) {
 		this.subtopicName = subtopicName;
+	}
+
+	public ParentQuestion getParentQuestion() {
+		return parentQuestion;
+	}
+
+	public void setParentQuestion(ParentQuestion parentQuestion) {
+		this.parentQuestion = parentQuestion;
 	}
 
 }
