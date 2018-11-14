@@ -18,6 +18,7 @@
 package com.cybage.onlineexamsystem.controller;
 
 import com.cybage.onlineexamsystem.exceptions.OptionNotFoundException;
+import com.cybage.onlineexamsystem.exceptions.QuestionNotFoundException;
 import com.cybage.onlineexamsystem.model.Option;
 import com.cybage.onlineexamsystem.service.OptionServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -50,7 +51,7 @@ public class OptionController {
 	}
 
 	@GetMapping("/question/id/{questionId}")
-	private List getOptionByQuestionId(@PathVariable int questionId) throws OptionNotFoundException {
+	private List getOptionByQuestionId(@PathVariable int questionId) throws QuestionNotFoundException {
 		return optionServiceImpl.getOptionByQuestionId(questionId);
 	}
 

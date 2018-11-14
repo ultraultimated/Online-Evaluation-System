@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 
 
 /**
@@ -38,6 +39,9 @@ public class Question implements Serializable {
 	@JoinColumn(name = "parent_question_id")
 	@JsonIgnore
 	private ParentQuestion parentQuestion;
+
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "question")
+	private List<Option> optionList;
 
 	public Question() {
 	}
@@ -98,4 +102,11 @@ public class Question implements Serializable {
 		this.parentQuestion = parentQuestion;
 	}
 
+	public List<Option> getOptionList() {
+		return optionList;
+	}
+
+	public void setOptionList(List<Option> optionList) {
+		this.optionList = optionList;
+	}
 }

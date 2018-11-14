@@ -15,9 +15,10 @@
  * @date 11/12/2018
  */
 
-package com.cybage.onlineexamsystem.repository;
+package com.cybage.onlineexamsystem.service;
 
 import com.cybage.onlineexamsystem.exceptions.OptionNotFoundException;
+import com.cybage.onlineexamsystem.exceptions.QuestionNotFoundException;
 import com.cybage.onlineexamsystem.model.Option;
 
 import java.util.List;
@@ -35,7 +36,7 @@ public interface OptionService {
 
 	public List<Option> getAllOption();
 
-	public List<Option> getOptionByQuestionId(int questionId) throws OptionNotFoundException;
+	public List<Option> getOptionByQuestionId(int questionId) throws QuestionNotFoundException;
 
 	public Option getOptionById(int optionId) throws OptionNotFoundException;
 }

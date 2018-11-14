@@ -1,5 +1,7 @@
 package com.cybage.onlineexamsystem.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.io.Serializable;
 
@@ -30,8 +32,10 @@ public class Option implements Serializable {
 	@Column(name = "option_id")
 	private int optionId;
 
-	@Column(name = "question_id")
-	private int questionId;
+	@ManyToOne
+	@JoinColumn(name = "question_id")
+	@JsonIgnore
+	private Question question;
 
 	public Option() {
 	}
@@ -76,12 +80,11 @@ public class Option implements Serializable {
 		this.optionId = optionId;
 	}
 
-	public int getQuestionId() {
-		return this.questionId;
+	public Question getQuestion() {
+		return question;
 	}
 
-	public void setQuestionId(int questionId) {
-		this.questionId = questionId;
+	public void setQuestion(Question question) {
+		this.question = question;
 	}
-
 }

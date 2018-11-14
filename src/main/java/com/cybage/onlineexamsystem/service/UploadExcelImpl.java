@@ -81,17 +81,17 @@ public class UploadExcelImpl implements UploadExcel {
 				if (checkNull(row)) {
 					ParentQuestion parentQuestion = new ParentQuestion();
 
-					parentQuestion.setParentQuestionDesc(row.getCell(1)
-							                                     .toString());
-					parentQuestion.setDifficulty(row.getCell(2).toString());
-					parentQuestion.setSubjectivity(row.getCell(3).toString());
-					parentQuestion.setTopicName(row.getCell(4).toString());
+//					parentQuestion.setParentQuestionDesc(row.getCell(1)
+//							                                     .toString());
+//					parentQuestion.setDifficulty(row.getCell(2).toString());
+//					parentQuestion.setSubjectivity(row.getCell(3).toString());
+//					parentQuestion.setTopicName(row.getCell(4).toString());
 					//parentQuestion.setTestId(1);
 
-					logger.info(parentQuestion.getParentQuestionDesc());
-					logger.info(parentQuestion.getDifficulty());
-					logger.info(parentQuestion.getSubjectivity());
-					logger.info(parentQuestion.getTopicName());
+//					logger.info(parentQuestion.getParentQuestionDesc());
+//					logger.info(parentQuestion.getDifficulty());
+//					logger.info(parentQuestion.getSubjectivity());
+//					logger.info(parentQuestion.getTopicName());
 					//logger.info("" + parentQuestion.getTestId());
 
 					parentQuestionRepository.save(parentQuestion);
