@@ -29,7 +29,7 @@ public class Question implements Serializable {
 	private String questionDesc;
 
 	@Column(name = "question_type")
-	private String questionType;
+	private QuestionType questionType;
 
 	@Column(name = "subtopic_name")
 	private String subtopicName;
@@ -74,11 +74,11 @@ public class Question implements Serializable {
 		this.questionDesc = questionDesc;
 	}
 
-	public String getQuestionType() {
-		return this.questionType;
+	public QuestionType getQuestionType() {
+		return questionType;
 	}
 
-	public void setQuestionType(String questionType) {
+	public void setQuestionType(QuestionType questionType) {
 		this.questionType = questionType;
 	}
 

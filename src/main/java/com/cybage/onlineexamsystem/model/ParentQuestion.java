@@ -17,7 +17,7 @@ import java.util.List;
 public class ParentQuestion implements Serializable {
 	private static final long serialVersionUID = 1L;
 
-	private String difficulty;
+	private QuestionDifficulty difficulty;
 
 	@Column(name = "parent_question_desc")
 	private String parentQuestionDesc;
@@ -27,7 +27,7 @@ public class ParentQuestion implements Serializable {
 	@Column(name = "parent_question_id")
 	private int parentQuestionId;
 
-	private String subjectivity;
+	private QuestionSubjectivity subjectivity;
 
 	@Column(name = "topic_name")
 	private String topicName;
@@ -43,11 +43,11 @@ public class ParentQuestion implements Serializable {
 	public ParentQuestion() {
 	}
 
-	public String getDifficulty() {
-		return this.difficulty;
+	public QuestionDifficulty getDifficulty() {
+		return difficulty;
 	}
 
-	public void setDifficulty(String difficulty) {
+	public void setDifficulty(QuestionDifficulty difficulty) {
 		this.difficulty = difficulty;
 	}
 
@@ -67,11 +67,11 @@ public class ParentQuestion implements Serializable {
 		this.parentQuestionId = parentQuestionId;
 	}
 
-	public String getSubjectivity() {
-		return this.subjectivity;
+	public QuestionSubjectivity getSubjectivity() {
+		return subjectivity;
 	}
 
-	public void setSubjectivity(String subjectivity) {
+	public void setSubjectivity(QuestionSubjectivity subjectivity) {
 		this.subjectivity = subjectivity;
 	}
 
