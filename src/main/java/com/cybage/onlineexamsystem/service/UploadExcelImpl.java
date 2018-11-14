@@ -19,6 +19,8 @@ package com.cybage.onlineexamsystem.service;
 
 import com.cybage.onlineexamsystem.exceptions.SheetCountException;
 import com.cybage.onlineexamsystem.model.ParentQuestion;
+import com.cybage.onlineexamsystem.model.QuestionDifficulty;
+import com.cybage.onlineexamsystem.model.QuestionSubjectivity;
 import com.cybage.onlineexamsystem.repository.ParentQuestionRepository;
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.apache.poi.ss.usermodel.*;
@@ -28,8 +30,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.management.Query;
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 
 /**
  * This class provides ...
@@ -54,9 +58,12 @@ public class UploadExcelImpl implements UploadExcel {
 	@Override
 	public void readFile(String filePath) throws IOException,
 			InvalidFormatException, SheetCountException {
-		final String FILE_PATH = "C:\\Users\\poojanp\\Desktop\\Database.xlsx";
+
+		final String FILE_PATH = "C:\\Users\\poojanp\\Desktop\\Database1.xlsx";
+		//File file = new File("../src/main/resources/Database.xlsx");
+		File file = new File(FILE_PATH);
 //		logger.warn(Boolean.toString(parentQuestionRepository == null));
-		Workbook workbook = WorkbookFactory.create(new File(FILE_PATH));
+		Workbook workbook = WorkbookFactory.create(file);
 //		logger.info("Number of sheets:- "+workbook.getNumberOfSheets());
 		boolean isValidCount = checkSheetCount(workbook.getNumberOfSheets());
 
@@ -81,11 +88,11 @@ public class UploadExcelImpl implements UploadExcel {
 				if (checkNull(row)) {
 					ParentQuestion parentQuestion = new ParentQuestion();
 
-//					parentQuestion.setParentQuestionDesc(row.getCell(1)
-//							                                     .toString());
-//					parentQuestion.setDifficulty(row.getCell(2).toString());
-//					parentQuestion.setSubjectivity(row.getCell(3).toString());
-//					parentQuestion.setTopicName(row.getCell(4).toString());
+					parentQuestion.setParentQuestionDesc(row.getCell(1)
+							                                     .toString());
+					parentQuestion.setDifficulty(QuestionDifficulty.valueOf(row.getCell(2).getStringCellValue().toUpperCase()));
+					parentQuestion.setSubjectivity(QuestionSubjectivity.valueOf(row.getCell(3).getStringCellValue().toUpperCase()));
+					parentQuestion.setTopicName(row.getCell(4).toString());
 					//parentQuestion.setTestId(1);
 
 //					logger.info(parentQuestion.getParentQuestionDesc());
