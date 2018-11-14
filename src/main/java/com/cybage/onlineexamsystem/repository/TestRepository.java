@@ -28,6 +28,5 @@ import java.util.List;
  * @author {neelp}
  */
 public interface TestRepository extends JpaRepository<Test, Integer> {
-//	public List<Test> findAllBySubcategoryId(int subCategroyId) throws
-//			TestNotFoundException;
+
 }

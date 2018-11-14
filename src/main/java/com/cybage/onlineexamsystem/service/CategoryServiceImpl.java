@@ -50,9 +50,6 @@ public class CategoryServiceImpl implements CategoryService {
 	 * @return List of all categories in category table
 	 */
 	public List<Category> getAllCategories() {
-
-		//subCategory.setCategory(category);
-		//test.setSubCategory(subCategory);
 		return categoryRepository.findAll();
 	}
 

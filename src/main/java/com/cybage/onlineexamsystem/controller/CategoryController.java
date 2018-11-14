@@ -38,28 +38,6 @@ import java.util.List;
 @RequestMapping("/category")
 public class CategoryController {
 
-//	@Autowired
-//	private CategoryRepository categoryRepository;
-
-//	@GetMapping("/test")
-//	private void test() {
-//		Category category = new Category();
-//		SubCategory subCategory = new SubCategory();
-//		SubCategory subCategory1 = new SubCategory();
-//
-//		category.setCategoryName("Chintan");
-//		subCategory.setSubcategoryName("Chintan1");
-//		subCategory1.setSubcategoryName("Chintan2");
-//
-//		subCategory.setCategory(category);
-//		subCategory1.setCategory(category);
-//
-//		category.addSubCategory(subCategory);
-//		category.addSubCategory(subCategory1);
-//
-//		categoryRepository.save(category);
-//	}
-
 	@Autowired
 	private CategoryServiceImpl categoryServiceImpl;
 
@@ -78,7 +56,6 @@ public class CategoryController {
 	 */
 	@GetMapping("/all")
 	private List getAllCategories() {
-
 		return categoryServiceImpl.getAllCategories();
 	}
 

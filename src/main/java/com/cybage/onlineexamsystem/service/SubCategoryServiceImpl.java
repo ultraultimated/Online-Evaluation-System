@@ -27,7 +27,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 /**
  * The SubcategoryService class provides CRUD operations for Subcategory table
@@ -66,12 +65,7 @@ public class SubCategoryServiceImpl implements SubCategoryService {
 	@Override
 	public List<SubCategory> getSubcategoryByCategoryId(int categoryId) throws
 			CategoryNotFoundException {
-//		if ((subCategoryRepository.findAllByCategoryId(categoryId)).size() !=
-//		    0) {
-//			return subCategoryRepository.findAllByCategoryId(categoryId);
-//		} else {
-//			throw new SubCategoryNotFoundException();
-//		}
+
 		return categoryRepository.findById(categoryId).orElseThrow(CategoryNotFoundException::new).getSubCategoryList();
 	}
 
@@ -82,13 +76,7 @@ public class SubCategoryServiceImpl implements SubCategoryService {
 	@Override
 	public SubCategory getSubCategoryById(int subCategoryId) throws
 			SubCategoryNotFoundException {
-		Optional<SubCategory> optional =
-				subCategoryRepository.findById(subCategoryId);
-		if (optional.isPresent()) {
-			return optional.get();
-		} else {
-			throw new SubCategoryNotFoundException();
-		}
+		return subCategoryRepository.findById(subCategoryId).orElseThrow(SubCategoryNotFoundException::new);
 	}
 
 }

@@ -20,7 +20,6 @@ package com.cybage.onlineexamsystem.service;
 
 import com.cybage.onlineexamsystem.exceptions.SubCategoryNotFoundException;
 import com.cybage.onlineexamsystem.exceptions.TestNotFoundException;
-import com.cybage.onlineexamsystem.model.SubCategory;
 import com.cybage.onlineexamsystem.model.Test;
 import com.cybage.onlineexamsystem.repository.SubCategoryRepository;
 import com.cybage.onlineexamsystem.repository.TestRepository;
@@ -28,7 +27,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 /**
  * The Example class provides ...
@@ -47,13 +45,9 @@ public class TestServiceImpl implements TestService {
 	 * @return List of all tests
 	 */
 	@Override
-	public List<Test> getAllTests() throws TestNotFoundException {
+	public List<Test> getAllTests() {
 
-		if ((testRepository.findAll()).size() != 0) {
-			return testRepository.findAll();
-		} else {
-			throw new TestNotFoundException();
-		}
+		return testRepository.findAll();
 	}
 
 	/**
@@ -62,12 +56,7 @@ public class TestServiceImpl implements TestService {
 	 */
 	@Override
 	public List<Test> getTestBySubCategoryId(int subCategoryId) throws SubCategoryNotFoundException {
-//		if ((testRepository.findAllBySubcategoryId(subCategoryId)).size() !=
-//		    0) {
-//			return testRepository.findAllBySubcategoryId(subCategoryId);
-//		} else {
-//			throw new TestNotFoundException();
-//		}
+
 		return subCategoryRepository.findById(subCategoryId).orElseThrow(SubCategoryNotFoundException::new).getTestList();
 
 	}
@@ -78,12 +67,7 @@ public class TestServiceImpl implements TestService {
 	 */
 	@Override
 	public Test getTestByTestId(int testId) throws TestNotFoundException {
-		Optional<Test> optional = testRepository.findById(testId);
-		if (optional.isPresent()) {
-			return optional.get();
-		} else {
-			throw new TestNotFoundException();
-		}
+		return testRepository.findById(testId).orElseThrow(TestNotFoundException::new);
 	}
 
 	/**
