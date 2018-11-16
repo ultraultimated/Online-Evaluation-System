@@ -35,6 +35,9 @@ public class Question implements Serializable {
 	@Column(name = "subtopic_name")
 	private String subtopicName;
 
+	@Transient
+	private int parentQuestionId;
+
 //	@ManyToOne
 //	@JoinColumn(name = "parent_question_id")
 //	@JsonIgnore
@@ -95,7 +98,15 @@ public class Question implements Serializable {
 		this.subtopicName = subtopicName;
 	}
 
-//	public ParentQuestion getParentQuestion() {
+	public int getParentQuestionId() {
+		return parentQuestionId;
+	}
+
+	public void setParentQuestionId(int parentQuestionId) {
+		this.parentQuestionId = parentQuestionId;
+	}
+
+	//	public ParentQuestion getParentQuestion() {
 //		return parentQuestion;
 //	}
 //

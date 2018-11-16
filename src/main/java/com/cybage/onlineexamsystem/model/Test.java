@@ -29,9 +29,6 @@ public class Test implements Serializable {
 	@Column(name = "total_marks")
 	private int totalMarks;
 
-	@Transient
-	private int parentQuestionId;
-
 //	@ManyToOne
 //	@JoinColumn(name = "subcategory_id")
 //	@JsonIgnore
@@ -74,14 +71,6 @@ public class Test implements Serializable {
 
 	public void setTotalMarks(int totalMarks) {
 		this.totalMarks = totalMarks;
-	}
-
-	public int getParentQuestionId() {
-		return parentQuestionId;
-	}
-
-	public void setParentQuestionId(int parentQuestionId) {
-		this.parentQuestionId = parentQuestionId;
 	}
 
 	//	public SubCategory getSubCategory() {
