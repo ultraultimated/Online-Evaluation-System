@@ -49,7 +49,7 @@ public class SubCategory implements Serializable {
 //	@JsonIgnore
 //	private Category category;
 
-	@OneToMany(cascade = CascadeType.ALL, mappedBy = "subCategory")
+	@OneToMany(cascade = CascadeType.ALL)
 	@JoinColumn(name = "subcategory_id")
 	private List<Test> testList;
 
