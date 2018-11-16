@@ -32,12 +32,13 @@ public class ParentQuestion implements Serializable {
 	@Column(name = "topic_name")
 	private String topicName;
 
-	@ManyToOne
-	@JoinColumn(name = "test_id")
-	@JsonIgnore
-	private Test test;
+//	@ManyToOne
+//	@JoinColumn(name = "test_id")
+//	@JsonIgnore
+//	private Test test;
 
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "parentQuestion")
+	@JoinColumn(name = "parent_question_id")
 	private List<Question> questionList;
 
 	public ParentQuestion() {
@@ -83,13 +84,13 @@ public class ParentQuestion implements Serializable {
 		this.topicName = topicName;
 	}
 
-	public Test getTest() {
-		return test;
-	}
-
-	public void setTest(Test test) {
-		this.test = test;
-	}
+//	public Test getTest() {
+//		return test;
+//	}
+//
+//	public void setTest(Test test) {
+//		this.test = test;
+//	}
 
 	public List<Question> getQuestionList() {
 		return questionList;

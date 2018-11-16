@@ -35,12 +35,18 @@ public class Question implements Serializable {
 	@Column(name = "subtopic_name")
 	private String subtopicName;
 
-	@ManyToOne
-	@JoinColumn(name = "parent_question_id")
-	@JsonIgnore
-	private ParentQuestion parentQuestion;
+	@Transient
+	private int parentQuestionId;
+
+	private QuestionDifficulty difficulty;
+
+//	@ManyToOne
+//	@JoinColumn(name = "parent_question_id")
+//	@JsonIgnore
+//	private ParentQuestion parentQuestion;
 
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "question")
+	@JoinColumn(name = "question_id")
 	private List<Option> optionList;
 
 	public Question() {
@@ -94,13 +100,29 @@ public class Question implements Serializable {
 		this.subtopicName = subtopicName;
 	}
 
-	public ParentQuestion getParentQuestion() {
-		return parentQuestion;
+	public int getParentQuestionId() {
+		return parentQuestionId;
 	}
 
-	public void setParentQuestion(ParentQuestion parentQuestion) {
-		this.parentQuestion = parentQuestion;
+	public void setParentQuestionId(int parentQuestionId) {
+		this.parentQuestionId = parentQuestionId;
 	}
+
+	public QuestionDifficulty getDifficulty() {
+		return difficulty;
+	}
+
+	public void setDifficulty(QuestionDifficulty difficulty) {
+		this.difficulty = difficulty;
+	}
+
+	//	public ParentQuestion getParentQuestion() {
+//		return parentQuestion;
+//	}
+//
+//	public void setParentQuestion(ParentQuestion parentQuestion) {
+//		this.parentQuestion = parentQuestion;
+//	}
 
 	public List<Option> getOptionList() {
 		return optionList;
