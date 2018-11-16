@@ -29,12 +29,16 @@ public class Test implements Serializable {
 	@Column(name = "total_marks")
 	private int totalMarks;
 
-	@ManyToOne
-	@JoinColumn(name = "subcategory_id")
-	@JsonIgnore
-	private SubCategory subCategory;
+	@Transient
+	private int parentQuestionId;
+
+//	@ManyToOne
+//	@JoinColumn(name = "subcategory_id")
+//	@JsonIgnore
+//	private SubCategory subCategory;
 
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "test")
+	@JoinColumn(name = "test_id")
 	private List<ParentQuestion> parentQuestionList;
 
 	public Test() {
@@ -72,13 +76,21 @@ public class Test implements Serializable {
 		this.totalMarks = totalMarks;
 	}
 
-	public SubCategory getSubCategory() {
-		return subCategory;
+	public int getParentQuestionId() {
+		return parentQuestionId;
 	}
 
-	public void setSubCategory(SubCategory subCategory) {
-		this.subCategory = subCategory;
+	public void setParentQuestionId(int parentQuestionId) {
+		this.parentQuestionId = parentQuestionId;
 	}
+
+	//	public SubCategory getSubCategory() {
+//		return subCategory;
+//	}
+//
+//	public void setSubCategory(SubCategory subCategory) {
+//		this.subCategory = subCategory;
+//	}
 
 	public List<ParentQuestion> getParentQuestionList() {
 		return parentQuestionList;
