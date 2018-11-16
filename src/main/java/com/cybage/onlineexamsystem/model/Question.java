@@ -38,6 +38,8 @@ public class Question implements Serializable {
 	@Transient
 	private int parentQuestionId;
 
+	private String difficulty;
+
 //	@ManyToOne
 //	@JoinColumn(name = "parent_question_id")
 //	@JsonIgnore
@@ -105,6 +107,15 @@ public class Question implements Serializable {
 	public void setParentQuestionId(int parentQuestionId) {
 		this.parentQuestionId = parentQuestionId;
 	}
+
+	public String getDifficulty() {
+		return difficulty;
+	}
+
+	public void setDifficulty(String difficulty) {
+		this.difficulty = difficulty;
+	}
+
 
 	//	public ParentQuestion getParentQuestion() {
 //		return parentQuestion;
