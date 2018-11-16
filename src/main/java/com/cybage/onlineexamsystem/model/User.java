@@ -14,7 +14,7 @@ import java.util.Date;
 public class User implements Serializable {
 	private static final long serialVersionUID = 1L;
 
-	private int contact;
+	private String contact;
 
 	private String country;
 
@@ -42,11 +42,11 @@ public class User implements Serializable {
 	public User() {
 	}
 
-	public int getContact() {
+	public String getContact() {
 		return this.contact;
 	}
 
-	public void setContact(int contact) {
+	public void setContact(String contact) {
 		this.contact = contact;
 	}
 

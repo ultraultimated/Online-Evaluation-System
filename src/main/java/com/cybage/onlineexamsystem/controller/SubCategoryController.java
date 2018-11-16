@@ -31,7 +31,7 @@ import java.util.List;
  *
  * @author {neelp}
  */
-
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/subcategory")
 public class SubCategoryController {
