@@ -49,13 +49,8 @@ public class OptionServiceImpl implements OptionService {
 	}
 
 	@Override
-	public List<Option> getAllOption() {
-		return optionRepository.findAll();
-	}
-
-	@Override
-	public List<Option> getOptionByQuestionId(int questionId) throws QuestionNotFoundException {
-		return questionRepository.findById(questionId).orElseThrow(QuestionNotFoundException::new).getOptionList();
+	public Option getOptionByQuestionId(int questionId) throws QuestionNotFoundException {
+		return questionRepository.findById(questionId).orElseThrow(QuestionNotFoundException::new).getOption();
 	}
 
 	@Override

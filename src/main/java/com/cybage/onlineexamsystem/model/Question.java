@@ -45,9 +45,9 @@ public class Question implements Serializable {
 //	@JsonIgnore
 //	private ParentQuestion parentQuestion;
 
-	@OneToMany(cascade = CascadeType.ALL, mappedBy = "question")
+	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "question_id")
-	private List<Option> optionList;
+	private Option option;
 
 	public Question() {
 	}
@@ -124,11 +124,12 @@ public class Question implements Serializable {
 //		this.parentQuestion = parentQuestion;
 //	}
 
-	public List<Option> getOptionList() {
-		return optionList;
+
+	public Option getOption() {
+		return option;
 	}
 
-	public void setOptionList(List<Option> optionList) {
-		this.optionList = optionList;
+	public void setOption(Option option) {
+		this.option = option;
 	}
 }

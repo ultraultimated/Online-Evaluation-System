@@ -20,7 +20,7 @@ package com.cybage.onlineexamsystem.controller;
 import com.cybage.onlineexamsystem.exceptions.OptionNotFoundException;
 import com.cybage.onlineexamsystem.exceptions.QuestionNotFoundException;
 import com.cybage.onlineexamsystem.model.Option;
-import com.cybage.onlineexamsystem.service.OptionServiceImpl;
+import com.cybage.onlineexamsystem.service.OptionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -38,25 +38,20 @@ import java.util.List;
 public class OptionController {
 
 	@Autowired
-	private OptionServiceImpl optionServiceImpl;
+	private OptionService optionService;
 
 	@PostMapping("/insert")
 	private void insertOption(@RequestBody Option option) {
-		optionServiceImpl.insertOption(option);
-	}
-
-	@GetMapping("/all")
-	private List getAllOption() {
-		return optionServiceImpl.getAllOption();
+		optionService.insertOption(option);
 	}
 
 	@GetMapping("/question/id/{questionId}")
-	private List getOptionByQuestionId(@PathVariable int questionId) throws QuestionNotFoundException {
-		return optionServiceImpl.getOptionByQuestionId(questionId);
+	private Option getOptionByQuestionId(@PathVariable int questionId) throws QuestionNotFoundException {
+		return optionService.getOptionByQuestionId(questionId);
 	}
 
 	@GetMapping("/id/{optionId}")
 	private Option getOptionById(@PathVariable int optionId) throws OptionNotFoundException {
-		return  optionServiceImpl.getOptionById(optionId);
+		return  optionService.getOptionById(optionId);
 	}
 }

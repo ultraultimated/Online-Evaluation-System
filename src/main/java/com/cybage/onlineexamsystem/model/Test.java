@@ -34,7 +34,7 @@ public class Test implements Serializable {
 //	@JsonIgnore
 //	private SubCategory subCategory;
 
-	@OneToMany(cascade = CascadeType.ALL, mappedBy = "test")
+	@OneToMany(cascade = CascadeType.ALL)
 	@JoinColumn(name = "test_id")
 	private List<ParentQuestion> parentQuestionList;
 

@@ -37,7 +37,7 @@ public class ParentQuestion implements Serializable {
 //	@JsonIgnore
 //	private Test test;
 
-	@OneToMany(cascade = CascadeType.ALL, mappedBy = "parentQuestion")
+	@OneToMany(cascade = CascadeType.ALL)
 	@JoinColumn(name = "parent_question_id")
 	private List<Question> questionList;
 
