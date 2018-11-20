@@ -14,9 +14,7 @@ import java.util.Date;
 public class User implements Serializable {
 	private static final long serialVersionUID = 1L;
 
-	private String contact;
 
-	private String country;
 
 	@Temporal(TemporalType.DATE)
 	private Date dob;
@@ -38,24 +36,11 @@ public class User implements Serializable {
 	private String userType;
 
 	private String username;
+	private boolean isUnique;
+
+
 
 	public User() {
-	}
-
-	public String getContact() {
-		return this.contact;
-	}
-
-	public void setContact(String contact) {
-		this.contact = contact;
-	}
-
-	public String getCountry() {
-		return this.country;
-	}
-
-	public void setCountry(String country) {
-		this.country = country;
 	}
 
 	public Date getDob() {
@@ -120,6 +105,14 @@ public class User implements Serializable {
 
 	public void setUsername(String username) {
 		this.username = username;
+	}
+
+	public boolean isUnique() {
+		return isUnique;
+	}
+
+	public void setUnique(boolean unique) {
+		isUnique = unique;
 	}
 
 }

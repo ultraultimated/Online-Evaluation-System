@@ -33,23 +33,32 @@ public interface UserService {
 	/**
 	 * @param user User object to insert in the database
 	 */
-	public void addUser(User user);
+	void addUser(User user);
 
 	/**
 	 * @return List of all Users in table category.
 	 */
-	public List<User> getAllUsers();
+	List<User> getAllUsers();
 
 	/**
 	 * @param id to find User
 	 * @return User for a particular ID.
 	 */
-	public User getUserById(int id) throws UserNotFoundException;
+	User getUserById(int id) throws UserNotFoundException;
 
 	/**
 	 * @param username to find User
 	 * @return User for a particular Username.
 	 */
-	public User getUserByUsername(String username) throws
+	User getUserByUsername(String username) throws
 			UserNotFoundException;
+
+	/**
+	 * @param username username to check
+	 * @return true/false based on database
+	 */
+	boolean checkUniqueUserName(String username);
+
+//	public User authenticateUser(String Username, String password);
+
 }
