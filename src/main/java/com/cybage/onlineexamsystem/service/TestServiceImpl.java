@@ -28,6 +28,7 @@ import org.apache.poi.ss.usermodel.Sheet;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -77,8 +78,12 @@ public class TestServiceImpl implements TestService {
 	 * @param test object to be inserted into database
 	 */
 	@Override
-	public void insertTest(Test test) {
-		testRepository.save(test);
+	public void insertTest(Test test, File file) throws SubCategoryNotFoundException {
+
+		SubCategory subCategory = subCategoryRepository.findById(test.getSubCategoryId()).orElseThrow(SubCategoryNotFoundException::new);
+		subCategory.getTestList().add(test);
+		subCategoryRepository.save(subCategory);
+//		testRepository.save(test);
 	}
 
 	public static boolean isValidParentQuestion(Row row) {
@@ -276,6 +281,11 @@ public class TestServiceImpl implements TestService {
 		}
 
 		return question;
+
 	}
+
+
+
+
 
 }

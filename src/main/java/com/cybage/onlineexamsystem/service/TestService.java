@@ -21,6 +21,7 @@ import com.cybage.onlineexamsystem.exceptions.TestNotFoundException;
 import com.cybage.onlineexamsystem.model.Test;
 import org.apache.poi.ss.usermodel.Row;
 
+import java.io.File;
 import java.util.List;
 
 /**
@@ -46,6 +47,7 @@ public interface TestService {
 	 */
 	public Test getTestByTestId(int testId) throws TestNotFoundException;
 
-	public void insertTest(Test test);
+	public void insertTest(Test test, File file) throws SubCategoryNotFoundException;
+
 
 }

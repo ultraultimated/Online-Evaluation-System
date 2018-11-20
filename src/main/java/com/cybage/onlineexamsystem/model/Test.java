@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Date;
 import java.util.List;
 
 
@@ -28,6 +29,12 @@ public class Test implements Serializable {
 
 	@Column(name = "total_marks")
 	private int totalMarks;
+
+	@Column(name = "time")
+	private Date time;
+
+	@Transient
+	private int subCategoryId;
 
 //	@ManyToOne
 //	@JoinColumn(name = "subcategory_id")
@@ -72,6 +79,23 @@ public class Test implements Serializable {
 	public void setTotalMarks(int totalMarks) {
 		this.totalMarks = totalMarks;
 	}
+
+	public Date getTime() {
+		return time;
+	}
+
+	public void setTime(Date time) {
+		this.time = time;
+	}
+
+	public int getSubCategoryId() {
+		return subCategoryId;
+	}
+
+	public void setSubCategoryId(int subCategoryId) {
+		this.subCategoryId = subCategoryId;
+	}
+
 
 	//	public SubCategory getSubCategory() {
 //		return subCategory;

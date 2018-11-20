@@ -7,6 +7,7 @@ import com.cybage.onlineexamsystem.service.TestService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.File;
 import java.util.List;
 
 @RestController
@@ -50,8 +51,8 @@ public class TestController {
 	 * @param test to be inserted into database
 	 */
 	@PostMapping("/insert")
-	private void insertTest(@RequestBody Test test) {
-		testService.insertTest(test);
+	private void insertTest(@RequestBody Test test ) throws SubCategoryNotFoundException {
+		testService.insertTest(test, null);
 	}
 
 }
