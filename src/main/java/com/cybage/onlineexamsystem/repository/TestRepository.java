@@ -19,6 +19,8 @@ package com.cybage.onlineexamsystem.repository;
 import com.cybage.onlineexamsystem.exceptions.TestNotFoundException;
 import com.cybage.onlineexamsystem.model.Test;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 
 import java.util.List;
 
@@ -29,4 +31,7 @@ import java.util.List;
  */
 public interface TestRepository extends JpaRepository<Test, Integer> {
 
+	@Query(value = "SELECT COUNT(*) FROM TBL_TEST WHERE SUBCATEGORY_ID = ?1",
+			nativeQuery = true)
+	long countBySubcategoryId(int subCategoryId) throws Exception;
 }

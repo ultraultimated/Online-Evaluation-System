@@ -41,6 +41,9 @@ public class ParentQuestion implements Serializable {
 	@JoinColumn(name = "parent_question_id")
 	private List<Question> questionList;
 
+	@Transient
+	private int tempId;
+
 	public ParentQuestion() {
 	}
 
@@ -99,4 +102,14 @@ public class ParentQuestion implements Serializable {
 	public void setQuestionList(List<Question> questionList) {
 		this.questionList = questionList;
 	}
+
+	public int getTempId() {
+		return tempId;
+	}
+
+	public void setTempId(int tempId) {
+		this.tempId = tempId;
+	}
+
+
 }
