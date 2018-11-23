@@ -22,11 +22,18 @@ import com.cybage.onlineexamsystem.exceptions.CategoryNotFoundException;
 import com.cybage.onlineexamsystem.model.Category;
 import com.cybage.onlineexamsystem.model.SubCategory;
 import com.cybage.onlineexamsystem.model.Test;
+import com.cybage.onlineexamsystem.model.dto.CategoryDTO;
 import com.cybage.onlineexamsystem.repository.CategoryRepository;
+import org.modelmapper.ModelMapper;
+import org.modelmapper.TypeToken;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.ui.ModelMap;
 
+import java.lang.reflect.Type;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 /**
  * The Example class provides ...
@@ -38,6 +45,7 @@ public class CategoryServiceImpl implements CategoryService {
 
 	@Autowired
 	private CategoryRepository categoryRepository;
+
 
 	/**
 	 * @param Category object with values to save in database
@@ -61,14 +69,17 @@ public class CategoryServiceImpl implements CategoryService {
 	public Category getCategoryById(int categoryId) throws
 			CategoryNotFoundException {
 
-//		Optional<Category> optional = categoryRepository.findById(categoryId);
-//		if (optional.isPresent()) {
-//			return optional.get();
-//		} else {
-//			throw new CategoryNotFoundException();
-//		}
-
 		return categoryRepository.findById(categoryId).orElseThrow
 				(CategoryNotFoundException::new);
 	}
+
+//	public CategoryDTO getCategoryDTOById(int categoryId) throws CategoryNotFoundException {
+//
+//		Category category = new Category();
+//		category = categoryRepository.findById(categoryId).orElseThrow(CategoryNotFoundException::new);
+//		ModelMapper modelMapper = new ModelMapper();
+//		CategoryDTO categoryDTO = modelMapper.map(category, CategoryDTO.class);
+//		return categoryDTO;
+//	}
+
 }

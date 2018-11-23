@@ -19,6 +19,7 @@
 
 package com.cybage.onlineexamsystem.model;
 
+import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
 
 import javax.persistence.*;
