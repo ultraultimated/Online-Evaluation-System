@@ -80,14 +80,14 @@ public class CategoryController {
 	}
 
 
-	@GetMapping("/only/id/{id}")
+	@GetMapping("/subcategory/id/{id}")
 	private CategoryDTO getCategoryOnlyById(@PathVariable int id) throws CategoryNotFoundException {
 
 		Type category = new TypeToken<CategoryDTO>() {}.getType();
 		return modelMapper.map(categoryServiceImpl.getCategoryById(id), category);
 	}
 
-	@GetMapping("/only/all")
+	@GetMapping("/subcategory/all")
 	private List<CategoryDTO> getOnlyCategory() {
 
 		Type categoryListType = new TypeToken<List<CategoryDTO>>() {}.getType();
