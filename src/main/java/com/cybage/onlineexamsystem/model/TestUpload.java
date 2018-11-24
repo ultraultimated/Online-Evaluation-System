@@ -27,11 +27,11 @@ import java.util.Date;
 
 public class TestUpload {
 
-	private String testName;
+    private String testName;
 
-	private int marks;
+    private int marks;
 
-	private Date time;
+    private Date time;
 
 
 }

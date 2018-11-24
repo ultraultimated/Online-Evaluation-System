@@ -19,6 +19,7 @@ package com.cybage.onlineexamsystem.service;
 
 import com.cybage.onlineexamsystem.exceptions.UserNotFoundException;
 import com.cybage.onlineexamsystem.model.User;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
@@ -28,36 +29,37 @@ import java.util.List;
  *
  * @author {rahulpandy}
  */
+@Service
 public interface UserService {
 
-	/**
-	 * @param user User object to insert in the database
-	 */
-	void addUser(User user);
+    /**
+     * @param user User object to insert in the database
+     */
+    void addUser(User user);
 
-	/**
-	 * @return List of all Users in table category.
-	 */
-	List<User> getAllUsers();
+    /**
+     * @return List of all Users in table category.
+     */
+    List<User> getAllUsers();
 
-	/**
-	 * @param id to find User
-	 * @return User for a particular ID.
-	 */
-	User getUserById(int id) throws UserNotFoundException;
+    /**
+     * @param id to find User
+     * @return User for a particular ID.
+     */
+    User getUserById(int id) throws UserNotFoundException;
 
-	/**
-	 * @param username to find User
-	 * @return User for a particular Username.
-	 */
-	User getUserByUsername(String username) throws
-			UserNotFoundException;
+    /**
+     * @param username to find User
+     * @return User for a particular Username.
+     */
+    User getUserByUsername(String username) throws
+            UserNotFoundException;
 
-	/**
-	 * @param username username to check
-	 * @return true/false based on database
-	 */
-	boolean checkUniqueUserName(String username);
+    /**
+     * @param username username to check
+     * @return true/false based on database
+     */
+    boolean checkUniqueUserName(String username);
 
 //	public User authenticateUser(String Username, String password);
 

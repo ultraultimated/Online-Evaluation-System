@@ -19,6 +19,7 @@ package com.cybage.onlineexamsystem.service;
 import com.cybage.onlineexamsystem.exceptions.SubCategoryNotFoundException;
 import com.cybage.onlineexamsystem.exceptions.TestNotFoundException;
 import com.cybage.onlineexamsystem.model.Test;
+import org.springframework.stereotype.Service;
 
 import java.io.File;
 import java.io.IOException;
@@ -29,26 +30,27 @@ import java.util.List;
  *
  * @author {neelp}
  */
+@Service
 public interface TestService {
-	/**
-	 * @return List of all tests
-	 */
-	public List<Test> getAllTests() throws TestNotFoundException;
+    /**
+     * @return List of all tests
+     */
+    List<Test> getAllTests() throws TestNotFoundException;
 
-	/**
-	 * @param subCategoryId Id to find all tests
-	 * @return List of tests with given subcategory ID
-	 */
-	public List<Test> getTestBySubCategoryId(int subCategoryId) throws SubCategoryNotFoundException;
+    /**
+     * @param subCategoryId Id to find all tests
+     * @return List of tests with given subcategory ID
+     */
+    List<Test> getTestBySubCategoryId(int subCategoryId) throws SubCategoryNotFoundException;
 
-	/**
-	 * @param testId testID to find test
-	 * @return Test Object
-	 */
-	public Test getTestByTestId(int testId) throws TestNotFoundException;
+    /**
+     * @param testId testID to find test
+     * @return Test Object
+     */
+    Test getTestByTestId(int testId) throws TestNotFoundException;
 
-	public void insertTest(Test test, File file) throws SubCategoryNotFoundException, IOException;
+    void insertTest(Test test, File file) throws SubCategoryNotFoundException, IOException;
 
-	public long getSubCategoryCountByTestId(int subCategoryId) throws Exception;
+    long getSubCategoryCountByTestId(int subCategoryId) throws Exception;
 
 }

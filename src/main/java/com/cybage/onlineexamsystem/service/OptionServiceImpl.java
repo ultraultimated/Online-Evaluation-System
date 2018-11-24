@@ -23,38 +23,32 @@ import com.cybage.onlineexamsystem.model.Option;
 import com.cybage.onlineexamsystem.repository.OptionRepository;
 import com.cybage.onlineexamsystem.repository.QuestionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
-import java.util.List;
-import java.util.Optional;
 
 /**
  * This class provides ...
  *
  * @author Poojan Patel
  */
-
-@Service
 public class OptionServiceImpl implements OptionService {
 
-	@Autowired
-	private OptionRepository optionRepository;
+    @Autowired
+    private OptionRepository optionRepository;
 
-	@Autowired
-	private QuestionRepository questionRepository;
+    @Autowired
+    private QuestionRepository questionRepository;
 
-	@Override
-	public void insertOption(Option option) {
-		optionRepository.save(option);
-	}
+    @Override
+    public void insertOption(Option option) {
+        optionRepository.save(option);
+    }
 
-	@Override
-	public Option getOptionByQuestionId(int questionId) throws QuestionNotFoundException {
-		return questionRepository.findById(questionId).orElseThrow(QuestionNotFoundException::new).getOption();
-	}
+    @Override
+    public Option getOptionByQuestionId(int questionId) throws QuestionNotFoundException {
+        return questionRepository.findById(questionId).orElseThrow(QuestionNotFoundException::new).getOption();
+    }
 
-	@Override
-	public Option getOptionById(int optionId) throws OptionNotFoundException {
-		return optionRepository.findById(optionId).orElseThrow(OptionNotFoundException::new);
-	}
+    @Override
+    public Option getOptionById(int optionId) throws OptionNotFoundException {
+        return optionRepository.findById(optionId).orElseThrow(OptionNotFoundException::new);
+    }
 }

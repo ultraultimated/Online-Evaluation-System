@@ -19,12 +19,8 @@
 
 package com.cybage.onlineexamsystem.model;
 
-import org.springframework.context.annotation.Bean;
-import org.springframework.stereotype.Component;
-
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.List;
 
 
@@ -35,44 +31,44 @@ import java.util.List;
 @Table(name = "tbl_category")
 @NamedQuery(name = "Category.findAll", query = "SELECT t FROM Category t")
 public class Category implements Serializable {
-	private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "category_id")
-	private int categoryId;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "category_id")
+    private int categoryId;
 
-	@Column(name = "category_name")
-	private String categoryName;
+    @Column(name = "category_name")
+    private String categoryName;
 
-	@OneToMany(cascade = CascadeType.ALL)
-	@JoinColumn(name = "category_id")
-	private List<SubCategory> subCategoryList;
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "category_id")
+    private List<SubCategory> subCategoryList;
 
-	public Category() {
-	}
+    public Category() {
+    }
 
-	public int getCategoryId() {
-		return this.categoryId;
-	}
+    public int getCategoryId() {
+        return this.categoryId;
+    }
 
-	public void setCategoryId(int categoryId) {
-		this.categoryId = categoryId;
-	}
+    public void setCategoryId(int categoryId) {
+        this.categoryId = categoryId;
+    }
 
-	public String getCategoryName() {
-		return this.categoryName;
-	}
+    public String getCategoryName() {
+        return this.categoryName;
+    }
 
-	public void setCategoryName(String categoryName) {
-		this.categoryName = categoryName;
-	}
+    public void setCategoryName(String categoryName) {
+        this.categoryName = categoryName;
+    }
 
-	public List<SubCategory> getSubCategoryList() {
-		return subCategoryList;
-	}
+    public List<SubCategory> getSubCategoryList() {
+        return subCategoryList;
+    }
 
-	public void setSubCategoryList(List<SubCategory> subCategoryList) {
-		this.subCategoryList = subCategoryList;
-	}
+    public void setSubCategoryList(List<SubCategory> subCategoryList) {
+        this.subCategoryList = subCategoryList;
+    }
 }

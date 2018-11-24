@@ -21,7 +21,6 @@ package com.cybage.onlineexamsystem.service;
 import com.cybage.onlineexamsystem.model.Log;
 import com.cybage.onlineexamsystem.repository.UserLogRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 
 import java.util.List;
 
@@ -30,29 +29,27 @@ import java.util.List;
  *
  * @author {neelp}
  */
-@Service
 public class UserLogServiceImpl implements UserLogService {
-	@Autowired
-	private UserLogRepository userLogRepository;
+    @Autowired
+    private UserLogRepository userLogRepository;
 
-	/**
-	 * @param userId of user
-	 * @return list of all test given by the user
-	 */
-	@Override
-	public List<Log> getAllTestsByUserId(int userId)
-	{
+    /**
+     * @param userId of user
+     * @return list of all test given by the user
+     */
+    @Override
+    public List<Log> getAllTestsByUserId(int userId) {
 
-		return userLogRepository.getAllByUserId(userId);
+        return userLogRepository.getAllByUserId(userId);
 
-	}
+    }
 
-	/**
-	 * @param log the log object to be inserted
-	 */
-	@Override
-	public void insertLog(Log log) {
+    /**
+     * @param log the log object to be inserted
+     */
+    @Override
+    public void insertLog(Log log) {
 
-		userLogRepository.save(log);
-	}
+        userLogRepository.save(log);
+    }
 }

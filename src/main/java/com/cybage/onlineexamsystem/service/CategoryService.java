@@ -18,6 +18,7 @@ package com.cybage.onlineexamsystem.service;
 
 import com.cybage.onlineexamsystem.exceptions.CategoryNotFoundException;
 import com.cybage.onlineexamsystem.model.Category;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
@@ -27,23 +28,24 @@ import java.util.List;
  *
  * @author {neelp}
  */
+@Service
 public interface CategoryService {
 
-	/**
-	 * @param Category Category object to insert in the database
-	 */
-	public void insertCategory(Category Category);
+    /**
+     * @param Category Category object to insert in the database
+     */
+    void insertCategory(Category Category);
 
-	/**
-	 * @return List of all categories in table category.
-	 */
-	public List<Category> getAllCategories();
+    /**
+     * @return List of all categories in table category.
+     */
+    List<Category> getAllCategories();
 
-	/**
-	 * @param id the id to find category Name
-	 * @return category name for a particular ID.
-	 */
-	public Category getCategoryById(int id) throws CategoryNotFoundException;
+    /**
+     * @param id the id to find category Name
+     * @return category name for a particular ID.
+     */
+    Category getCategoryById(int id) throws CategoryNotFoundException;
 
 }
 

@@ -19,9 +19,6 @@
 
 package com.cybage.onlineexamsystem.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import org.springframework.stereotype.Component;
-
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.List;
@@ -34,43 +31,43 @@ import java.util.List;
 @Table(name = "tbl_subcategory")
 @NamedQuery(name = "Subcategory.findAll", query = "SELECT t FROM SubCategory t")
 public class SubCategory implements Serializable {
-	private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "subcategory_id")
-	private int subcategoryId;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "subcategory_id")
+    private int subcategoryId;
 
-	@Column(name = "subcategory_name")
-	private String subcategoryName;
+    @Column(name = "subcategory_name")
+    private String subcategoryName;
 
 //	@ManyToOne
 //	@JoinColumn(name = "category_id")
 //	@JsonIgnore
 //	private Category category;
 
-	@OneToMany(cascade = CascadeType.ALL)
-	@JoinColumn(name = "subcategory_id")
-	private List<Test> testList;
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "subcategory_id")
+    private List<Test> testList;
 
-	public SubCategory() {
-	}
+    public SubCategory() {
+    }
 
-	public int getSubcategoryId() {
-		return this.subcategoryId;
-	}
+    public int getSubcategoryId() {
+        return this.subcategoryId;
+    }
 
-	public void setSubcategoryId(int subcategoryId) {
-		this.subcategoryId = subcategoryId;
-	}
+    public void setSubcategoryId(int subcategoryId) {
+        this.subcategoryId = subcategoryId;
+    }
 
-	public String getSubcategoryName() {
-		return this.subcategoryName;
-	}
+    public String getSubcategoryName() {
+        return this.subcategoryName;
+    }
 
-	public void setSubcategoryName(String subcategoryName) {
-		this.subcategoryName = subcategoryName;
-	}
+    public void setSubcategoryName(String subcategoryName) {
+        this.subcategoryName = subcategoryName;
+    }
 
 //	public Category getCategory() {
 //		return category;
@@ -80,12 +77,12 @@ public class SubCategory implements Serializable {
 //		this.category = category;
 //	}
 
-	public List<Test> getTestList() {
-		return testList;
-	}
+    public List<Test> getTestList() {
+        return testList;
+    }
 
-	public void setTestList(List<Test> testList) {
-		this.testList = testList;
-	}
+    public void setTestList(List<Test> testList) {
+        this.testList = testList;
+    }
 
 }

@@ -10,57 +10,57 @@ import java.io.Serializable;
 @Entity
 @Table(name = "tbl_question_test")
 @NamedQuery(name = "QuestionTest.findAll", query = "SELECT t FROM " +
-                                                   "QuestionTest t")
+        "QuestionTest t")
 public class QuestionTest implements Serializable {
-	private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
-	@Column(name = "question_id")
-	private int questionId;
+    @Column(name = "question_id")
+    private int questionId;
 
-	@Column(name = "parent_question_id")
-	private int parentQuestionId;
+    @Column(name = "parent_question_id")
+    private int parentQuestionId;
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "question_test_id")
-	private int questionTestId;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "question_test_id")
+    private int questionTestId;
 
-	@Column(name = "test_id")
-	private int testId;
+    @Column(name = "test_id")
+    private int testId;
 
-	public QuestionTest() {
-	}
+    public QuestionTest() {
+    }
 
-	public int getQuestionId() {
-		return this.questionId;
-	}
+    public int getQuestionId() {
+        return this.questionId;
+    }
 
-	public void setQuestionId(int questionId) {
-		this.questionId = questionId;
-	}
+    public void setQuestionId(int questionId) {
+        this.questionId = questionId;
+    }
 
-	public int getParentQuestionId() {
-		return parentQuestionId;
-	}
+    public int getParentQuestionId() {
+        return parentQuestionId;
+    }
 
-	public void setParentQuestionId(int parentQuestionId) {
-		this.parentQuestionId = parentQuestionId;
-	}
+    public void setParentQuestionId(int parentQuestionId) {
+        this.parentQuestionId = parentQuestionId;
+    }
 
-	public int getQuestionTestId() {
-		return this.questionTestId;
-	}
+    public int getQuestionTestId() {
+        return this.questionTestId;
+    }
 
-	public void setQuestionTestId(int questionTestId) {
-		this.questionTestId = questionTestId;
-	}
+    public void setQuestionTestId(int questionTestId) {
+        this.questionTestId = questionTestId;
+    }
 
-	public int getTestId() {
-		return this.testId;
-	}
+    public int getTestId() {
+        return this.testId;
+    }
 
-	public void setTestId(int testId) {
-		this.testId = testId;
-	}
+    public void setTestId(int testId) {
+        this.testId = testId;
+    }
 
 }

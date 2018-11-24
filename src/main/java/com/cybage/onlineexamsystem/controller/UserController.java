@@ -60,7 +60,7 @@ public class UserController {
 
 	/**
 	 * @param id User Id to be found
-	 * @return User relaetd to the id
+	 * @return User related to the id
 	 */
 	@GetMapping("/id/{id}")
 	private User getUserById(
@@ -70,7 +70,7 @@ public class UserController {
 
 	/**
 	 * @param username to be found
-	 * @return User relaetd to the username
+	 * @return User related to the username
 	 */
 	@GetMapping("/name/{username}")
 	private User getUserByUsername(

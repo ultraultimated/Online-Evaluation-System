@@ -20,6 +20,7 @@ package com.cybage.onlineexamsystem.service;
 import com.cybage.onlineexamsystem.exceptions.ParentQuestionNotFoundException;
 import com.cybage.onlineexamsystem.exceptions.TestNotFoundException;
 import com.cybage.onlineexamsystem.model.ParentQuestion;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
@@ -29,7 +30,7 @@ import java.util.List;
  *
  * @author Poojan Patel
  */
-
+@Service
 public interface ParentQuestionService {
 
 	/**

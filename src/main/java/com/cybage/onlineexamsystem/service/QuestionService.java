@@ -20,6 +20,7 @@ package com.cybage.onlineexamsystem.service;
 import com.cybage.onlineexamsystem.exceptions.ParentQuestionNotFoundException;
 import com.cybage.onlineexamsystem.exceptions.QuestionNotFoundException;
 import com.cybage.onlineexamsystem.model.Question;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
@@ -29,16 +30,16 @@ import java.util.List;
  *
  * @author Poojan Patel
  */
-
+@Service
 public interface QuestionService {
 
-	public void insertQuestion(Question question);
+    void insertQuestion(Question question);
 
-	public List<Question> getAllQuestion();
+    List<Question> getAllQuestion();
 
-	public List<Question> getQuestionByParentQuestionId(int parentQuestionId)
-			throws ParentQuestionNotFoundException;
+    List<Question> getQuestionByParentQuestionId(int parentQuestionId)
+            throws ParentQuestionNotFoundException;
 
-	public Question getQuestionById(int questionId) throws
-			QuestionNotFoundException;
+    Question getQuestionById(int questionId) throws
+            QuestionNotFoundException;
 }

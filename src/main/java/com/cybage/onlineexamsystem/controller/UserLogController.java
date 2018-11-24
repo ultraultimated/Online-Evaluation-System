@@ -33,20 +33,20 @@ import java.util.List;
 @RestController
 @RequestMapping("/log")
 public class UserLogController {
-	@Autowired
-	private UserLogService userLogService;
+    @Autowired
+    private UserLogService userLogService;
 
-	/**
-	 * @param userId of the user
-	 * @return list of all tests
-	 */
-	@GetMapping("/test/user/id/{userId}")
-	private List<Log> getAllTestByUserId(@PathVariable int userId) {
-		return userLogService.getAllTestsByUserId(userId);
-	}
+    /**
+     * @param userId of the user
+     * @return list of all tests
+     */
+    @GetMapping("/test/user/id/{userId}")
+    private List<Log> getAllTestByUserId(@PathVariable int userId) {
+        return userLogService.getAllTestsByUserId(userId);
+    }
 
-	@PostMapping("/insert")
-	private void insertLog(@RequestBody Log log) {
-		userLogService.insertLog(log);
-	}
+    @PostMapping("/insert")
+    private void insertLog(@RequestBody Log log) {
+        userLogService.insertLog(log);
+    }
 }

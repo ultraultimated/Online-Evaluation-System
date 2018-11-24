@@ -21,16 +21,11 @@ package com.cybage.onlineexamsystem.controller;
 
 import com.cybage.onlineexamsystem.exceptions.CategoryNotFoundException;
 import com.cybage.onlineexamsystem.model.Category;
-import com.cybage.onlineexamsystem.model.SubCategory;
 import com.cybage.onlineexamsystem.model.dto.CategoryDTO;
-import com.cybage.onlineexamsystem.repository.CategoryRepository;
-import com.cybage.onlineexamsystem.service.CategoryServiceImpl;
+import com.cybage.onlineexamsystem.service.CategoryService;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeToken;
-import org.modelmapper.internal.bytebuddy.asm.Advice;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
-import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 
 import java.lang.reflect.Type;
@@ -45,52 +40,54 @@ import java.util.List;
 @RequestMapping("/category")
 public class CategoryController {
 
-	@Autowired
-	private CategoryServiceImpl categoryServiceImpl;
+    @Autowired
+    ModelMapper modelMapper = new ModelMapper();
+    @Autowired
+    private CategoryService categoryService;
 
-	@Autowired
-	ModelMapper modelMapper = new ModelMapper();
-	/**
-	 * @param category
-	 */
-	@PostMapping("/insert")
-	private void insertCategory(@RequestBody Category category) {
-		//THIS IS JUST FOR A TRIAL, IN REAL SCENARIO WE MUST BRING DATA IN
-		// JSON FORMAT AND PARSE IT.
-		categoryServiceImpl.insertCategory(category);
-	}
+    /**
+     * @param category
+     */
+    @PostMapping("/insert")
+    private void insertCategory(@RequestBody Category category) {
+        //THIS IS JUST FOR A TRIAL, IN REAL SCENARIO WE MUST BRING DATA IN
+        // JSON FORMAT AND PARSE IT.
+        categoryService.insertCategory(category);
+    }
 
-	/**
-	 * @return all categories
-	 */
-	@GetMapping("/all")
-	private List getAllCategories() {
+    /**
+     * @return all categories
+     */
+    @GetMapping("/all")
+    private List getAllCategories() {
 
-		return categoryServiceImpl.getAllCategories();
-	}
+        return categoryService.getAllCategories();
+    }
 
-	/**
-	 * @param id Category Id to be found
-	 * @return Category Name related to the id
-	 */
-	@GetMapping("/id/{id}")
-	private Category getCategory(
-			@PathVariable int id) throws CategoryNotFoundException {
-		return categoryServiceImpl.getCategoryById(id);
-	}
+    /**
+     * @param id Category Id to be found
+     * @return Category Name related to the id
+     */
+    @GetMapping("/id/{id}")
+    private Category getCategory(
+            @PathVariable int id) throws CategoryNotFoundException {
+        return categoryService.getCategoryById(id);
+    }
 
 
-	@GetMapping("/subcategory/test/id/{id}")
-	private CategoryDTO getCategoryOnlyById(@PathVariable int id) throws CategoryNotFoundException {
+    @GetMapping("/subcategory/test/id/{id}")
+    private CategoryDTO getCategoryOnlyById(@PathVariable int id) throws CategoryNotFoundException {
 
-		Type category = new TypeToken<CategoryDTO>() {}.getType();
-		return modelMapper.map(categoryServiceImpl.getCategoryById(id), category);
-	}
+        Type category = new TypeToken<CategoryDTO>() {
+        }.getType();
+        return modelMapper.map(categoryService.getCategoryById(id), category);
+    }
 
-	@GetMapping("/subcategory/test  /all")
-	private List<CategoryDTO> getOnlyCategory() {
+    @GetMapping("/subcategory/test/all")
+    private List<CategoryDTO> getOnlyCategory() {
 
-		Type categoryListType = new TypeToken<List<CategoryDTO>>() {}.getType();
-		return modelMapper.map(categoryServiceImpl.getAllCategories(), categoryListType);
-	}
+        Type categoryListType = new TypeToken<List<CategoryDTO>>() {
+        }.getType();
+        return modelMapper.map(categoryService.getAllCategories(), categoryListType);
+    }
 }

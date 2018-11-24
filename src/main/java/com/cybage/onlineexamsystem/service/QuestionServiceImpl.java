@@ -22,47 +22,42 @@ import com.cybage.onlineexamsystem.exceptions.QuestionNotFoundException;
 import com.cybage.onlineexamsystem.model.Question;
 import com.cybage.onlineexamsystem.repository.ParentQuestionRepository;
 import com.cybage.onlineexamsystem.repository.QuestionRepository;
-import org.eclipse.persistence.tools.PackageRenamer;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 /**
  * This class provides ...
  *
  * @author Poojan Patel
  */
-
-@Service
 public class QuestionServiceImpl implements QuestionService {
 
-	@Autowired
-	private QuestionRepository questionRepository;
+    @Autowired
+    private QuestionRepository questionRepository;
 
-	@Autowired
-	private ParentQuestionRepository parentQuestionRepository;
+    @Autowired
+    private ParentQuestionRepository parentQuestionRepository;
 
-	@Override
-	public void insertQuestion(Question question) {
-		questionRepository.save(question);
-	}
+    @Override
+    public void insertQuestion(Question question) {
+        questionRepository.save(question);
+    }
 
-	@Override
-	public List<Question> getAllQuestion() {
-		return questionRepository.findAll();
-	}
+    @Override
+    public List<Question> getAllQuestion() {
+        return questionRepository.findAll();
+    }
 
-	@Override
-	public List<Question> getQuestionByParentQuestionId(int parentQuestionId)
-			throws ParentQuestionNotFoundException {
-		return parentQuestionRepository.findById(parentQuestionId).orElseThrow(ParentQuestionNotFoundException::new).getQuestionList();
-	}
+    @Override
+    public List<Question> getQuestionByParentQuestionId(int parentQuestionId)
+            throws ParentQuestionNotFoundException {
+        return parentQuestionRepository.findById(parentQuestionId).orElseThrow(ParentQuestionNotFoundException::new).getQuestionList();
+    }
 
-	@Override
-	public Question getQuestionById(int questionId) throws
-			QuestionNotFoundException {
-		return questionRepository.findById(questionId).orElseThrow(QuestionNotFoundException::new);
-	}
+    @Override
+    public Question getQuestionById(int questionId) throws
+            QuestionNotFoundException {
+        return questionRepository.findById(questionId).orElseThrow(QuestionNotFoundException::new);
+    }
 }

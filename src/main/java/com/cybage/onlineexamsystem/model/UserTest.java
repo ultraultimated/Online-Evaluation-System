@@ -10,45 +10,45 @@ import java.io.Serializable;
 @Entity
 @Table(name = "tbl_user_test")
 @NamedQuery(name = "UserTest.findAll", query = "SELECT t FROM UserTest t")
-public class  UserTest implements Serializable {
-	private static final long serialVersionUID = 1L;
+public class UserTest implements Serializable {
+    private static final long serialVersionUID = 1L;
 
-	@Column(name = "test_id")
-	private int testId;
+    @Column(name = "test_id")
+    private int testId;
 
-	@Column(name = "user_id")
-	private int userId;
+    @Column(name = "user_id")
+    private int userId;
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "user_test_id")
-	private int userTestId;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "user_test_id")
+    private int userTestId;
 
-	public UserTest() {
-	}
+    public UserTest() {
+    }
 
-	public int getTestId() {
-		return this.testId;
-	}
+    public int getTestId() {
+        return this.testId;
+    }
 
-	public void setTestId(int testId) {
-		this.testId = testId;
-	}
+    public void setTestId(int testId) {
+        this.testId = testId;
+    }
 
-	public int getUserId() {
-		return this.userId;
-	}
+    public int getUserId() {
+        return this.userId;
+    }
 
-	public void setUserId(int userId) {
-		this.userId = userId;
-	}
+    public void setUserId(int userId) {
+        this.userId = userId;
+    }
 
-	public int getUserTestId() {
-		return this.userTestId;
-	}
+    public int getUserTestId() {
+        return this.userTestId;
+    }
 
-	public void setUserTestId(int userTestId) {
-		this.userTestId = userTestId;
-	}
+    public void setUserTestId(int userTestId) {
+        this.userTestId = userTestId;
+    }
 
 }

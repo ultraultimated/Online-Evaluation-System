@@ -18,7 +18,7 @@
 package com.cybage.onlineexamsystem.controller;
 
 import com.cybage.onlineexamsystem.exceptions.SheetCountException;
-import com.cybage.onlineexamsystem.service.UploadExcelImpl;
+import com.cybage.onlineexamsystem.service.UploadExcelService;
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -34,13 +34,12 @@ import java.io.IOException;
  */
 @RestController
 @RequestMapping("/upload")
-public class UploadController
-{
-	@Autowired
-	private UploadExcelImpl uploadExcel;
+public class UploadController {
+    @Autowired
+    private UploadExcelService uploadExcelService;
 
-	@GetMapping("/get")
-	private void readFile() throws IOException, InvalidFormatException, SheetCountException {
-		uploadExcel.readFile("adsds");
-	}
+    @GetMapping("/get")
+    private void readFile() throws IOException, InvalidFormatException, SheetCountException {
+        uploadExcelService.readFile("adsds");
+    }
 }

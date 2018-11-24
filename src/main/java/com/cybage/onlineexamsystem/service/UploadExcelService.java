@@ -1,5 +1,6 @@
 /*
- * UploadExcel
+ * UploadExcelService
+ *
  *
  * Version information
  *
@@ -9,7 +10,8 @@
  */
 
 /**
- * @file UploadExcel
+ * @file UploadExcelService
+ * <p>
  * Brief description of contents of file.
  * Long description
  * @date 11/5/2018
@@ -20,6 +22,7 @@ package com.cybage.onlineexamsystem.service;
 import com.cybage.onlineexamsystem.exceptions.SheetCountException;
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.apache.poi.ss.usermodel.Row;
+import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
@@ -30,17 +33,17 @@ import java.io.IOException;
  *
  * @author Poojan Patel
  */
+@Service
+public interface UploadExcelService {
 
-public interface UploadExcel {
+    /**
+     * @param multipartFile for excel file upload
+     */
+    void uploadFile(MultipartFile multipartFile);
 
-	/**
-	 * @param multipartFile for excel file upload
-	 */
-	public void uploadFile(MultipartFile multipartFile);
+    void readFile(String filePath) throws IOException, InvalidFormatException, SheetCountException;
 
-	public void readFile(String filePath) throws IOException, InvalidFormatException, SheetCountException;
+    boolean checkSheetCount(int sheetCount) throws SheetCountException;
 
-	public boolean checkSheetCount(int sheetCount) throws SheetCountException;
-
-	public boolean checkNull(Row row);
+    boolean checkNull(Row row);
 }

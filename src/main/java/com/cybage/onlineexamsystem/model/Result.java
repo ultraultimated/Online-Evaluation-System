@@ -11,64 +11,64 @@ import java.io.Serializable;
 @Table(name = "tbl_result")
 @NamedQuery(name = "Result.findAll", query = "SELECT t FROM Result t")
 public class Result implements Serializable {
-	private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
-	private int marks;
+    private int marks;
 
-	@Column(name = "question_id")
-	private int questionId;
+    @Column(name = "question_id")
+    private int questionId;
 
-	private String result;
+    private String result;
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "result_id")
-	private int resultId;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "result_id")
+    private int resultId;
 
-	@Column(name = "user_id")
-	private int userId;
+    @Column(name = "user_id")
+    private int userId;
 
-	public Result() {
-	}
+    public Result() {
+    }
 
-	public int getMarks() {
-		return this.marks;
-	}
+    public int getMarks() {
+        return this.marks;
+    }
 
-	public void setMarks(int marks) {
-		this.marks = marks;
-	}
+    public void setMarks(int marks) {
+        this.marks = marks;
+    }
 
-	public int getQuestionId() {
-		return this.questionId;
-	}
+    public int getQuestionId() {
+        return this.questionId;
+    }
 
-	public void setQuestionId(int questionId) {
-		this.questionId = questionId;
-	}
+    public void setQuestionId(int questionId) {
+        this.questionId = questionId;
+    }
 
-	public String getResult() {
-		return this.result;
-	}
+    public String getResult() {
+        return this.result;
+    }
 
-	public void setResult(String result) {
-		this.result = result;
-	}
+    public void setResult(String result) {
+        this.result = result;
+    }
 
-	public int getResultId() {
-		return this.resultId;
-	}
+    public int getResultId() {
+        return this.resultId;
+    }
 
-	public void setResultId(int resultId) {
-		this.resultId = resultId;
-	}
+    public void setResultId(int resultId) {
+        this.resultId = resultId;
+    }
 
-	public int getUserId() {
-		return this.userId;
-	}
+    public int getUserId() {
+        return this.userId;
+    }
 
-	public void setUserId(int userId) {
-		this.userId = userId;
-	}
+    public void setUserId(int userId) {
+        this.userId = userId;
+    }
 
 }
