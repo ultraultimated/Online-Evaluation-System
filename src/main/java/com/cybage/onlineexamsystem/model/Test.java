@@ -34,6 +34,7 @@ public class Test implements Serializable {
     private Date time;
 
     @Transient
+    @JsonIgnore
     private int subcategoryId;
 
 	@ManyToOne
