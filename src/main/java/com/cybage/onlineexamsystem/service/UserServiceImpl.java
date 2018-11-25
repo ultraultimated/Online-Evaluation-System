@@ -22,6 +22,7 @@ import com.cybage.onlineexamsystem.exceptions.UserNotFoundException;
 import com.cybage.onlineexamsystem.model.User;
 import com.cybage.onlineexamsystem.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 import java.util.Optional;
@@ -31,6 +32,7 @@ import java.util.Optional;
  *
  * @author {rahulpandy}
  */
+@Component
 public class UserServiceImpl implements UserService {
 
     @Autowired

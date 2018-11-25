@@ -21,6 +21,7 @@ package com.cybage.onlineexamsystem.service;
 import com.cybage.onlineexamsystem.model.Log;
 import com.cybage.onlineexamsystem.repository.UserLogRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 
@@ -29,6 +30,7 @@ import java.util.List;
  *
  * @author {neelp}
  */
+@Component
 public class UserLogServiceImpl implements UserLogService {
     @Autowired
     private UserLogRepository userLogRepository;

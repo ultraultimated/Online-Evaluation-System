@@ -22,6 +22,8 @@ import com.cybage.onlineexamsystem.exceptions.CategoryNotFoundException;
 import com.cybage.onlineexamsystem.model.Category;
 import com.cybage.onlineexamsystem.repository.CategoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
@@ -30,6 +32,7 @@ import java.util.List;
  *
  * @author {neelp}
  */
+@Component
 public class CategoryServiceImpl implements CategoryService {
 
     @Autowired

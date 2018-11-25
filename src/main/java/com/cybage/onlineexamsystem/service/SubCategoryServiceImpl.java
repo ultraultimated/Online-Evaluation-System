@@ -24,6 +24,7 @@ import com.cybage.onlineexamsystem.model.SubCategory;
 import com.cybage.onlineexamsystem.repository.CategoryRepository;
 import com.cybage.onlineexamsystem.repository.SubCategoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 
@@ -32,6 +33,7 @@ import java.util.List;
  *
  * @author {neelp}
  */
+@Component
 public class SubCategoryServiceImpl implements SubCategoryService {
     @Autowired
     private SubCategoryRepository subCategoryRepository;

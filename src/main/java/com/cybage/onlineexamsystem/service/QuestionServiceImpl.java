@@ -23,6 +23,7 @@ import com.cybage.onlineexamsystem.model.Question;
 import com.cybage.onlineexamsystem.repository.ParentQuestionRepository;
 import com.cybage.onlineexamsystem.repository.QuestionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 
@@ -31,6 +32,7 @@ import java.util.List;
  *
  * @author Poojan Patel
  */
+@Component
 public class QuestionServiceImpl implements QuestionService {
 
     @Autowired

@@ -23,12 +23,15 @@ import com.cybage.onlineexamsystem.model.Option;
 import com.cybage.onlineexamsystem.repository.OptionRepository;
 import com.cybage.onlineexamsystem.repository.QuestionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 /**
  * This class provides ...
  *
  * @author Poojan Patel
  */
+@Component
 public class OptionServiceImpl implements OptionService {
 
     @Autowired
