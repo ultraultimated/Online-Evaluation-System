@@ -15,20 +15,7 @@
  * @date 10/31/2018
  */
 
-
 package com.cybage.onlineexamsystem.service;
-
-import com.cybage.onlineexamsystem.exceptions.SubCategoryNotFoundException;
-import com.cybage.onlineexamsystem.exceptions.TestNotFoundException;
-import com.cybage.onlineexamsystem.model.*;
-import com.cybage.onlineexamsystem.repository.SubCategoryRepository;
-import com.cybage.onlineexamsystem.repository.TestRepository;
-import org.apache.poi.ss.usermodel.Row;
-import org.apache.poi.ss.usermodel.Sheet;
-import org.apache.poi.xssf.usermodel.XSSFSheet;
-import org.apache.poi.xssf.usermodel.XSSFWorkbook;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -37,6 +24,26 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
+
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+import com.cybage.onlineexamsystem.exceptions.SubCategoryNotFoundException;
+import com.cybage.onlineexamsystem.exceptions.TestNotFoundException;
+import com.cybage.onlineexamsystem.model.Option;
+import com.cybage.onlineexamsystem.model.ParentQuestion;
+import com.cybage.onlineexamsystem.model.Question;
+import com.cybage.onlineexamsystem.model.QuestionDifficulty;
+import com.cybage.onlineexamsystem.model.QuestionSubjectivity;
+import com.cybage.onlineexamsystem.model.QuestionType;
+import com.cybage.onlineexamsystem.model.SubCategory;
+import com.cybage.onlineexamsystem.model.Test;
+import com.cybage.onlineexamsystem.repository.SubCategoryRepository;
+import com.cybage.onlineexamsystem.repository.TestRepository;
 
 /**
  * The Example class provides ...
@@ -56,8 +63,10 @@ public class TestServiceImpl implements TestService {
         try {
             int tempId = (int) row.getCell(0).getNumericCellValue();
             String parentQuestionDesc = row.getCell(1).getStringCellValue();
-            QuestionDifficulty difficulty = QuestionDifficulty.valueOf(row.getCell(2).getStringCellValue().toUpperCase());
-            QuestionSubjectivity subjectivity = QuestionSubjectivity.valueOf(row.getCell(3).getStringCellValue().toUpperCase());
+            QuestionDifficulty difficulty = QuestionDifficulty
+                    .valueOf(row.getCell(2).getStringCellValue().toUpperCase());
+            QuestionSubjectivity subjectivity = QuestionSubjectivity
+                    .valueOf(row.getCell(3).getStringCellValue().toUpperCase());
             String topic = row.getCell(4).getStringCellValue();
             return !parentQuestionDesc.isEmpty();
 
@@ -77,7 +86,8 @@ public class TestServiceImpl implements TestService {
                     int parentQuestionID = (int) row.getCell(1).getNumericCellValue();
                     String questionDescription = row.getCell(2).getStringCellValue();
                     int marks = (int) row.getCell(3).getNumericCellValue();
-                    QuestionDifficulty difficulty = QuestionDifficulty.valueOf(row.getCell(4).getStringCellValue().toUpperCase());
+                    QuestionDifficulty difficulty = QuestionDifficulty
+                            .valueOf(row.getCell(4).getStringCellValue().toUpperCase());
                     String subTopic = row.getCell(5).getStringCellValue();
                     return !questionDescription.isEmpty() && !subTopic.isEmpty();
 
@@ -93,7 +103,8 @@ public class TestServiceImpl implements TestService {
                     String questionDescription = row.getCell(2).getStringCellValue();
                     String answer = row.getCell(3).getStringCellValue();
                     int marks = (int) row.getCell(4).getNumericCellValue();
-                    QuestionDifficulty difficulty = QuestionDifficulty.valueOf(row.getCell(5).getStringCellValue().toUpperCase());
+                    QuestionDifficulty difficulty = QuestionDifficulty
+                            .valueOf(row.getCell(5).getStringCellValue().toUpperCase());
                     String subTopic = row.getCell(6).getStringCellValue();
                     return !questionDescription.isEmpty() && !subTopic.isEmpty() && !answer.isEmpty();
 
@@ -109,7 +120,8 @@ public class TestServiceImpl implements TestService {
                     String questionDescription = row.getCell(2).getStringCellValue();
                     String answer = String.valueOf(row.getCell(3).getBooleanCellValue());
                     int marks = (int) row.getCell(4).getNumericCellValue();
-                    QuestionDifficulty difficulty = QuestionDifficulty.valueOf(row.getCell(5).getStringCellValue().toUpperCase());
+                    QuestionDifficulty difficulty = QuestionDifficulty
+                            .valueOf(row.getCell(5).getStringCellValue().toUpperCase());
                     String subTopic = row.getCell(6).getStringCellValue();
                     return !questionDescription.isEmpty() && !subTopic.isEmpty() && !answer.isEmpty();
 
@@ -129,9 +141,11 @@ public class TestServiceImpl implements TestService {
                     String option4 = row.getCell(6).getStringCellValue();
                     String correctOption = row.getCell(7).getStringCellValue();
                     int marks = (int) row.getCell(8).getNumericCellValue();
-                    QuestionDifficulty difficulty = QuestionDifficulty.valueOf(row.getCell(9).getStringCellValue().toUpperCase());
+                    QuestionDifficulty difficulty = QuestionDifficulty
+                            .valueOf(row.getCell(9).getStringCellValue().toUpperCase());
                     String subTopic = row.getCell(10).getStringCellValue();
-                    return !questionDescription.isEmpty() && !subTopic.isEmpty() && !option1.isEmpty() && !option2.isEmpty() && !option3.isEmpty() && !option4.isEmpty() && !correctOption.isEmpty();
+                    return !questionDescription.isEmpty() && !subTopic.isEmpty() && !option1.isEmpty() && !option2.isEmpty()
+                            && !option3.isEmpty() && !option4.isEmpty() && !correctOption.isEmpty();
 
                 } catch (Exception e) {
                     return false;
@@ -164,7 +178,8 @@ public class TestServiceImpl implements TestService {
         int tempId = (int) row.getCell(0).getNumericCellValue();
         String parentQuestionDesc = row.getCell(1).getStringCellValue();
         QuestionDifficulty difficulty = QuestionDifficulty.valueOf(row.getCell(2).getStringCellValue().toUpperCase());
-        QuestionSubjectivity subjectivity = QuestionSubjectivity.valueOf(row.getCell(3).getStringCellValue().toUpperCase());
+        QuestionSubjectivity subjectivity = QuestionSubjectivity
+                .valueOf(row.getCell(3).getStringCellValue().toUpperCase());
         String topic = row.getCell(4).getStringCellValue();
 
         parentQuestion.setTempId(tempId);
@@ -264,7 +279,8 @@ public class TestServiceImpl implements TestService {
     @Override
     public List<Test> getTestBySubCategoryId(int subCategoryId) throws SubCategoryNotFoundException {
 
-        return subCategoryRepository.findById(subCategoryId).orElseThrow(SubCategoryNotFoundException::new).getTestList();
+        return subCategoryRepository.findById(subCategoryId).orElseThrow(SubCategoryNotFoundException::new)
+                .getTestList();
 
     }
 
@@ -299,14 +315,19 @@ public class TestServiceImpl implements TestService {
 
         List<ParentQuestion> parentQuestions = readParentQuestion(parentQuestionSheet);
         List<Question> descriptiveQuestions = readQuestion(descriptiveQuestionSheet, QuestionType.DESCRIPTIVE);
-        List<Question> fillInTheBlanksQuestions = readQuestion(fillInTheBlanksQuestionSheet, QuestionType.FILL_IN_THE_BLANKS);
+        List<Question> fillInTheBlanksQuestions = readQuestion(fillInTheBlanksQuestionSheet,
+                QuestionType.FILL_IN_THE_BLANKS);
         List<Question> trueFlaseQuestions = readQuestion(trueFalseQuestionSheet, QuestionType.TRUE_FALSE);
         List<Question> mcqQuestions = readQuestion(mcqQuestionSheet, QuestionType.MCQ);
 
-        Map<Integer, List<Question>> descriptiveQuestionsById = descriptiveQuestions.stream().collect(Collectors.groupingBy(Question::getParentQuestionId));
-        Map<Integer, List<Question>> fillInTheBlanksQuestionsById = fillInTheBlanksQuestions.stream().collect(Collectors.groupingBy(Question::getParentQuestionId));
-        Map<Integer, List<Question>> trueFalseQuestionsById = trueFlaseQuestions.stream().collect(Collectors.groupingBy(Question::getParentQuestionId));
-        Map<Integer, List<Question>> mcqQuestionsById = mcqQuestions.stream().collect(Collectors.groupingBy(Question::getParentQuestionId));
+        Map<Integer, List<Question>> descriptiveQuestionsById = descriptiveQuestions.stream()
+                .collect(Collectors.groupingBy(Question::getParentQuestionId));
+        Map<Integer, List<Question>> fillInTheBlanksQuestionsById = fillInTheBlanksQuestions.stream()
+                .collect(Collectors.groupingBy(Question::getParentQuestionId));
+        Map<Integer, List<Question>> trueFalseQuestionsById = trueFlaseQuestions.stream()
+                .collect(Collectors.groupingBy(Question::getParentQuestionId));
+        Map<Integer, List<Question>> mcqQuestionsById = mcqQuestions.stream()
+                .collect(Collectors.groupingBy(Question::getParentQuestionId));
 
         for (ParentQuestion parentQuestion : parentQuestions) {
 
@@ -329,11 +350,11 @@ public class TestServiceImpl implements TestService {
         }
 
         test.setParentQuestionList(parentQuestions);
-        SubCategory subCategory = subCategoryRepository.findById(test.getSubCategoryId()).orElseThrow(SubCategoryNotFoundException::new);
+        SubCategory subCategory = subCategoryRepository.findById(test.getSubcategoryId())
+                .orElseThrow(SubCategoryNotFoundException::new);
         subCategory.getTestList().add(test);
         subCategoryRepository.save(subCategory);
-//		testRepository.save(test);
+        // testRepository.save(test);
     }
-
 
 }
