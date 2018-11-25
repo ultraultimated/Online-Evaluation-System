@@ -39,6 +39,7 @@ public class CategoryServiceImpl implements CategoryService {
     /**
      * @param Category object with values to save in database
      */
+    @Override
     public void insertCategory(Category Category) {
         categoryRepository.save(Category);
     }
@@ -46,6 +47,7 @@ public class CategoryServiceImpl implements CategoryService {
     /**
      * @return List of all categories in category table
      */
+    @Override
     public List<Category> getAllCategories() {
         return categoryRepository.findAll();
     }
