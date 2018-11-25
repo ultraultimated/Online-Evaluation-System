@@ -1,5 +1,7 @@
 package com.cybage.onlineexamsystem.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
@@ -32,12 +34,12 @@ public class Test implements Serializable {
     private Date time;
 
     @Transient
-    private int subCategoryId;
+    private int subcategoryId;
 
-//	@ManyToOne
-//	@JoinColumn(name = "subcategory_id")
-//	@JsonIgnore
-//	private SubCategory subCategory;
+	@ManyToOne
+	@JoinColumn(name = "subcategory_id")
+	@JsonIgnore
+	private SubCategory subCategory;
 
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "test_id")
@@ -86,22 +88,21 @@ public class Test implements Serializable {
         this.time = time;
     }
 
-    public int getSubCategoryId() {
-        return subCategoryId;
+    public int getSubcategoryId() {
+        return subcategoryId;
     }
 
-    public void setSubCategoryId(int subCategoryId) {
-        this.subCategoryId = subCategoryId;
+    public void setSubcategoryId(int subcategoryId) {
+        this.subcategoryId = subcategoryId;
     }
 
+    public SubCategory getSubCategory() {
+		return subCategory;
+	}
 
-    //	public SubCategory getSubCategory() {
-//		return subCategory;
-//	}
-//
-//	public void setSubCategory(SubCategory subCategory) {
-//		this.subCategory = subCategory;
-//	}
+	public void setSubCategory(SubCategory subCategory) {
+		this.subCategory = subCategory;
+	}
 
     public List<ParentQuestion> getParentQuestionList() {
         return parentQuestionList;

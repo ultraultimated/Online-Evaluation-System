@@ -2,8 +2,11 @@ package com.cybage.onlineexamsystem.controller;
 
 import java.io.File;
 import java.io.IOException;
+import java.lang.reflect.Type;
 import java.util.List;
 
+import org.modelmapper.ModelMapper;
+import org.modelmapper.TypeToken;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -15,7 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.cybage.onlineexamsystem.exceptions.SubCategoryNotFoundException;
 import com.cybage.onlineexamsystem.exceptions.TestNotFoundException;
 import com.cybage.onlineexamsystem.model.Test;
-import com.cybage.onlineexamsystem.repository.TestRepository;
+import com.cybage.onlineexamsystem.model.dto.TestDTO;
 import com.cybage.onlineexamsystem.service.TestService;
 
 @RestController
@@ -27,7 +30,7 @@ public class TestController
     private TestService testService;
 
     @Autowired
-    private TestRepository testRepository;
+    private ModelMapper modelMapper;
 
     /**
      * @param subCategoryId
@@ -37,9 +40,13 @@ public class TestController
      *             if no test exist
      */
     @GetMapping("/subcategory/id/{subCategoryId}")
-    private List<Test> getAllTestBySubcategroyId(@PathVariable int subCategoryId) throws SubCategoryNotFoundException
+    private List<TestDTO> getAllTestBySubcategroyId(@PathVariable int subCategoryId) throws SubCategoryNotFoundException
     {
-	return testService.getTestBySubCategoryId(subCategoryId);
+	Type test = new TypeToken<List<TestDTO>>()
+	{
+	}.getType();
+	return modelMapper.map(testService.getTestBySubCategoryId(subCategoryId), test);
+	// return testService.getTestBySubCategoryId(subCategoryId);
     }
 
     @GetMapping("/subcategory/id/{subCategoryId}/count")

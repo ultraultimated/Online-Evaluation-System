@@ -19,6 +19,8 @@
 
 package com.cybage.onlineexamsystem.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.List;
@@ -41,10 +43,10 @@ public class SubCategory implements Serializable {
     @Column(name = "subcategory_name")
     private String subcategoryName;
 
-//	@ManyToOne
-//	@JoinColumn(name = "category_id")
-//	@JsonIgnore
-//	private Category category;
+	@ManyToOne
+	@JoinColumn(name = "category_id")
+	@JsonIgnore
+	private Category category;
 
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "subcategory_id")
@@ -69,13 +71,13 @@ public class SubCategory implements Serializable {
         this.subcategoryName = subcategoryName;
     }
 
-//	public Category getCategory() {
-//		return category;
-//	}
-//
-//	public void setCategory(Category category) {
-//		this.category = category;
-//	}
+	public Category getCategory() {
+		return category;
+	}
+
+	public void setCategory(Category category) {
+		this.category = category;
+	}
 
     public List<Test> getTestList() {
         return testList;
