@@ -73,4 +73,13 @@ public class CategoryServiceImpl implements CategoryService {
 //		return categoryDTO;
 //	}
 
+//	public CategoryDTO getCategoryDTOById(int categoryId) throws CategoryNotFoundException {
+//
+//		Category category = new Category();
+//		category = categoryRepository.findById(categoryId).orElseThrow(CategoryNotFoundException::new);
+//		ModelMapper modelMapper = new ModelMapper();
+//		CategoryDTO categoryDTO = modelMapper.map(category, CategoryDTO.class);
+//		return categoryDTO;
+//	}
+
 }
