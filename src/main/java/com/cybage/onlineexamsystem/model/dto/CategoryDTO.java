@@ -10,8 +10,6 @@ public class CategoryDTO {
 
     private String categoryName;
 
-    private List<SubCategoryDTO> subCategoryList;
-
     public int getCategoryId() {
         return categoryId;
     }
@@ -26,13 +24,5 @@ public class CategoryDTO {
 
     public void setCategoryName(String categoryName) {
         this.categoryName = categoryName;
-    }
-
-    public List<SubCategoryDTO> getSubCategoryList() {
-        return subCategoryList;
-    }
-
-    public void setSubCategoryList(List<SubCategoryDTO> subCategoryList) {
-        this.subCategoryList = subCategoryList;
     }
 }
