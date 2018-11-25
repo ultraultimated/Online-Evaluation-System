@@ -48,6 +48,7 @@ public class CategoryController
     @Autowired
     private CategoryService categoryService;
 
+    @Autowired
     ModelMapper modelMapper = new ModelMapper();
 
     /**
