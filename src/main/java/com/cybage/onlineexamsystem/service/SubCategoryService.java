@@ -55,5 +55,6 @@ public interface SubCategoryService {
     SubCategory getSubCategoryById(int subCategoryId) throws
             SubCategoryNotFoundException;
 
+    String getCategoryIdBySubcategoryId(int subcategoryId);
 
 }

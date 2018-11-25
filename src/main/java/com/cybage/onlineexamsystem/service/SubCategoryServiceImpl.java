@@ -79,4 +79,9 @@ public class SubCategoryServiceImpl implements SubCategoryService {
         return subCategoryRepository.findById(subCategoryId).orElseThrow(SubCategoryNotFoundException::new);
     }
 
+    @Override
+    public String getCategoryIdBySubcategoryId(int subcategoryId) {
+        return subCategoryRepository.getCategoryIdBySubcategoryId(subcategoryId);
+    }
+
 }

@@ -53,4 +53,6 @@ public interface TestService {
 
     long getSubCategoryCountByTestId(int subCategoryId) throws Exception;
 
+    String getSubcategoryIdByTestId(int testId);
+
 }

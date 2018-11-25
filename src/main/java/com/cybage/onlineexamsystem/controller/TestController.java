@@ -92,4 +92,8 @@ public class TestController
 	testService.insertTest(test, file);
     }
 
+	@GetMapping("/subcategory/test/{testId}")
+	private String getSubcategoryIdByTestId(@PathVariable int testId){
+    	return testService.getSubcategoryIdByTestId(testId);
+	}
 }

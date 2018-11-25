@@ -101,4 +101,9 @@ public class SubCategoryController
 	return subCategoryService.getAllSubcategories();
     }
 
+	@GetMapping("/category/{subcategoryId}")
+	private String getCategoryIdBySubcategoryId(@PathVariable int subcategoryId){
+    	return subCategoryService.getCategoryIdBySubcategoryId(subcategoryId);
+	}
+
 }

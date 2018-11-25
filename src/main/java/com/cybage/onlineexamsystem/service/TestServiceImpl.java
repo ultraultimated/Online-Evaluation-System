@@ -298,6 +298,8 @@ public class TestServiceImpl implements TestService {
         return testRepository.countBySubcategoryId(subCategoryId);
     }
 
+
+
     /**
      * @param test object to be inserted into database
      */
@@ -355,6 +357,11 @@ public class TestServiceImpl implements TestService {
         subCategory.getTestList().add(test);
         subCategoryRepository.save(subCategory);
         // testRepository.save(test);
+    }
+
+    @Override
+    public String getSubcategoryIdByTestId(int testId) {
+        return testRepository.findTestByTestId(testId);
     }
 
 }

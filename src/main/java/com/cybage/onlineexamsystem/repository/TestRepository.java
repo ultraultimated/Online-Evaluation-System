@@ -34,4 +34,7 @@ public interface TestRepository extends JpaRepository<Test, Integer> {
 	@Query(value = "SELECT COUNT(*) FROM TBL_TEST WHERE SUBCATEGORY_ID = ?1",
 			nativeQuery = true)
 	long countBySubcategoryId(int subCategoryId) throws Exception;
+	@Query(value = "select subcategory_id from tbl_test where test_id = ?1",
+			nativeQuery = true)
+	public String findTestByTestId(int testId);
 }
