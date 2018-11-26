@@ -83,7 +83,7 @@ public class CategoryController
 	return categoryService.getCategoryById(id);
     }
 
-    @GetMapping("/subcategory/test/id/{id}")
+    @GetMapping("/subcategory/id/{id}")
     private CategoryDTO getCategoryOnlyById(@PathVariable int id) throws CategoryNotFoundException
     {
 
@@ -93,7 +93,7 @@ public class CategoryController
 	return modelMapper.map(categoryService.getCategoryById(id), category);
     }
 
-    @GetMapping("/subcategory/test/all")
+    @GetMapping("/subcategory/all")
     private List<CategoryDTO> getOnlyCategory()
     {
 
