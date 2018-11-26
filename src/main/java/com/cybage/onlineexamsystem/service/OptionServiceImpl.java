@@ -26,6 +26,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 /**
  * This class provides ...
  *
@@ -46,8 +48,8 @@ public class OptionServiceImpl implements OptionService {
     }
 
     @Override
-    public Option getOptionByQuestionId(int questionId) throws QuestionNotFoundException {
-        return questionRepository.findById(questionId).orElseThrow(QuestionNotFoundException::new).getOption();
+    public List<Option> getOptionByQuestionId(int questionId) throws QuestionNotFoundException {
+        return questionRepository.findById(questionId).orElseThrow(QuestionNotFoundException::new).getOptionList();
     }
 
     @Override

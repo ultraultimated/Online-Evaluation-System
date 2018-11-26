@@ -46,12 +46,12 @@ public class OptionController {
 	}
 
 	@GetMapping("/question/id/{questionId}")
-	private Option getOptionByQuestionId(@PathVariable int questionId) throws QuestionNotFoundException {
+	private List<Option> getOptionByQuestionId(@PathVariable int questionId) throws QuestionNotFoundException {
 		return optionService.getOptionByQuestionId(questionId);
 	}
 
 	@GetMapping("/id/{optionId}")
 	private Option getOptionById(@PathVariable int optionId) throws OptionNotFoundException {
-		return  optionService.getOptionById(optionId);
+		return optionService.getOptionById(optionId);
 	}
 }

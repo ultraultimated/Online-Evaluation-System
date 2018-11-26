@@ -1,19 +1,9 @@
 package com.cybage.onlineexamsystem.model;
 
 import java.io.Serializable;
+import java.util.List;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.NamedQuery;
-import javax.persistence.OneToOne;
-import javax.persistence.Table;
-import javax.persistence.Transient;
+import javax.persistence.*;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -56,9 +46,9 @@ public class Question implements Serializable
     @JsonIgnore
     private ParentQuestion parentQuestion;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "question_id")
-    private Option option;
+    private List<Option> optionList;
 
     public Question()
     {
@@ -154,13 +144,11 @@ public class Question implements Serializable
 	this.parentQuestion = parentQuestion;
     }
 
-    public Option getOption()
-    {
-	return option;
+    public List<Option> getOptionList() {
+        return optionList;
     }
 
-    public void setOption(Option option)
-    {
-	this.option = option;
+    public void setOptionList(List<Option> optionList) {
+        this.optionList = optionList;
     }
 }

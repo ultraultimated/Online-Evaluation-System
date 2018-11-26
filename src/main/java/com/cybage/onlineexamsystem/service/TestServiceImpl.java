@@ -209,7 +209,8 @@ public class TestServiceImpl implements TestService {
     private static Question mapRowToQuestion(Row row, QuestionType questionType) {
 
         Question question = new Question();
-        Option options = new Option();
+        Option option = new Option();
+        List<Option> optionList = new ArrayList<>();
 
         switch (questionType) {
 
@@ -246,11 +247,14 @@ public class TestServiceImpl implements TestService {
                 question.setQuestionType(QuestionType.MCQ);
                 question.setParentQuestionId((int) row.getCell(1).getNumericCellValue());
                 question.setQuestionDesc(row.getCell(2).getStringCellValue());
-                options.setOptionA(row.getCell(3).getStringCellValue());
-                options.setOptionB(row.getCell(4).getStringCellValue());
-                options.setOptionC(row.getCell(5).getStringCellValue());
-                options.setOptionD(row.getCell(6).getStringCellValue());
-                question.setOption(options);
+
+                option.setOptionA(row.getCell(3).getStringCellValue());
+                option.setOptionB(row.getCell(4).getStringCellValue());
+                option.setOptionC(row.getCell(5).getStringCellValue());
+                option.setOptionD(row.getCell(6).getStringCellValue());
+                option.setQuestion(question);
+                optionList.add(option);
+
                 question.setAnswer(row.getCell(7).getStringCellValue());
                 question.setMarks((int) row.getCell(8).getNumericCellValue());
                 question.setDifficulty(QuestionDifficulty.valueOf(row.getCell(9).getStringCellValue().toUpperCase()));

@@ -22,6 +22,8 @@ import com.cybage.onlineexamsystem.exceptions.QuestionNotFoundException;
 import com.cybage.onlineexamsystem.model.Option;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 /**
  * The CategoryService  interface provides all the methods that are utilized
  * on category.
@@ -33,7 +35,7 @@ public interface OptionService {
 
     void insertOption(Option option);
 
-    Option getOptionByQuestionId(int questionId) throws QuestionNotFoundException;
+    List<Option> getOptionByQuestionId(int questionId) throws QuestionNotFoundException;
 
     Option getOptionById(int optionId) throws OptionNotFoundException;
 }
