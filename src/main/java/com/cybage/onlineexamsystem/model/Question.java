@@ -47,7 +47,7 @@ public class Question implements Serializable
     private ParentQuestion parentQuestion;
 
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "question_id")
+    @JoinColumn(name = "option_id")
     private Option option;
 
     public Question()

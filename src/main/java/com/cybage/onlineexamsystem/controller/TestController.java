@@ -84,4 +84,13 @@ public class TestController {
     private String getSubcategoryIdByTestId(@PathVariable int testId) {
         return testService.getSubcategoryIdByTestId(testId);
     }
+
+    //pending
+//    @GetMapping("/subcategory/id/{id}")
+//    private TestDTO getQuestionIdByTestId(@PathVariable int TestId) throws TestNotFoundException{
+//
+//        Type category = new TypeToken<TestDTO>() {
+//        }.getType();
+//        return modelMapper.map(categoryService.getCategoryById(id), category);
+//    }
 }

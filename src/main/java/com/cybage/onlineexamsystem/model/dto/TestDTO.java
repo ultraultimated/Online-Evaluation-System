@@ -2,23 +2,23 @@ package com.cybage.onlineexamsystem.model.dto;
 
 public class TestDTO {
 
-    private int testId;
+    private String question_id;
 
-    private String testName;
+    private String answer;
 
-    public int getTestId() {
-        return testId;
+    public String getQuestion_id() {
+        return question_id;
     }
 
-    public void setTestId(int testId) {
-        this.testId = testId;
+    public void setQuestion_id(String question_id) {
+        this.question_id = question_id;
     }
 
-    public String getTestName() {
-        return testName;
+    public String getAnswer() {
+        return answer;
     }
 
-    public void setTestName(String testName) {
-        this.testName = testName;
+    public void setAnswer(String answer) {
+        this.answer = answer;
     }
 }

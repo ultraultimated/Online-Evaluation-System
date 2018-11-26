@@ -21,7 +21,9 @@ import com.cybage.onlineexamsystem.exceptions.OptionNotFoundException;
 import com.cybage.onlineexamsystem.exceptions.QuestionNotFoundException;
 import com.cybage.onlineexamsystem.model.Option;
 import com.cybage.onlineexamsystem.service.OptionService;
+import com.cybage.onlineexamsystem.service.QuestionService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.ImportAutoConfiguration;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.OptionalDataException;

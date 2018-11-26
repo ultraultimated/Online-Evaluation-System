@@ -32,10 +32,10 @@ public class Option implements Serializable {
     @Column(name = "option_id")
     private int optionId;
 
-	@OneToOne
-	@JoinColumn(name = "question_id")
-	@JsonIgnore
-	private Question question;
+//	@OneToOne
+//	@JoinColumn(name = "question_id")
+//	@JsonIgnore
+//	private Question question;
 
     public Option() {
     }
@@ -80,12 +80,12 @@ public class Option implements Serializable {
         this.optionId = optionId;
     }
 
-	public Question getQuestion() {
-		return question;
-	}
-
-	public void setQuestion(Question question) {
-		this.question = question;
-	}
+//	public Question getQuestion() {
+//		return question;
+//	}
+//
+//	public void setQuestion(Question question) {
+//		this.question = question;
+//	}
 
 }

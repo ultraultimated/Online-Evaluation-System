@@ -8,8 +8,6 @@ public class SubCategoryDTO {
 
     private String subcategoryName;
 
-//    private List<TestDTO> testList;
-
     public int getSubcategoryId() {
         return subcategoryId;
     }
@@ -26,11 +24,4 @@ public class SubCategoryDTO {
         this.subcategoryName = subcategoryName;
     }
 
-//    public List<TestDTO> getTestList() {
-//        return testList;
-//    }
-//
-//    public void setTestList(List<TestDTO> testList) {
-//        this.testList = testList;
-//    }
 }

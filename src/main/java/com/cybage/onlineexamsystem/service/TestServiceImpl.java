@@ -252,7 +252,7 @@ public class TestServiceImpl implements TestService {
                 option.setOptionC(row.getCell(5).getStringCellValue());
                 option.setOptionD(row.getCell(6).getStringCellValue());
                 question.setOption(option);
-                option.setQuestion(question);
+                //option.setQuestion(question);
 
                 question.setAnswer(row.getCell(7).getStringCellValue());
                 question.setMarks((int) row.getCell(8).getNumericCellValue());
