@@ -35,7 +35,7 @@ public interface OptionService {
 
     void insertOption(Option option);
 
-    List<Option> getOptionByQuestionId(int questionId) throws QuestionNotFoundException;
+    Option getOptionByQuestionId(int questionId) throws QuestionNotFoundException;
 
     Option getOptionById(int optionId) throws OptionNotFoundException;
 }

@@ -32,7 +32,7 @@ public class Option implements Serializable {
     @Column(name = "option_id")
     private int optionId;
 
-	@ManyToOne
+	@OneToOne
 	@JoinColumn(name = "question_id")
 	@JsonIgnore
 	private Question question;

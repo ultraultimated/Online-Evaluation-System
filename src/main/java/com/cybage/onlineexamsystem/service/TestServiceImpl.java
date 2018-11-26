@@ -209,8 +209,6 @@ public class TestServiceImpl implements TestService {
     private static Question mapRowToQuestion(Row row, QuestionType questionType) {
 
         Question question = new Question();
-        Option option = new Option();
-        List<Option> optionList = new ArrayList<>();
 
         switch (questionType) {
 
@@ -248,12 +246,13 @@ public class TestServiceImpl implements TestService {
                 question.setParentQuestionId((int) row.getCell(1).getNumericCellValue());
                 question.setQuestionDesc(row.getCell(2).getStringCellValue());
 
+                Option option = new Option();
                 option.setOptionA(row.getCell(3).getStringCellValue());
                 option.setOptionB(row.getCell(4).getStringCellValue());
                 option.setOptionC(row.getCell(5).getStringCellValue());
                 option.setOptionD(row.getCell(6).getStringCellValue());
+                question.setOption(option);
                 option.setQuestion(question);
-                optionList.add(option);
 
                 question.setAnswer(row.getCell(7).getStringCellValue());
                 question.setMarks((int) row.getCell(8).getNumericCellValue());
