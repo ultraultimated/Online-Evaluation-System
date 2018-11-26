@@ -313,20 +313,20 @@ public class TestServiceImpl implements TestService {
         XSSFWorkbook workbook = new XSSFWorkbook(fileInputStream);
 
         XSSFSheet parentQuestionSheet = workbook.getSheetAt(0);
-        XSSFSheet descriptiveQuestionSheet = workbook.getSheetAt(1);
+//        XSSFSheet descriptiveQuestionSheet = workbook.getSheetAt(1);
         XSSFSheet fillInTheBlanksQuestionSheet = workbook.getSheetAt(2);
         XSSFSheet trueFalseQuestionSheet = workbook.getSheetAt(3);
         XSSFSheet mcqQuestionSheet = workbook.getSheetAt(4);
 
         List<ParentQuestion> parentQuestions = readParentQuestion(parentQuestionSheet);
-        List<Question> descriptiveQuestions = readQuestion(descriptiveQuestionSheet, QuestionType.DESCRIPTIVE);
+//        List<Question> descriptiveQuestions = readQuestion(descriptiveQuestionSheet, QuestionType.DESCRIPTIVE);
         List<Question> fillInTheBlanksQuestions = readQuestion(fillInTheBlanksQuestionSheet,
                 QuestionType.FILL_IN_THE_BLANKS);
         List<Question> trueFlaseQuestions = readQuestion(trueFalseQuestionSheet, QuestionType.TRUE_FALSE);
         List<Question> mcqQuestions = readQuestion(mcqQuestionSheet, QuestionType.MCQ);
 
-        Map<Integer, List<Question>> descriptiveQuestionsById = descriptiveQuestions.stream()
-                .collect(Collectors.groupingBy(Question::getParentQuestionId));
+//        Map<Integer, List<Question>> descriptiveQuestionsById = descriptiveQuestions.stream()
+//                .collect(Collectors.groupingBy(Question::getParentQuestionId));
         Map<Integer, List<Question>> fillInTheBlanksQuestionsById = fillInTheBlanksQuestions.stream()
                 .collect(Collectors.groupingBy(Question::getParentQuestionId));
         Map<Integer, List<Question>> trueFalseQuestionsById = trueFlaseQuestions.stream()
@@ -342,7 +342,7 @@ public class TestServiceImpl implements TestService {
 
             switch (parentQuestion.getSubjectivity()) {
                 case DESCRIPTIVE:
-                    questions.addAll(descriptiveQuestionsById.getOrDefault(tempId, empty));
+                    //questions.addAll(descriptiveQuestionsById.getOrDefault(tempId, empty));
                     questions.addAll(fillInTheBlanksQuestionsById.getOrDefault(tempId, empty));
                     break;
 

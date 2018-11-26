@@ -1,6 +1,6 @@
 package com.cybage.onlineexamsystem.model.dto;
 
-public class TestDTO {
+public class QuestionDTO {
 
     private String question_id;
 

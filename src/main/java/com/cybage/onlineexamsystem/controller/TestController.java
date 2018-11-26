@@ -18,7 +18,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.cybage.onlineexamsystem.exceptions.SubCategoryNotFoundException;
 import com.cybage.onlineexamsystem.exceptions.TestNotFoundException;
 import com.cybage.onlineexamsystem.model.Test;
-import com.cybage.onlineexamsystem.model.dto.TestDTO;
 import com.cybage.onlineexamsystem.service.TestService;
 
 @RestController
@@ -85,12 +84,4 @@ public class TestController {
         return testService.getSubcategoryIdByTestId(testId);
     }
 
-    //pending
-//    @GetMapping("/subcategory/id/{id}")
-//    private TestDTO getQuestionIdByTestId(@PathVariable int TestId) throws TestNotFoundException{
-//
-//        Type category = new TypeToken<TestDTO>() {
-//        }.getType();
-//        return modelMapper.map(categoryService.getCategoryById(id), category);
-//    }
 }
