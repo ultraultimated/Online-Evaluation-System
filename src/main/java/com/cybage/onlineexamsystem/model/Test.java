@@ -31,7 +31,7 @@ public class Test implements Serializable {
     private int totalMarks;
 
     @Column(name = "time")
-    private Date time;
+    private int time;
 
     @Transient
     private int subcategoryId;
@@ -80,11 +80,11 @@ public class Test implements Serializable {
         this.totalMarks = totalMarks;
     }
 
-    public Date getTime() {
+    public int getTime() {
         return time;
     }
 
-    public void setTime(Date time) {
+    public void setTime(int time) {
         this.time = time;
     }
 

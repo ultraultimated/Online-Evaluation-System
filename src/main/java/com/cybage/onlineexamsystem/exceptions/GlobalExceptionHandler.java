@@ -8,7 +8,7 @@
  * Copyright (c) 2018 Cybage software Pvt. Ltd. All rights reserved
  */
 
-/**
+/*
  * @file GlobalExceptionHandler
  * Brief description of contents of file.
  * Long description
@@ -37,7 +37,7 @@ public class GlobalExceptionHandler {
 	@ExceptionHandler(CategoryNotFoundException.class)
 	@ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
 	public ErrorResponse handleCategoryNotFoundException(CategoryNotFoundException exception) {
-		errorResponse.setErrorMessage("Category with given ID does not exist");
+		errorResponse.setErrorMessage("Category with given CategoryID does not exist");
 		errorResponse.setErrorCode("500");
 		errorResponse.setHttpStatus(HttpStatus.INTERNAL_SERVER_ERROR);
 		return errorResponse;
@@ -47,7 +47,7 @@ public class GlobalExceptionHandler {
 	@ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
 	public ErrorResponse handleSubCategoryException()
 	{
-		errorResponse.setErrorMessage("Subcategory with given category Id is not found");
+		errorResponse.setErrorMessage("Subcategory with given SubcategoryId is not found");
 		errorResponse.setErrorCode("500");
 		errorResponse.setHttpStatus(HttpStatus.INTERNAL_SERVER_ERROR);
 		return errorResponse;
@@ -57,7 +57,7 @@ public class GlobalExceptionHandler {
 	@ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
 	public ErrorResponse handleParentQuestionException()
 	{
-		errorResponse.setErrorMessage("ParentQuestion with given category Id is not found");
+		errorResponse.setErrorMessage("ParentQuestion with given ParentQuestionId is not found");
 		errorResponse.setErrorCode("500");
 		errorResponse.setHttpStatus(HttpStatus.INTERNAL_SERVER_ERROR);
 		return errorResponse;
@@ -67,7 +67,7 @@ public class GlobalExceptionHandler {
 	@ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
 	public ErrorResponse handleQuestionException()
 	{
-		errorResponse.setErrorMessage("Question with given ParentQuestion Id is not found");
+		errorResponse.setErrorMessage("Question with given QuestionId is not found");
 		errorResponse.setErrorCode("500");
 		errorResponse.setHttpStatus(HttpStatus.INTERNAL_SERVER_ERROR);
 		return errorResponse;
@@ -77,7 +77,7 @@ public class GlobalExceptionHandler {
 	@ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
 	public ErrorResponse handleOptionException()
 	{
-		errorResponse.setErrorMessage("Option with given Question Id is not found");
+		errorResponse.setErrorMessage("Option with given OptionId is not found");
 		errorResponse.setErrorCode("500");
 		errorResponse.setHttpStatus(HttpStatus.INTERNAL_SERVER_ERROR);
 		return errorResponse;

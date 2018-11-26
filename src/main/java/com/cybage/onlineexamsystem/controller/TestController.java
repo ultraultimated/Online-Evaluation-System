@@ -34,14 +34,14 @@ public class TestController {
     /**
      * @param subCategoryId to find all papers
      * @return list of papers that contain the subcategroy
-     * @throws TestNotFoundException if no test exist
+     * @throws SubCategoryNotFoundException if no test exist
      */
     @GetMapping("/subcategory/id/{subCategoryId}")
-    private List<TestDTO> getAllTestBySubcategroyId(@PathVariable int subCategoryId) throws SubCategoryNotFoundException {
-        Type test = new TypeToken<List<TestDTO>>() {
-        }.getType();
-        return modelMapper.map(testService.getTestBySubCategoryId(subCategoryId), test);
-        // return testService.getTestBySubCategoryId(subCategoryId);
+    private List<Test> getAllTestBySubcategroyId(@PathVariable int subCategoryId) throws SubCategoryNotFoundException {
+//        Type test = new TypeToken<List<TestDTO>>() {
+//        }.getType();
+//        return modelMapper.map(testService.getTestBySubCategoryId(subCategoryId), test);
+         return testService.getTestBySubCategoryId(subCategoryId);
     }
 
     @GetMapping("/subcategory/id/{subCategoryId}/count")
