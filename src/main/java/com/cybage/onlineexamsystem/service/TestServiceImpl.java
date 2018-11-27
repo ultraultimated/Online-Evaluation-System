@@ -20,6 +20,7 @@ package com.cybage.onlineexamsystem.service;
 import com.cybage.onlineexamsystem.exceptions.SubCategoryNotFoundException;
 import com.cybage.onlineexamsystem.exceptions.TestNotFoundException;
 import com.cybage.onlineexamsystem.model.*;
+import com.cybage.onlineexamsystem.model.dto.IdMapDTO;
 import com.cybage.onlineexamsystem.repository.SubCategoryRepository;
 import com.cybage.onlineexamsystem.repository.TestRepository;
 import org.apache.poi.ss.usermodel.Row;
@@ -353,9 +354,9 @@ public class TestServiceImpl implements TestService {
         // testRepository.save(test);
     }
 
-//    @Override
-//    public IdMapDTO getCategoryIdSubcategoryIdByTestId(int testId) {
-//        return testRepository.findTestByTestId(testId);
-//    }
+    @Override
+    public IdMapDTO getCategoryIdSubcategoryIdByTestId(int testId) {
+        return testRepository.findTestByTestId(testId);
+    }
 
 }

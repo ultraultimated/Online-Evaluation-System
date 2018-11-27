@@ -3,13 +3,16 @@ package com.cybage.onlineexamsystem.controller;
 import com.cybage.onlineexamsystem.exceptions.SubCategoryNotFoundException;
 import com.cybage.onlineexamsystem.exceptions.TestNotFoundException;
 import com.cybage.onlineexamsystem.model.Test;
+import com.cybage.onlineexamsystem.model.dto.IdMapDTO;
 import com.cybage.onlineexamsystem.service.TestService;
 import org.modelmapper.ModelMapper;
+import org.modelmapper.TypeToken;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.File;
 import java.io.IOException;
+import java.lang.reflect.Type;
 import java.util.List;
 
 @RestController
@@ -71,13 +74,13 @@ public class TestController {
         testService.insertTest(test, file);
     }
 
-//    @GetMapping("/subcategory/test/{testId}")
-//    private IdMapDTO getCategoryIdSubcategoryIdByTestId(@PathVariable int testId) {
-//
-//        Type idmap = new TypeToken<IdMapDTO>() {
-//        }.getType();
-//        return modelMapper.map(testService.getCategoryIdSubcategoryIdByTestId(testId), idmap);
-////        return testService.getCategoryIdSubcategoryIdByTestId(testId);
-//    }
+    @GetMapping("/subcategory/test/{testId}")
+    private IdMapDTO getCategoryIdSubcategoryIdByTestId(@PathVariable int testId) {
+
+        Type idmap = new TypeToken<IdMapDTO>() {
+        }.getType();
+        return modelMapper.map(testService.getCategoryIdSubcategoryIdByTestId(testId), idmap);
+//        return testService.getCategoryIdSubcategoryIdByTestId(testId);
+    }
 
 }

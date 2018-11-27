@@ -14,11 +14,21 @@ public class ResponseController {
     @Autowired
     private ResponseService responseService;
 
+    /**
+     * insert response
+     * @param responseList
+     */
     @PostMapping("/insert")
-    public void insertResponse(@RequestBody Response response) {
-        responseService.insertResponse(response);
+    public void insertResponse(@RequestBody Response[] responseList) {
+        for(Response response: responseList){
+            responseService.insertResponse(response);
+        }
+//        responseService.insertResponse(responseList);
     }
-    
+
+    /**
+     * @return get all response
+     */
     @GetMapping("/all")
     public List getAllResponses() {
         return responseService.getAllReponse();

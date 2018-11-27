@@ -37,10 +37,10 @@ public interface TestRepository extends JpaRepository<Test, Integer> {
      * @param testId
      * @return categoryId and subcategoryId
      */
-    @Query(value = "select tbl_category.category_id,tbl_subcategory.subcategory_id from tbl_category " +
+    @Query(value = "select tbl_category.category_id as categoryId,tbl_subcategory.subcategory_id as subcategoryId from tbl_category " +
             "inner join tbl_subcategory where tbl_category.category_id=tbl_subcategory.category_id && " +
             "subcategory_id=(select tbl_subcategory.subcategory_id from tbl_subcategory inner join tbl_test " +
-            "where tbl_subcategory.subcategory_id=tbl_test.subcategory_id && test_id=?)",
+            "where tbl_subcategory.subcategory_id=tbl_test.subcategory_id && test_id = ?1)",
             nativeQuery = true)
     IdMapDTO findTestByTestId(int testId);
 }
