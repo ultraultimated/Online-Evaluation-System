@@ -37,16 +37,30 @@ public class OptionController {
     @Autowired
     private OptionService optionService;
 
+    /**
+     * insert option
+     * @param option
+     */
     @PostMapping("/insert")
     private void insertOption(@RequestBody Option option) {
         optionService.insertOption(option);
     }
 
+    /**
+     * @param questionId
+     * @return get all options by questionId
+     * @throws QuestionNotFoundException
+     */
     @GetMapping("/question/id/{questionId}")
     private Option getOptionByQuestionId(@PathVariable int questionId) throws QuestionNotFoundException {
         return optionService.getOptionByQuestionId(questionId);
     }
 
+    /**
+     * @param optionId
+     * @return get options by optionId
+     * @throws OptionNotFoundException
+     */
     @GetMapping("/id/{optionId}")
     private Option getOptionById(@PathVariable int optionId) throws OptionNotFoundException {
         return optionService.getOptionById(optionId);
