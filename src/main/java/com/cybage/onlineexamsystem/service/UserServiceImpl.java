@@ -95,6 +95,12 @@ public class UserServiceImpl implements UserService {
         return !optional.isPresent();
     }
 
+	@Override
+	public int getUserType(String username, String password, String userType) {
+		return userRepository.getUserType(username, password, userType);
+	}
+
+
 //	@Override
 //	public User authenticateUser(String Username, String password) {
 //

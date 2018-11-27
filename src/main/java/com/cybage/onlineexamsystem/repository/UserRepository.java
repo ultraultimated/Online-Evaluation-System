@@ -18,6 +18,7 @@ package com.cybage.onlineexamsystem.repository;
 
 import com.cybage.onlineexamsystem.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import java.util.Optional;
@@ -33,6 +34,11 @@ import java.util.Optional;
 
 @Repository
 public interface UserRepository extends JpaRepository<User, Integer> {
-    Optional<User> findByUsername(String username);
+	@Query(value = "select count(*)  from tbl_user where username = ?1 and password = ?2 and user_type=?3",
+			nativeQuery = true)
+	int getUserType(String username, String password, String userType);
+	Optional<User> findByUsername(String username);
+
+
 
 }

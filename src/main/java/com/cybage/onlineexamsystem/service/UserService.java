@@ -22,6 +22,7 @@ import com.cybage.onlineexamsystem.model.User;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 /**
  * The CategoryService  interface provides all the methods that are utilized
@@ -62,5 +63,7 @@ public interface UserService {
     boolean checkUniqueUserName(String username);
 
 //	public User authenticateUser(String Username, String password);
+
+    int getUserType(String username, String password, String userType);
 
 }

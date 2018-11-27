@@ -108,10 +108,4 @@ public class UserController {
 
     }
 
-//	@GetMapping("/authenticate/{username}/{password}")
-//	private User authenticateUser(@PathVariable String username, @PathVariable
-// String password)
-//	{
-//		return userService.authenticateUser(username, password);
-//	}
 }
