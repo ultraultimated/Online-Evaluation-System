@@ -11,7 +11,6 @@
 /**
  * @file CategoryController
  * Brief description of contents of file.
- * <p>
  * Long description
  * @date 10/31/2018
  */
@@ -20,11 +19,17 @@ package com.cybage.onlineexamsystem.controller;
 
 import com.cybage.onlineexamsystem.exceptions.UserNotFoundException;
 import com.cybage.onlineexamsystem.model.User;
+import com.cybage.onlineexamsystem.model.dto.CategoryDTO;
+import com.cybage.onlineexamsystem.model.dto.UserDTO;
 import com.cybage.onlineexamsystem.service.UserServiceImpl;
 import org.apache.commons.codec.binary.Base64;
+import org.modelmapper.ModelMapper;
+import org.modelmapper.TypeToken;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 
+import java.lang.reflect.Type;
 import java.util.List;
 
 
@@ -41,8 +46,11 @@ public class UserController {
     @Autowired
     private UserServiceImpl userService;
 
+    @Autowired
+    private ModelMapper modelMapper;
+
     /**
-     * @param user
+     * @param user insert
      */
     @PostMapping("/insert")
     private void insertuser(@RequestBody User user) {
@@ -85,6 +93,19 @@ public class UserController {
     @GetMapping("/name/exists/{username}")
     private boolean checkUniqueUserName(@PathVariable String username) {
         return userService.checkUniqueUserName(username);
+    }
+
+    /**
+     * @param userId
+     * @return userId, username and userType for a given userId
+     * @throws UserNotFoundException
+     */
+    @GetMapping("/username/id/{userId}")
+    private UserDTO getUsernameByUserId(@PathVariable int userId) throws UserNotFoundException{
+        Type user = new TypeToken<UserDTO>() {
+        }.getType();
+        return modelMapper.map(userService.getUserById(userId), user);
+
     }
 
 //	@GetMapping("/authenticate/{username}/{password}")

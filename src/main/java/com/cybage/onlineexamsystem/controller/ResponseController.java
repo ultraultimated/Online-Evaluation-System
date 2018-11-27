@@ -16,7 +16,7 @@ public class ResponseController {
 
     /**
      * insert response
-     * @param response
+     * @param responseList
      */
     @PostMapping("/insert")
     public void insertResponse(@RequestBody Response[] responseList) {
