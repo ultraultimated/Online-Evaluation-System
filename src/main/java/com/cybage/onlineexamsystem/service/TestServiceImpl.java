@@ -8,7 +8,7 @@
  * Copyright (c) 2018 Cybage software Pvt. Ltd. All rights reserved
  */
 
-/**
+/*
  * @file TestServiceImpl
  * Brief description of contents of file.
  * Long description
@@ -52,7 +52,7 @@ public class TestServiceImpl implements TestService {
     @Autowired
     private SubCategoryRepository subCategoryRepository;
 
-    public static boolean isValidParentQuestion(Row row) {
+    private static boolean isValidParentQuestion(Row row) {
 
         try {
             int tempId = (int) row.getCell(0).getNumericCellValue();
@@ -69,7 +69,7 @@ public class TestServiceImpl implements TestService {
         }
     }
 
-    public static boolean isValidQuestion(Row row, QuestionType questionType) {
+    private static boolean isValidQuestion(Row row, QuestionType questionType) {
 
         switch (questionType) {
 

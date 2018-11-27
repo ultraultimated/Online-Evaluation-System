@@ -8,7 +8,7 @@
  * Copyright (c) 2018 Cybage software Pvt. Ltd. All rights reserved
  */
 
-/**
+/*
  * @file Test
  * Brief description of contents of file.
  * Long description
