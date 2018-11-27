@@ -15,8 +15,10 @@ public class ResponseController {
     private ResponseService responseService;
 
     @PostMapping("/insert")
-    public void insertResponse(@RequestBody Response response) {
-        responseService.insertResponse(response);
+    public void insertResponse(@RequestBody Response[] responseList) {
+        for(Response response: responseList){
+            responseService.insertResponse(response);
+        }
     }
 
     @GetMapping("/all")
