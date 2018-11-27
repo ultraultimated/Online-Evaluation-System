@@ -5,6 +5,9 @@ import java.io.IOException;
 import java.lang.reflect.Type;
 import java.util.List;
 
+import com.cybage.onlineexamsystem.model.SubCategory;
+import com.cybage.onlineexamsystem.model.dto.CategoryDTO;
+import com.cybage.onlineexamsystem.model.dto.IdMapDTO;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeToken;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -80,8 +83,12 @@ public class TestController {
     }
 
     @GetMapping("/subcategory/test/{testId}")
-    private String getSubcategoryIdByTestId(@PathVariable int testId) {
-        return testService.getSubcategoryIdByTestId(testId);
+    private IdMapDTO getCategoryIdSubcategoryIdByTestId(@PathVariable int testId) {
+
+        Type idmap = new TypeToken<IdMapDTO>() {
+        }.getType();
+        return modelMapper.map(testService.getCategoryIdSubcategoryIdByTestId(testId), idmap);
+//        return testService.getCategoryIdSubcategoryIdByTestId(testId);
     }
 
 }

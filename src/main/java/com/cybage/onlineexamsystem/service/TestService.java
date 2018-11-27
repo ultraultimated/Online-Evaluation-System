@@ -19,6 +19,7 @@ package com.cybage.onlineexamsystem.service;
 import com.cybage.onlineexamsystem.exceptions.SubCategoryNotFoundException;
 import com.cybage.onlineexamsystem.exceptions.TestNotFoundException;
 import com.cybage.onlineexamsystem.model.Test;
+import com.cybage.onlineexamsystem.model.dto.IdMapDTO;
 import org.springframework.stereotype.Service;
 
 import java.io.File;
@@ -53,6 +54,6 @@ public interface TestService {
 
     long getSubCategoryCountByTestId(int subCategoryId) throws Exception;
 
-    String getSubcategoryIdByTestId(int testId);
+//    IdMapDTO getCategoryIdSubcategoryIdByTestId(int testId);
 
 }
