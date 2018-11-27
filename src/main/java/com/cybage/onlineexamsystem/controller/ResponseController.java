@@ -23,7 +23,6 @@ public class ResponseController {
         for(Response response: responseList){
             responseService.insertResponse(response);
         }
-//        responseService.insertResponse(responseList);
     }
 
     /**
