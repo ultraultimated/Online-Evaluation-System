@@ -16,6 +16,10 @@ public class UserTestController {
     @Autowired
     private UserTestService userTestService;
 
+    /**
+     * @param userId
+     * @return get all test based on userId
+     */
     @GetMapping("/userid/{userId}")
     private List<UserTest> getALlTestByUserId(@PathVariable int userId) {
         return userTestService.getAllTestByUserId(userId);

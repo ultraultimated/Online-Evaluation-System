@@ -35,8 +35,8 @@ public class User implements Serializable {
     private String userType;
 
     private String username;
-    private boolean isUnique;
 
+    private boolean isUnique;
 
     public User() {
     }

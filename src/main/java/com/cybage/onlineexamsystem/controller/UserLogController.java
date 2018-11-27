@@ -45,6 +45,10 @@ public class UserLogController {
         return userLogService.getAllTestsByUserId(userId);
     }
 
+    /**
+     * insert test log
+     * @param log
+     */
     @PostMapping("/insert")
     private void insertLog(@RequestBody Log log) {
         userLogService.insertLog(log);

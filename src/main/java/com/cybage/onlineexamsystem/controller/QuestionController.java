@@ -39,21 +39,38 @@ public class QuestionController {
     @Autowired
     private QuestionService questionService;
 
+    /**
+     * insert questions
+     * @param question
+     */
     @PostMapping("/insert")
     private void insertQuestion(@RequestBody Question question) {
         questionService.insertQuestion(question);
     }
 
+    /**
+     * @return get all questions
+     */
     @GetMapping("/all")
     private List getAllQuestion() {
         return questionService.getAllQuestion();
     }
 
+    /**
+     * @param parentQuestionId
+     * @return get all questions mapped to parentQuestionId
+     * @throws ParentQuestionNotFoundException
+     */
     @GetMapping("/parentQuestion/id/{parentQuestionId}")
     private List getQuestionByParentQuestionId(@PathVariable int parentQuestionId) throws ParentQuestionNotFoundException {
         return questionService.getQuestionByParentQuestionId(parentQuestionId);
     }
 
+    /**
+     * @param questionId
+     * @return get a particular question based on it's Id
+     * @throws QuestionNotFoundException
+     */
     @GetMapping("/id/{questionId}")
     private Question getQuestionById(@PathVariable int questionId) throws QuestionNotFoundException {
         return questionService.getQuestionById(questionId);
