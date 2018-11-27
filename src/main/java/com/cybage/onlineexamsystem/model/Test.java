@@ -4,7 +4,6 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.Date;
 import java.util.List;
 
 
@@ -36,10 +35,10 @@ public class Test implements Serializable {
     @Transient
     private int subcategoryId;
 
-	@ManyToOne
-	@JoinColumn(name = "subcategory_id")
-	@JsonIgnore
-	private SubCategory subCategory;
+    @ManyToOne
+    @JoinColumn(name = "subcategory_id")
+    @JsonIgnore
+    private SubCategory subCategory;
 
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "test_id")
@@ -97,12 +96,12 @@ public class Test implements Serializable {
     }
 
     public SubCategory getSubCategory() {
-		return subCategory;
-	}
+        return subCategory;
+    }
 
-	public void setSubCategory(SubCategory subCategory) {
-		this.subCategory = subCategory;
-	}
+    public void setSubCategory(SubCategory subCategory) {
+        this.subCategory = subCategory;
+    }
 
     public List<ParentQuestion> getParentQuestionList() {
         return parentQuestionList;

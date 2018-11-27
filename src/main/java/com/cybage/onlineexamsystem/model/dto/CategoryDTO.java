@@ -1,7 +1,5 @@
 package com.cybage.onlineexamsystem.model.dto;
 
-import org.springframework.context.annotation.Bean;
-
 import java.util.List;
 
 public class CategoryDTO {

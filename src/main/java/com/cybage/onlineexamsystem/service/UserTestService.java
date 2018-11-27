@@ -6,7 +6,6 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public interface UserTestService
-{
-	public List<UserTest> getAllTestByUserId(int userId);
+public interface UserTestService {
+    List<UserTest> getAllTestByUserId(int userId);
 }

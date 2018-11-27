@@ -1,7 +1,5 @@
 package com.cybage.onlineexamsystem.model.dto;
 
-import java.util.List;
-
 public class SubCategoryDTO {
 
     private int subcategoryId;

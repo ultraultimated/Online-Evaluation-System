@@ -1,27 +1,16 @@
 package com.cybage.onlineexamsystem.controller;
 
-import java.io.File;
-import java.io.IOException;
-import java.lang.reflect.Type;
-import java.util.List;
-
-import com.cybage.onlineexamsystem.model.SubCategory;
-import com.cybage.onlineexamsystem.model.dto.CategoryDTO;
-import com.cybage.onlineexamsystem.model.dto.IdMapDTO;
-import org.modelmapper.ModelMapper;
-import org.modelmapper.TypeToken;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-
 import com.cybage.onlineexamsystem.exceptions.SubCategoryNotFoundException;
 import com.cybage.onlineexamsystem.exceptions.TestNotFoundException;
 import com.cybage.onlineexamsystem.model.Test;
 import com.cybage.onlineexamsystem.service.TestService;
+import org.modelmapper.ModelMapper;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+
+import java.io.File;
+import java.io.IOException;
+import java.util.List;
 
 @RestController
 @RequestMapping("/test")
@@ -43,7 +32,7 @@ public class TestController {
 //        Type test = new TypeToken<List<TestDTO>>() {
 //        }.getType();
 //        return modelMapper.map(testService.getTestBySubCategoryId(subCategoryId), test);
-         return testService.getTestBySubCategoryId(subCategoryId);
+        return testService.getTestBySubCategoryId(subCategoryId);
     }
 
     @GetMapping("/subcategory/id/{subCategoryId}/count")
@@ -82,13 +71,13 @@ public class TestController {
         testService.insertTest(test, file);
     }
 
-    @GetMapping("/subcategory/test/{testId}")
-    private IdMapDTO getCategoryIdSubcategoryIdByTestId(@PathVariable int testId) {
-
-        Type idmap = new TypeToken<IdMapDTO>() {
-        }.getType();
-        return modelMapper.map(testService.getCategoryIdSubcategoryIdByTestId(testId), idmap);
-//        return testService.getCategoryIdSubcategoryIdByTestId(testId);
-    }
+//    @GetMapping("/subcategory/test/{testId}")
+//    private IdMapDTO getCategoryIdSubcategoryIdByTestId(@PathVariable int testId) {
+//
+//        Type idmap = new TypeToken<IdMapDTO>() {
+//        }.getType();
+//        return modelMapper.map(testService.getCategoryIdSubcategoryIdByTestId(testId), idmap);
+////        return testService.getCategoryIdSubcategoryIdByTestId(testId);
+//    }
 
 }

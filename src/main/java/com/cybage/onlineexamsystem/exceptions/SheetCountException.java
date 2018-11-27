@@ -23,9 +23,8 @@ package com.cybage.onlineexamsystem.exceptions;
  * @author Poojan Patel
  */
 
-public class SheetCountException extends Exception
-{
-	public SheetCountException() {
+public class SheetCountException extends Exception {
+    public SheetCountException() {
 
-	}
+    }
 }

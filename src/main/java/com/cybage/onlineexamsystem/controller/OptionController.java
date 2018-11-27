@@ -21,13 +21,8 @@ import com.cybage.onlineexamsystem.exceptions.OptionNotFoundException;
 import com.cybage.onlineexamsystem.exceptions.QuestionNotFoundException;
 import com.cybage.onlineexamsystem.model.Option;
 import com.cybage.onlineexamsystem.service.OptionService;
-import com.cybage.onlineexamsystem.service.QuestionService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.ImportAutoConfiguration;
 import org.springframework.web.bind.annotation.*;
-
-import java.io.OptionalDataException;
-import java.util.List;
 
 /**
  * This class provides ...
@@ -39,21 +34,21 @@ import java.util.List;
 @RequestMapping("/option")
 public class OptionController {
 
-	@Autowired
-	private OptionService optionService;
+    @Autowired
+    private OptionService optionService;
 
-	@PostMapping("/insert")
-	private void insertOption(@RequestBody Option option) {
-		optionService.insertOption(option);
-	}
+    @PostMapping("/insert")
+    private void insertOption(@RequestBody Option option) {
+        optionService.insertOption(option);
+    }
 
-	@GetMapping("/question/id/{questionId}")
-	private Option getOptionByQuestionId(@PathVariable int questionId) throws QuestionNotFoundException {
-		return optionService.getOptionByQuestionId(questionId);
-	}
+    @GetMapping("/question/id/{questionId}")
+    private Option getOptionByQuestionId(@PathVariable int questionId) throws QuestionNotFoundException {
+        return optionService.getOptionByQuestionId(questionId);
+    }
 
-	@GetMapping("/id/{optionId}")
-	private Option getOptionById(@PathVariable int optionId) throws OptionNotFoundException {
-		return optionService.getOptionById(optionId);
-	}
+    @GetMapping("/id/{optionId}")
+    private Option getOptionById(@PathVariable int optionId) throws OptionNotFoundException {
+        return optionService.getOptionById(optionId);
+    }
 }

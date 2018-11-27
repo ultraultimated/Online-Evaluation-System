@@ -38,55 +38,54 @@ import java.util.List;
 @RequestMapping("/user")
 public class UserController {
 
-	@Autowired
-	private UserServiceImpl userService;
+    @Autowired
+    private UserServiceImpl userService;
 
-	/**
-	 * @param user
-	 */
-	@PostMapping("/insert")
-	private void insertuser(@RequestBody User user) {
-		user.setPassword(Base64.encodeBase64String(user.getPassword().getBytes()));
-		userService.addUser(user);
-	}
+    /**
+     * @param user
+     */
+    @PostMapping("/insert")
+    private void insertuser(@RequestBody User user) {
+        user.setPassword(Base64.encodeBase64String(user.getPassword().getBytes()));
+        userService.addUser(user);
+    }
 
-	/**
-	 * @return all users
-	 */
-	@GetMapping("/all")
-	private List getAllUsers() {
-		return userService.getAllUsers();
-	}
+    /**
+     * @return all users
+     */
+    @GetMapping("/all")
+    private List getAllUsers() {
+        return userService.getAllUsers();
+    }
 
-	/**
-	 * @param id User Id to be found
-	 * @return User related to the id
-	 */
-	@GetMapping("/id/{id}")
-	private User getUserById(
-			@PathVariable int id) throws UserNotFoundException {
-		return userService.getUserById(id);
-	}
+    /**
+     * @param id User Id to be found
+     * @return User related to the id
+     */
+    @GetMapping("/id/{id}")
+    private User getUserById(
+            @PathVariable int id) throws UserNotFoundException {
+        return userService.getUserById(id);
+    }
 
-	/**
-	 * @param username to be found
-	 * @return User related to the username
-	 */
-	@GetMapping("/name/{username}")
-	private User getUserByUsername(
-			@PathVariable String username) throws UserNotFoundException {
-		return userService.getUserByUsername(username);
-	}
+    /**
+     * @param username to be found
+     * @return User related to the username
+     */
+    @GetMapping("/name/{username}")
+    private User getUserByUsername(
+            @PathVariable String username) throws UserNotFoundException {
+        return userService.getUserByUsername(username);
+    }
 
-	/**
-	 * @param username to be found
-	 * @return false if user exits and true if it does not exist
-	 */
-	@GetMapping("/name/exists/{username}")
-	private boolean checkUniqueUserName(@PathVariable String username)
-	{
-		return userService.checkUniqueUserName(username);
-	}
+    /**
+     * @param username to be found
+     * @return false if user exits and true if it does not exist
+     */
+    @GetMapping("/name/exists/{username}")
+    private boolean checkUniqueUserName(@PathVariable String username) {
+        return userService.checkUniqueUserName(username);
+    }
 
 //	@GetMapping("/authenticate/{username}/{password}")
 //	private User authenticateUser(@PathVariable String username, @PathVariable

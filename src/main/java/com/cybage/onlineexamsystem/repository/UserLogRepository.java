@@ -30,5 +30,5 @@ import java.util.List;
 
 @Repository
 public interface UserLogRepository extends JpaRepository<Log, Integer> {
-	List<Log> getAllByUserId(int userId);
+    List<Log> getAllByUserId(int userId);
 }

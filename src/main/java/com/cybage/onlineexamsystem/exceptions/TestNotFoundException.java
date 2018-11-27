@@ -24,6 +24,6 @@ package com.cybage.onlineexamsystem.exceptions;
  * @author {neelp}
  */
 public class TestNotFoundException extends Exception {
-	public TestNotFoundException() {
-	}
+    public TestNotFoundException() {
+    }
 }

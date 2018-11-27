@@ -25,21 +25,21 @@ package com.cybage.onlineexamsystem.exceptions;
 
 public class OptionNotFoundException extends Exception {
 
-	/**
-	 * @param message Exception message to be thrown.
-	 */
-	private String message;
+    /**
+     * @param message Exception message to be thrown.
+     */
+    private String message;
 
-	public OptionNotFoundException() {
+    public OptionNotFoundException() {
 
-		this.message = message;
-	}
+        this.message = message;
+    }
 
-	/**
-	 * @return the error message to the service.
-	 */
-	@Override
-	public String getMessage() {
-		return message;
-	}
+    /**
+     * @return the error message to the service.
+     */
+    @Override
+    public String getMessage() {
+        return message;
+    }
 }

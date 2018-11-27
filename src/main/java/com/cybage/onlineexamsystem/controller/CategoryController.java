@@ -18,23 +18,17 @@
 
 package com.cybage.onlineexamsystem.controller;
 
-import java.lang.reflect.Type;
-import java.util.List;
-
-import org.modelmapper.ModelMapper;
-import org.modelmapper.TypeToken;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-
 import com.cybage.onlineexamsystem.exceptions.CategoryNotFoundException;
 import com.cybage.onlineexamsystem.model.Category;
 import com.cybage.onlineexamsystem.model.dto.CategoryDTO;
 import com.cybage.onlineexamsystem.service.CategoryService;
+import org.modelmapper.ModelMapper;
+import org.modelmapper.TypeToken;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+
+import java.lang.reflect.Type;
+import java.util.List;
 
 /**
  * The Example class provides ...

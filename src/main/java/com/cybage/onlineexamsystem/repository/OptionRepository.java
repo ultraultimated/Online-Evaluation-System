@@ -21,8 +21,6 @@ import com.cybage.onlineexamsystem.model.Option;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import java.util.List;
-
 /**
  * The CategoryService  interface provides all the methods that are utilized
  * on category.

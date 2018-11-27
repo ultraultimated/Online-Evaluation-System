@@ -25,8 +25,8 @@ package com.cybage.onlineexamsystem.exceptions;
  */
 public class SubCategoryNotFoundException extends Exception {
 
-	public SubCategoryNotFoundException() {
+    public SubCategoryNotFoundException() {
 
-	}
+    }
 
 }

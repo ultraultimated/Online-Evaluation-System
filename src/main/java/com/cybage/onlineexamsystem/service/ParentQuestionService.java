@@ -33,29 +33,29 @@ import java.util.List;
 @Service
 public interface ParentQuestionService {
 
-	/**
-	 * @param parentQuestion ParentQuestion object to insert in java
-	 */
-	public void insertParentQuestion(ParentQuestion parentQuestion);
+    /**
+     * @param parentQuestion ParentQuestion object to insert in java
+     */
+    void insertParentQuestion(ParentQuestion parentQuestion);
 
-	/**
-	 * @return List of all categories in ParentQuestion table.
-	 */
-	public List<ParentQuestion> getAllParentQuestion();
+    /**
+     * @return List of all categories in ParentQuestion table.
+     */
+    List<ParentQuestion> getAllParentQuestion();
 
-	/**
-	 * @param testId to find Parentquestions
-	 * @return list of ParentQuestion of given testId
-	 * @throws ParentQuestionNotFoundException
-	 */
-	public List<ParentQuestion> getParentQuestionByTestId(int testId)
-			throws TestNotFoundException;
+    /**
+     * @param testId to find Parentquestions
+     * @return list of ParentQuestion of given testId
+     * @throws ParentQuestionNotFoundException
+     */
+    List<ParentQuestion> getParentQuestionByTestId(int testId)
+            throws TestNotFoundException;
 
-	/**
-	 * @param id the id to find ParentQuestionDescription Name
-	 * @return ParentQuestionDescription name for a particular Id.
-	 * @throws ParentQuestionNotFoundException
-	 */
-	public ParentQuestion getParentQuestionById(int id) throws
-			ParentQuestionNotFoundException;
+    /**
+     * @param id the id to find ParentQuestionDescription Name
+     * @return ParentQuestionDescription name for a particular Id.
+     * @throws ParentQuestionNotFoundException
+     */
+    ParentQuestion getParentQuestionById(int id) throws
+            ParentQuestionNotFoundException;
 }

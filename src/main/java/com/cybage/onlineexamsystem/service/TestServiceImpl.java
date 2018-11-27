@@ -17,15 +17,11 @@
 
 package com.cybage.onlineexamsystem.service;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.stream.Collectors;
-
-import com.cybage.onlineexamsystem.model.dto.IdMapDTO;
+import com.cybage.onlineexamsystem.exceptions.SubCategoryNotFoundException;
+import com.cybage.onlineexamsystem.exceptions.TestNotFoundException;
+import com.cybage.onlineexamsystem.model.*;
+import com.cybage.onlineexamsystem.repository.SubCategoryRepository;
+import com.cybage.onlineexamsystem.repository.TestRepository;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
@@ -33,18 +29,13 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.cybage.onlineexamsystem.exceptions.SubCategoryNotFoundException;
-import com.cybage.onlineexamsystem.exceptions.TestNotFoundException;
-import com.cybage.onlineexamsystem.model.Option;
-import com.cybage.onlineexamsystem.model.ParentQuestion;
-import com.cybage.onlineexamsystem.model.Question;
-import com.cybage.onlineexamsystem.model.QuestionDifficulty;
-import com.cybage.onlineexamsystem.model.QuestionSubjectivity;
-import com.cybage.onlineexamsystem.model.QuestionType;
-import com.cybage.onlineexamsystem.model.SubCategory;
-import com.cybage.onlineexamsystem.model.Test;
-import com.cybage.onlineexamsystem.repository.SubCategoryRepository;
-import com.cybage.onlineexamsystem.repository.TestRepository;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 /**
  * The Example class provides ...
@@ -301,7 +292,6 @@ public class TestServiceImpl implements TestService {
     public long getSubCategoryCountByTestId(int subCategoryId) throws Exception {
         return testRepository.countBySubcategoryId(subCategoryId);
     }
-
 
 
     /**
