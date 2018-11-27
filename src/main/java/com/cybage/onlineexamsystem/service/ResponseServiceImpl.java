@@ -6,6 +6,8 @@ import org.modelmapper.internal.bytebuddy.implementation.auxiliary.AuxiliaryType
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
+
 @Component
 public class ResponseServiceImpl implements ResponseService {
 
@@ -16,4 +18,11 @@ public class ResponseServiceImpl implements ResponseService {
     public void insertResponse(Response response) {
         responseRepository.save(response);
     }
+
+    @Override
+    public List<Response> getAllReponse() {
+        return responseRepository.findAll();
+    }
+
+
 }
