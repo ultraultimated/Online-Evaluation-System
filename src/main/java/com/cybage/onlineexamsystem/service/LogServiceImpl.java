@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.Date;
+import java.util.List;
 
 @Component
 public class LogServiceImpl implements LogService {
@@ -21,8 +22,6 @@ public class LogServiceImpl implements LogService {
 
     @Autowired
     private LogRepository logRepository;
-    @Autowired
-    private ResultRepository resultRepository;
     @Autowired
     private QuestionService questionService;
 
@@ -55,6 +54,11 @@ public class LogServiceImpl implements LogService {
 
         logRepository.save(log);
 
+    }
+
+    @Override
+    public List<Log> getLogByUid(int userid) {
+        return logRepository.getLogbyUserId(userid);
     }
 
 
