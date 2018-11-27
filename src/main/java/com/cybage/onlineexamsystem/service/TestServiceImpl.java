@@ -33,6 +33,7 @@ import org.springframework.stereotype.Component;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -299,9 +300,8 @@ public class TestServiceImpl implements TestService {
      * @param test object to be inserted into database
      */
     @Override
-    public void insertTest(Test test, File file) throws SubCategoryNotFoundException, IOException {
+    public void insertTest(Test test, InputStream fileInputStream) throws SubCategoryNotFoundException, IOException {
 
-        FileInputStream fileInputStream = new FileInputStream(file);
         XSSFWorkbook workbook = new XSSFWorkbook(fileInputStream);
 
         XSSFSheet parentQuestionSheet = workbook.getSheetAt(0);

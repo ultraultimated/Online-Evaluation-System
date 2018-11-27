@@ -4,6 +4,7 @@ import com.cybage.onlineexamsystem.exceptions.SubCategoryNotFoundException;
 import com.cybage.onlineexamsystem.exceptions.TestNotFoundException;
 import com.cybage.onlineexamsystem.model.Test;
 import com.cybage.onlineexamsystem.model.dto.IdMapDTO;
+import com.cybage.onlineexamsystem.model.dto.TestDTO;
 import com.cybage.onlineexamsystem.service.TestService;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeToken;
@@ -64,14 +65,16 @@ public class TestController {
     }
 
     /**
-     * @param test to be inserted into database
+     * @param testDTO to be inserted into database
      */
     @PostMapping("/insert")
-    private void insertTest(@RequestBody Test test) throws SubCategoryNotFoundException, IOException {
+    private void insertTest(@ModelAttribute TestDTO testDTO) throws SubCategoryNotFoundException, IOException {
         //final String FILE_PATH = "/Users/poojan/Desktop/online-evaluation-system/src/main/resources/Database.xlsx";
         final String FILE_PATH = "/home/poojanp/online-evaluation-system/src/main/resources/Database.xlsx";
         File file = new File(FILE_PATH);
-        testService.insertTest(test, file);
+        Test test = modelMapper.map(testDTO,Test.class);
+
+        testService.insertTest(test, testDTO.getFile().getInputStream());
     }
 
     @GetMapping("/subcategory/test/{testId}")

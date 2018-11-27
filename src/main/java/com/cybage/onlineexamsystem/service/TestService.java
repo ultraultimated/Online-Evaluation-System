@@ -24,6 +24,7 @@ import org.springframework.stereotype.Service;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.List;
 
 /**
@@ -50,7 +51,7 @@ public interface TestService {
      */
     Test getTestByTestId(int testId) throws TestNotFoundException;
 
-    void insertTest(Test test, File file) throws SubCategoryNotFoundException, IOException;
+    void insertTest(Test test, InputStream file) throws SubCategoryNotFoundException, IOException;
 
     long getSubCategoryCountByTestId(int subCategoryId) throws Exception;
 
