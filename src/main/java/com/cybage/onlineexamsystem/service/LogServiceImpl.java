@@ -54,6 +54,10 @@ public class LogServiceImpl implements LogService {
         log.setPercentObt(percent);
         log.setTimestamp(new Date());
 
+        if (getLogByUserIdAndTestId(log.getUserId(), log.getTestId()) > 0) {
+            logRepository.deleteAllByUserIdAndTestId(log.getUserId(), log.getTestId());
+        }
+
         logRepository.save(log);
 
     }
@@ -63,5 +67,11 @@ public class LogServiceImpl implements LogService {
         return logRepository.getLogbyUserId(userid);
     }
 
+    public int getLogByUserIdAndTestId(int userId, int testId) {
+        return logRepository.getLogByUserIdAndTestId(userId, testId);
+    }
 
+    public void deleteAllByUserIdAndTestId(int userId, int testId) {
+        logRepository.deleteAllByUserIdAndTestId(userId, testId);
+    }
 }
