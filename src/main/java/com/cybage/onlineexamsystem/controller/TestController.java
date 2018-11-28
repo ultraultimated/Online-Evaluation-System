@@ -4,7 +4,9 @@ import com.cybage.onlineexamsystem.exceptions.SubCategoryNotFoundException;
 import com.cybage.onlineexamsystem.exceptions.TestNotFoundException;
 import com.cybage.onlineexamsystem.model.Test;
 import com.cybage.onlineexamsystem.model.dto.IdMapDTO;
+import com.cybage.onlineexamsystem.model.dto.ParentQuestionDTO;
 import com.cybage.onlineexamsystem.model.dto.TestDTO;
+import com.cybage.onlineexamsystem.model.dto.TestingTestDTO;
 import com.cybage.onlineexamsystem.service.TestService;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeToken;
@@ -77,6 +79,12 @@ public class TestController {
         testService.insertTest(test, testDTO.getFile().getInputStream());
     }
 
+    @GetMapping("/subcategoryId/test/id/{testId}")
+    private int getSubcategoryIdByTestId(@PathVariable int testId) throws  TestNotFoundException {
+        return testService.getTestByTestId(testId).getSubCategory().getSubcategoryId();
+    }
+
+    //pending
     @GetMapping("/subcategory/test/{testId}")
     private IdMapDTO getCategoryIdSubcategoryIdByTestId(@PathVariable int testId) {
 
@@ -85,5 +93,14 @@ public class TestController {
         return modelMapper.map(testService.getCategoryIdSubcategoryIdByTestId(testId), idmap);
 //        return testService.getCategoryIdSubcategoryIdByTestId(testId);
     }
+
+    // pending...
+    @GetMapping("/que-ans/test/id/{testId}")
+    private List<TestingTestDTO> getQuestionIdByTestId(@PathVariable int testId) throws TestNotFoundException {
+
+        Type questionIdList = new TypeToken<List<TestingTestDTO>>() {}.getType();
+        return modelMapper.map(testService.getTestByTestId(testId), questionIdList);
+    }
+
 
 }

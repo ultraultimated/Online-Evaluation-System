@@ -16,8 +16,8 @@ import java.util.List;
 public class LogServiceImpl implements LogService {
 
     private static Question question = null;
-    private static int totalMarks = 0;
-    private static int obtainedMarks = 0;
+    private static int totalMarks;
+    private static int obtainedMarks;
 
 
     @Autowired
@@ -32,6 +32,8 @@ public class LogServiceImpl implements LogService {
 
     @Override
     public void addLog(Response[] responseList) throws QuestionNotFoundException {
+        totalMarks = 0;
+        obtainedMarks = 0;
         int testId = logRepository.getTestIdFromQuesId(responseList[0].getQuestionId());
         int userId = responseList[0].getUserId();
         for(Response response: responseList) {
@@ -45,7 +47,7 @@ public class LogServiceImpl implements LogService {
                 totalMarks += question.getMarks();
             }
         }
-        double percent = obtainedMarks*100/totalMarks;
+        double percent = (obtainedMarks*100)/totalMarks;
         Log log = new Log();
         log.setUserId(userId);
         log.setTestId(testId);
