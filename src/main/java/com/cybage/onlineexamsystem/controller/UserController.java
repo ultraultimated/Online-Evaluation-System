@@ -100,12 +100,14 @@ public class UserController {
      * @return userId, username and userType for a given userId
      * @throws UserNotFoundException
      */
-    @GetMapping("/username/id/{userId}")
+    @GetMapping("/userdto/id/{userId}")
     private UserDTO getUsernameByUserId(@PathVariable int userId) throws UserNotFoundException{
         Type user = new TypeToken<UserDTO>() {
         }.getType();
         return modelMapper.map(userService.getUserById(userId), user);
 
     }
+
+
 
 }
