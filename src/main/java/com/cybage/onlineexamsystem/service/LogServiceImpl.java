@@ -54,9 +54,9 @@ public class LogServiceImpl implements LogService {
         log.setPercentObt(percent);
         log.setTimestamp(new Date());
 
-        if (getLogByUserIdAndTestId(log.getUserId(), log.getTestId()) > 0) {
-            logRepository.deleteAllByUserIdAndTestId(log.getUserId(), log.getTestId());
-        }
+//        if (getLogByUserIdAndTestId(log.getUserId(), log.getTestId()) > 0) {
+//            logRepository.deleteAllByUserIdAndTestId(log.getUserId(), log.getTestId());
+//        }
 
         logRepository.save(log);
 
